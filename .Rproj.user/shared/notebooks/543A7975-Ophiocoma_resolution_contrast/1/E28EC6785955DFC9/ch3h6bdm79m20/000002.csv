@@ -1,0 +1,4 @@
+"0","df <- read_delim('tenerife-june-2016.txt', delim = '\t')"
+"2","Error in read_delim(""tenerife-june-2016.txt"", delim = ""\t"") : 
+  could not find function ""read_delim""
+"

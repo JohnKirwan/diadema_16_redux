@@ -1,0 +1,1 @@
+{"height":402.3485784919654,"width":651.0,"size_behavior":0,"conditions":[[1,"an object is coerced to the class 'circular' using default value for the following components:\n  type: 'angles'\n  units: 'radians'\n  template: 'none'\n  modulo: 'asis'\n  zero: 0\n  rotation: 'counter'\nconversion.circularxradians2pi"]]}

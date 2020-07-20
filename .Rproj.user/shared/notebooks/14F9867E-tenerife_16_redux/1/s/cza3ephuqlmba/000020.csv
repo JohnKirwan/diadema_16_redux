@@ -1,0 +1,2 @@
+"0","df %>% group_by(dog) %>%"
+"0","  ggplot(aes(arc,color=dog)) + geom_histogram()"
