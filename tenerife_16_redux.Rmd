@@ -47,7 +47,7 @@ df$unmissable <- NULL
 No obvious response from the few data available.
 
 ```{r}
-
+df$theta[df$theta > pi] <- round(df$theta[df$theta > pi] - 2*pi,3)
 ```
 
 
@@ -71,8 +71,8 @@ Here, we define the sector of the circle which we consider to be the 'target' re
 df %>% mutate(success = 0) -> df
 for(i in 1:length(df$theta)){           ### get tote of each using one fifth of the circle
   if(is.na(df$theta[i]) == TRUE) {df$success[i] <- 0}
-  else if( df$theta[i] >   pi/4) {df$success[i] <- 0}    ## pi/5 beforehand
-  else if( df$theta[i] <= -pi/4 ){df$success[i] <- 0}  ## -pi/5 beforehand
+  else if( df$theta[i] >   pi/6) {df$success[i] <- 0}    ## pi/5 beforehand
+  else if( df$theta[i] <= -pi/6 ){df$success[i] <- 0}  ## -pi/5 beforehand
   else{    df$success[i] <- 1}  }
 ```
 
@@ -84,16 +84,16 @@ Have a look at what happens with differing Type width of the target, to get an i
 
 ```{r Treatment summary, message=TRUE, warning=FALSE}
 df %>% as_tibble %>%                 # dataframe name
-  mutate(in.quad = ifelse(abs(theta) < pi/4, 1, 0)) %>% # for data in radians -pi to pi
-  mutate(in.pent = ifelse(abs(theta) < pi/5, 1, 0)) %>% # for data in radians -pi to pi
-  mutate(in.sext = ifelse(abs(theta) < pi/6, 1, 0)) %>% # for data in radians -pi to pi
-  mutate(in.oct  = ifelse(abs(theta) < pi/8, 1, 0)) %>% # for data in radians -pi to pi
+  mutate(in.quad = ifelse(abs(theta) < pi/4, 1, 0)) %>% # for data in rad -pi to pi
+  mutate(in.pent = ifelse(abs(theta) < pi/5, 1, 0)) %>% # for data in rad -pi to pi
+  mutate(in.sext = ifelse(abs(theta) < pi/6, 1, 0)) %>% # for data in rad -pi to pi
+  mutate(in.oct  = ifelse(abs(theta) < pi/8, 1, 0)) %>% # for data in rad -pi to pi
   group_by(arc,dog) %>%                # condition name
-  summarize(target = round(arc * 180 / pi)[1],
+  summarize(#target = round(arc * 180 / pi)[1],
             n_obs = n(),                 
-            mu    = round(180*mean.circular(theta)/pi,0),
-            lo.ci = round(180*mle.vonmises.bootstrap.ci(theta)$mu.ci[1]/pi),
-            hi.ci = round(180*mle.vonmises.bootstrap.ci(theta)$mu.ci[2]/pi),
+            mu    = mean.circular(theta),
+            lo.ci = mle.vonmises.bootstrap.ci(theta)$mu.ci[1],
+            hi.ci = mle.vonmises.bootstrap.ci(theta)$mu.ci[2],
             rho = round(rho.circular(theta),2),
             kappa = unlist(mle.vonmises(theta)[3]), 
             v.stat =unlist(rayleigh.test(theta,mu=0)[1]),
@@ -218,13 +218,23 @@ This is the (exponentiated) prior applied to width of the psychometric curve bet
 
 ### Prior Predictive Distribution for Resolution
 
+
+```{r}
+df$T <- df$arc / max(df$arc)
+```
+
+```{r}
+df2 <-  rbind.data.frame(df[df$dog==0 & df$arc==0,],df[df$dog==1,])
+```
+
+
 Below, we plot the possible range of values deemed by the priors and where predictions are distributed. A stimulus with the maximal target used (70 degrees) is already extremmely wide. We know the base should be at 0.167 by random chance - so we put the location of the base parameter prior at this value, but allow it to vary around this point. Constraints are placed on base and lapse to prevent them overlappping. Priors on threshold and width keep these parameters within the possible range of angles. The inverse logit (logistic) function is *plogis* in base.
 
 From previous data, we know the response rate of this species to a salient stimulus is within the range 0.3 to 0.8.
 
 ```{r}
 set.seed(196)
-N          <- 100
+N          <- 1000
 base       <- rnorm(N,0.167,0.05)  # Base is close to random probability 
 lapse      <- rbeta(N,15,15)       # Lapse is wide range - should not overlap base rate
 threshold  <- rgamma(N,2,2)    # Threshold must be > 0 and can be > 1.
@@ -250,7 +260,7 @@ for ( i  in 1:N ) curve (
 res.empty.formula <- bf(success ~ 
                       base + 
                       (1 - base - lapse) * 
-                      inv_logit( 4.39*(	1 - threshold)	/  width  ),
+                      inv_logit( 4.39*(	T - threshold)	/  width  ),
   base      ~ 1,# + (1|individual), # guess rate has a single value
 	lapse     ~ 1, #+ (1|individual), # lapse rate can be different for different chicks
 	threshold ~ 1, #+ (1|individual), # threshold changes with all effects
@@ -258,8 +268,8 @@ res.empty.formula <- bf(success ~
                       nl = TRUE)
 
 res.psych.priors  <- c(
-         prior(normal(0.167,0.05),   nlpar = "base",        lb=0,ub= 0.25),               
-         prior(beta(15,15),          nlpar = "lapse"             ,lb=0,ub= 0.74      ), 
+         prior(normal(0.167,0.05),   nlpar = "base",   lb=0,ub= 0.25), 
+         prior(beta(15,15),          nlpar = "lapse" ,lb=0,ub= 0.74      ), 
          prior(gamma(2,2),         nlpar= 'threshold',  class = 'b'   ),
 	       prior(gamma(2,2),         nlpar = 'width',     class = 'b'     ))
 
@@ -279,26 +289,25 @@ res.psych.formula <- bf(success ~
   base  ~ 1, lapse ~ 1, threshold ~ 1, width ~ 1, nl = TRUE)
 
 res.psych.priors  <- c(
-         prior(normal(0.167,0.05),   nlpar = "base",        lb=0,ub= 0.25),               
-         prior(beta(15,15),            nlpar = "lapse"             ,lb=0,ub= 0.74      ), 
-         prior(gamma(2,2),           nlpar= 'threshold',  class = 'b'   ),
-	       prior(gamma(2,2),           nlpar = 'width',     class = 'b'     ))
+         prior(normal(0.167,0.05), nlpar = "base", lb=0,ub= 0.25), 
+         prior(beta(15,15), nlpar = "lapse" ,lb=0,ub= 0.74      ), 
+         prior(gamma(2,2),  nlpar= 'threshold',  class = 'b'   ),
+	       prior(gamma(2,2),  nlpar = 'width',     class = 'b'     ))
 
-res_psych_fit  <- brm(res.psych.formula, data = res, 
+res_psych_fit  <- brm(res.psych.formula, data = df2, 
                   family = bernoulli("identity"), iter = 2500,
                   chains = 4, prior = res.psych.priors, 
-                  control = list(max_treedepth = 12,
-                                 adapt_delta=0.9999999)) 
+                  control = list(adapt_delta=0.99999)) 
 
 res_psych_fit  <- add_criterion(res_psych_fit, c("loo","waic")) 
 ```
 
 
 ```{r}
-res %>% group_by(T) %>%
+df2 %>% group_by(T) %>%
   summarise(p = sum(success)/length(success)) -> props 
 props %>%
-  ggplot(aes(x=T,y=p,size=p)) + geom_point() + theme_classic()
+  ggplot(aes(x=T,y=p)) + geom_point() + theme_classic() + geom_hline(yintercept = 0.1667,color='red')
 ```
 
 ```{r}
