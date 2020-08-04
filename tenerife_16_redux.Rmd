@@ -120,8 +120,8 @@ circ_fun_facts
 
 # Resolution
 
-```{r df Circular plots, message=FALSE}
-df$T <- round(df$target / max(df$target),2)
+```{r df Circular plots, eval=FALSE, message=FALSE, include=FALSE}
+df$T <- round(df$arc / max(df$arc),2)
 d2r <- function(x){ x <- x*pi/180 } # turn degrees to radians
 vonMisease <- function(x){if(x > pi){x <- x-2*pi};return(x)}
 vonMapease <- function(x){modify(x,vonMisease)}
@@ -145,7 +145,10 @@ Below, we make circular plots of the vectors for each of the treatments. Code bo
 
 The confidence interval in these plots represents confidence intervals from bootstrapped maximum likelihood (in contrast to Sumner-Rooney *et al* (2020) where they represent circular standard deviation).
 
-
+```{r}
+df$T <- df$arc / max(df$arc)
+df2 <-  rbind.data.frame(df[df$dog==0 & df$arc==0,],df[df$dog==1,])
+```
 
 Have a look at what happens with differing Type width of the target, to get an impression of the response and to see if the result is likely to be robust to changes in the Type width.
 
@@ -195,7 +198,7 @@ circ_fun_res %>%
   geom_line(aes(y=quad.prop), color="blue")    +    ## data in target octant
    geom_line(data=circ_fun_res,aes(x=180*T/pi , y=pent.prop),size=1) +
    geom_hline(yintercept = 1/6) +
-   geom_bin2d(data=res,aes(y = success, x = 180*T/pi)) + # counts
+   geom_bin2d(data=df2,aes(y = success, x = 180*T/pi)) + # counts
    ylim(0.1,0.55)
 ```
 
@@ -208,12 +211,6 @@ The following non-default priors were given to brms. An informative prior was us
 This is the (exponentiated) prior applied to width of the psychometric curve between 10% and 90% of its maximum height and the model threshold.
 
 ### Prior Predictive Distribution for Resolution
-
-
-```{r}
-df$T <- df$arc / max(df$arc)
-df2 <-  rbind.data.frame(df[df$dog==0 & df$arc==0,],df[df$dog==1,])
-```
 
 
 Here are circular plots of these datasets.
