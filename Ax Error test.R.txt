@@ -1,0 +1,66 @@
+library(circular)
+kk <- A1inv(c(0:999/1000))
+dtf <- data.frame(kappa = kk, oe.kappa = rep(NA, length(kk)), rho.est = rep(NA, length(kk)))
+for(i in 1:length(kk)){
+	h1 <- rmixedvonmises(40, mu1 = 0, mu2 = 0, kappa1 = dtf$kappa[i], kappa2 = dtf$kappa[i], prop = .5)
+	h2 <- rmixedvonmises(40, mu1 = 0, mu2 = 0, kappa1 = dtf$kappa[i], kappa2 = dtf$kappa[i], prop = .5)
+	oe <- h2 - h1
+	rho <- rho.circular(oe*2)
+	dtf$oe.kappa[i] <-A1inv(rho)
+	dtf$rho.est[i] <- mean(abs(as.numeric(cos(oe))))
+}#for(i in 1:length(kk)){
+dtf$rho <- A1(dtf$kappa)
+dtf$rho.oe <- A1(dtf$oe.kappa)
+
+dev.new(width = 10, height = 10)
+par(mfrow = c(2,2))
+plot(dtf$rho, dtf$rho.oe, xlim = c(0,1), ylim = c(0,1),
+	xlab = '(True) Population Mean Vector Length', ylab = 'Axial Mean Vector Estimated from Orientation Error', pch = 20, cex = 1, col = rgb(0,0,0,.3), main = 'n = 40')
+abline(a = 0, b = 1, col = 'red')
+
+plot(dtf$rho, dtf$rho.est, xlim = c(0,1), ylim = c(0,1),
+	xlab = '(True) Population Mean Vector Length', ylab = 'mean(cos(Orientation Error))', pch = 20, cex = 1, col = rgb(0,0,0,.3), main = 'n = 40')
+abline(a = 0, b = 1, col = 'red')
+
+# #data from DL analysis 3
+# for(lv in lvs){
+	# if(which(lvs == lv)<6){lines(c(-.1,1), rep( mean(data201611$AX[data201611$exper == lv]),2), col = 'darkblue', lwd = .5)}else{lines(c(-.1,1), rep( mean(data201611$AX[data201611$exper == lv]),2), col = 'darkred', lwd = .5)}
+# }#for(lv in lvs){
+# legend(.4,.2,rev(c('unpolarized', 'polarized')), col = rev(c('darkblue', 'darkred')), lty = 1)
+
+dtf1 <- data.frame(kappa = kk, oe.kappa = rep(NA, length(kk)), rho.est = rep(NA, length(kk)))
+
+for(i in 1:length(kk)){
+	h1 <- rmixedvonmises(100, mu1 = 0, mu2 = 0, kappa1 = dtf$kappa[i], kappa2 = dtf$kappa[i], prop = .5)
+	h2 <- rmixedvonmises(100, mu1 = 0, mu2 = 0, kappa1 = dtf$kappa[i], kappa2 = dtf$kappa[i], prop = .5)
+	oe <- h2 - h1
+	rho <- rho.circular(oe)
+	dtf1$oe.kappa[i] <-A1inv(rho)
+	dtf1$rho.est[i] <- mean(abs(as.numeric(cos(oe/2))))
+}#for(i in 1:length(kk)){
+dtf1$rho <- A1(dtf1$kappa)
+dtf1$rho.oe <- A1(dtf1$oe.kappa)
+
+plot(dtf1$rho, dtf1$rho.oe, xlim = c(0,1), ylim = c(0,1),
+	xlab = '(True) Population Mean Vector Length', ylab = 'Axial Mean Vector Estimated from Orientation Error', pch = 20, cex = 1, col = rgb(0,0,0,.3), main = 'n = 100')
+abline(a = 0, b = 1, col = 'red')
+
+plot(dtf1$rho, dtf1$rho.est, xlim = c(0,1), ylim = c(0,1),
+	xlab = '(True) Population Mean Vector Length', ylab = 'mean(cos(Orientation Error))', pch = 20, cex = 1, col = rgb(0,0,0,.3), main = 'n = 100')
+abline(a = 0, b = 1, col = 'red')
+
+dev.new(width = 10, height = 10)
+par(mfrow = c(2,2))
+plot(dtf$rho, log(dtf$rho.oe/dtf$rho), xlim = c(0,1), ylim = c(-3,3),
+	xlab = '(True) Population Mean Vector Length', ylab = 'log(Mean Vector Estimated from Orientation Error / Correct)', pch = 20, cex = 1, col = rgb(0,0,0,.3), main = 'n = 20')
+abline(h = 0, col = 'red')
+plot(dtf$rho, log(dtf$rho.est/dtf$rho), xlim = c(0,1), ylim = c(-3,3),
+	xlab = '(True) Population Mean Vector Length', ylab = 'log( mean(cos(Orientation Error/2)) / Correct )', pch = 20, cex = 1, col = rgb(0,0,0,.3), main = 'n = 20')
+abline(h = 0, col = 'red')
+
+plot(dtf1$rho, log(dtf1$rho.oe/dtf$rho), xlim = c(0,1), ylim = c(-3,3),
+	xlab = 'Population Mean Vector Length', ylab = 'log( Mean Vector Estimated from Orientation Error / Correct )', pch = 20, cex = 1, col = rgb(0,0,0,.3), main = 'n = 100')
+abline(h = 0, col = 'red')
+plot(dtf1$rho, log(dtf1$rho.est/dtf$rho), xlim = c(0,1), ylim = c(-3,3),
+	xlab = 'Population Mean Vector Length', ylab = 'log( mean(cos(Orientation Error/2)) / Correct )', pch = 20, cex = 1, col = rgb(0,0,0,.3), main = 'n = 100')
+abline(h = 0, col = 'red')

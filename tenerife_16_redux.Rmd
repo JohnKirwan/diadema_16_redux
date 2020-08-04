@@ -8,10 +8,10 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 options(mc.cores = parallel::detectCores())  # run all cores
-Sys.setenv(LOCAL_CPPFLAGS = '-march=native') # for faster Stan execution 
+Sys.setenv(LOCAL_CPPFLAGS = '-march=native') # for faster Stan execution
 ```
 
-Load necessary packages. 
+Load necessary packages.
 
 ```{r Load packages, message=FALSE, warning=TRUE}
 library('magrittr')
@@ -29,7 +29,7 @@ rstan::rstan_options(auto_write = TRUE)
 library('brms')
 ```
 
-Load the data. The column *target* refers to the target of the stimulus at each observation; radian and degree are the headings taken by the animal from the centre in radians and degrees respectively. Batch refers to animals collected and tested in either 2018 or 2019. Load the data and make into radians from -pi to pi. We represent the stimulus period and target half width angles in radians rather than degrees because the smaller (but still positive) values for the model predictor are preferable.  
+Load the data. The column *target* refers to the target of the stimulus at each observation; radian and degree are the headings taken by the animal from the centre in radians and degrees respectively. Batch refers to animals collected and tested in either 2018 or 2019. Load the data and make into radians from -pi to pi. We represent the stimulus period and target half width angles in radians rather than degrees because the smaller (but still positive) values for the model predictor are preferable.
 
 
 ```{r}
@@ -41,13 +41,13 @@ Plot response to a very wide stimulus (90 degree). Then remove these from the da
 ```{r}
 plot.circular(df$theta[df$unmissable==1])
 df <- df[df$unmissable==0,]
-df$unmissable <- NULL 
+df$unmissable <- NULL
 ```
 
 No obvious response from the few data available.
 
 ```{r}
-
+df$theta[df$theta > pi] <- round(df$theta[df$theta > pi] - 2*pi,3)
 ```
 
 
@@ -84,18 +84,18 @@ Have a look at what happens with differing Type width of the target, to get an i
 
 ```{r Treatment summary, message=TRUE, warning=FALSE}
 df %>% as_tibble %>%                 # dataframe name
-  mutate(in.quad = ifelse(abs(theta) < pi/4, 1, 0)) %>% # for data in radians -pi to pi
-  mutate(in.pent = ifelse(abs(theta) < pi/5, 1, 0)) %>% # for data in radians -pi to pi
-  mutate(in.sext = ifelse(abs(theta) < pi/6, 1, 0)) %>% # for data in radians -pi to pi
-  mutate(in.oct  = ifelse(abs(theta) < pi/8, 1, 0)) %>% # for data in radians -pi to pi
+  mutate(in.quad = ifelse(abs(theta) < pi/4, 1, 0)) %>% # for data in rad -pi to pi
+  mutate(in.pent = ifelse(abs(theta) < pi/5, 1, 0)) %>% # for data in rad -pi to pi
+  mutate(in.sext = ifelse(abs(theta) < pi/6, 1, 0)) %>% # for data in rad -pi to pi
+  mutate(in.oct  = ifelse(abs(theta) < pi/8, 1, 0)) %>% # for data in rad -pi to pi
   group_by(arc,dog) %>%                # condition name
-  summarize(target = round(arc * 180 / pi)[1],
-            n_obs = n(),                 
-            mu    = round(180*mean.circular(theta)/pi,0),
-            lo.ci = round(180*mle.vonmises.bootstrap.ci(theta)$mu.ci[1]/pi),
-            hi.ci = round(180*mle.vonmises.bootstrap.ci(theta)$mu.ci[2]/pi),
+  summarize(#target = round(arc * 180 / pi)[1],
+            n_obs = n(),
+            mu    = mean.circular(theta),
+            lo.ci = mle.vonmises.bootstrap.ci(theta)$mu.ci[1],
+            hi.ci = mle.vonmises.bootstrap.ci(theta)$mu.ci[2],
             rho = round(rho.circular(theta),2),
-            kappa = unlist(mle.vonmises(theta)[3]), 
+            kappa = unlist(mle.vonmises(theta)[3]),
             v.stat =unlist(rayleigh.test(theta,mu=0)[1]),
             v.p= unlist(rayleigh.test(theta,mu=0)[2]),
             rayl.stat=unlist(rayleigh.test(theta)[1]),
@@ -146,37 +146,28 @@ Below, we make circular plots of the vectors for each of the treatments. Code bo
 The confidence interval in these plots represents confidence intervals from bootstrapped maximum likelihood (in contrast to Sumner-Rooney *et al* (2020) where they represent circular standard deviation).
 
 
-```{r Contrast circular plots, message=FALSE}
-source('Cplot2_rad.R')
-par(mfrow = c(2,ceiling( nlevels(as.factor(res$T)) /2)));  
-par(mar = c(0.5, 0.5, 0.5, 0.5) + 0.1) # bottom, left, top, right
-for(i in levels(as.factor(res$T)) ){
-    rad_plot(res$H[res$T==i],0.06)
- }
-```
-
 
 Have a look at what happens with differing Type width of the target, to get an impression of the response and to see if the result is likely to be robust to changes in the Type width.
 
 ```{r Resolution treatment summary, message=TRUE, warning=FALSE}
-res %>% as_tibble %>%                 # dataframe name
-  mutate(in.quad = ifelse(abs(H) < pi/4, 1, 0)) %>% # for data in radians -pi to pi
-  mutate(in.pent = ifelse(abs(H) < pi/5, 1, 0)) %>% # for data in radians -pi to pi
-  mutate(in.sext = ifelse(abs(H) < pi/6, 1, 0)) %>% # for data in radians -pi to pi
-  mutate(in.oct  = ifelse(abs(H) < pi/8, 1, 0)) %>% # for data in radians -pi to pi
+df2 %>% as_tibble %>%                 # dataframe name
+  mutate(in.quad = ifelse(abs(theta) < pi/4, 1, 0)) %>% # for data in radians -pi to pi
+  mutate(in.pent = ifelse(abs(theta) < pi/5, 1, 0)) %>% # for data in radians -pi to pi
+  mutate(in.sext = ifelse(abs(theta) < pi/6, 1, 0)) %>% # for data in radians -pi to pi
+  mutate(in.oct  = ifelse(abs(theta) < pi/8, 1, 0)) %>% # for data in radians -pi to pi
   group_by(T) %>%                # condition name
   summarize(target = round(T * 180 / pi)[1],
-            n_obs = n(),                 
-            mu    = round(180*mean.circular(H)/pi,0),
-            lo.ci = round(180*mle.vonmises.bootstrap.ci(H)$mu.ci[1]/pi),
-            hi.ci = round(180*mle.vonmises.bootstrap.ci(H)$mu.ci[2]/pi),
-            rho = round(rho.circular(H),2),
-            kappa = unlist(mle.vonmises(H)[3]), 
-            v.stat =unlist(rayleigh.test(H,mu=0)[1]),
-            v.p= unlist(rayleigh.test(H,mu=0)[2]),
-            rayl.stat=unlist(rayleigh.test(H)[1]),
-            rayl.p= unlist(rayleigh.test(H)[2]),
-            c.mean = unlist(mean.circular(H)[1]),
+            n_obs = n(),
+            mu    = round(180*mean.circular(theta)/pi,0),
+            lo.ci = round(180*mle.vonmises.bootstrap.ci(theta)$mu.ci[1]/pi),
+            hi.ci = round(180*mle.vonmises.bootstrap.ci(theta)$mu.ci[2]/pi),
+            rho = round(rho.circular(theta),2),
+            kappa = unlist(mle.vonmises(theta)[3]),
+            v.stat =unlist(rayleigh.test(theta,mu=0)[1]),
+            v.p= unlist(rayleigh.test(theta,mu=0)[2]),
+            rayl.stat=unlist(rayleigh.test(theta)[1]),
+            rayl.p= unlist(rayleigh.test(theta)[2]),
+            c.mean = unlist(mean.circular(theta)[1]),
             quad.prop = sum(in.quad)/length(in.quad),
             pent.prop = sum(in.pent)/length(in.pent),
             sext.prop = sum(in.sext)/length(in.sext),
@@ -196,27 +187,45 @@ circ_fun_res
 
 
 ```{r}
-circ_fun_res %>% 
-  ggplot(aes(180*T/pi, sext.prop)) + geom_line(color="pink",size=3)  + 
+circ_fun_res %>%
+  ggplot(aes(180*T/pi, sext.prop)) + geom_line(color="pink",size=3)  +
   ylab("Proportion correct responses") +
   theme_classic() + xlab("Stimulus period") +  ## data in target quadrant
   geom_line(aes(y=oct.prop), color="red")   +    ## data in target octant
   geom_line(aes(y=quad.prop), color="blue")    +    ## data in target octant
-   geom_line(data=circ_fun_res,aes(x=180*T/pi , y=pent.prop),size=1) + 
+   geom_line(data=circ_fun_res,aes(x=180*T/pi , y=pent.prop),size=1) +
    geom_hline(yintercept = 1/6) +
-   geom_bin2d(data=res,aes(y = success, x = 180*T/pi)) + # counts 
+   geom_bin2d(data=res,aes(y = success, x = 180*T/pi)) + # counts
    ylim(0.1,0.55)
 ```
 
 ### Try with new formulation
 
-We tried a fair few versions of the model. We settled on this version because it includes both upper and lower asymptotes and was able to converge. 4.39 approximates 2 x ln(1 - 1 / alpha), which scales the width parameter. Here alpha = 0.1, 10%, which scales width so that threshold ± width/2 includes the x axis region in which the curve rises from 10% of its maximum height above guess rate to 90% of its maximum height above guess rate. 
+We tried a fair few versions of the model. We settled on this version because it includes both upper and lower asymptotes and was able to converge. 4.39 approximates 2 x ln(1 - 1 / alpha), which scales the width parameter. Here alpha = 0.1, 10%, which scales width so that threshold ± width/2 includes the x axis region in which the curve rises from 10% of its maximum height above guess rate to 90% of its maximum height above guess rate.
 
-The following non-default priors were given to brms. An informative prior was used for the lower asymptote (base) as this value should not differ much from 0.2. Upper and lower bounds were used for the aysmptotes to prevent overlap, which would make the model unidentifiable.  
+The following non-default priors were given to brms. An informative prior was used for the lower asymptote (base) as this value should not differ much from 0.2. Upper and lower bounds were used for the aysmptotes to prevent overlap, which would make the model unidentifiable.
 
 This is the (exponentiated) prior applied to width of the psychometric curve between 10% and 90% of its maximum height and the model threshold.
 
 ### Prior Predictive Distribution for Resolution
+
+
+```{r}
+df$T <- df$arc / max(df$arc)
+df2 <-  rbind.data.frame(df[df$dog==0 & df$arc==0,],df[df$dog==1,])
+```
+
+
+Here are circular plots of these datasets.
+
+```{r Circular plots, message=FALSE}
+source('Cplot2_rad.R')
+par(mfrow = c(2,ceiling( nlevels(as.factor(df2$T)) /2)));
+par(mar = c(0.5, 0.5, 0.5, 0.5) + 0.1) # bottom, left, top, right
+for(i in levels(as.factor(df2$T)) ){
+    rad_plot(df2$theta[df2$T==i],0.06)
+ }
+```
 
 Below, we plot the possible range of values deemed by the priors and where predictions are distributed. A stimulus with the maximal target used (70 degrees) is already extremmely wide. We know the base should be at 0.167 by random chance - so we put the location of the base parameter prior at this value, but allow it to vary around this point. Constraints are placed on base and lapse to prevent them overlappping. Priors on threshold and width keep these parameters within the possible range of angles. The inverse logit (logistic) function is *plogis* in base.
 
@@ -224,33 +233,31 @@ From previous data, we know the response rate of this species to a salient stimu
 
 ```{r}
 set.seed(196)
-N          <- 100
-base       <- rnorm(N,0.167,0.05)  # Base is close to random probability 
+N          <- 1000
+base       <- rnorm(N,0.167,0.05)  # Base is close to random probability
 lapse      <- rbeta(N,15,15)       # Lapse is wide range - should not overlap base rate
-threshold  <- rgamma(N,2,2)    # Threshold must be > 0 and can be > 1.
-width      <- rgamma(N,2,2)    # Width must be > 0 and can be > 1.
+threshold  <- rgamma(N,2,1.5)    # Threshold must be > 0 and can be > 1.
+width      <- rgamma(N,2,1.5)    # Width must be > 0 and can be > 1.
                                    # Varying intercept lapse
                                    # Varying intercepts base
 
-plot( NULL, xlim = c(-.5,3.5), ylim = c(0.1,0.8) , 
+plot( NULL, xlim = c(-.5,3.5), ylim = c(0.1,0.8) ,
       xlab = "Scaled stimulus strength", ylab = "Proportion correct response" )
 abline (h=1/6, lty=2)
 for ( i  in 1:N ) curve (
-        base[i] + 
-          (1 - base[i] - lapse[i]) * 
+        base[i] +
+          (1 - base[i] - lapse[i]) *
           plogis(4.39*(	x - threshold[i]	)	/ ( (width[i]) ) ),
    from=-.5, to = 3.5, add = TRUE, col = col.alpha("black",0.1))
-
 ```
 
 ### *Empty* model without predictor
 
-
 ```{r Empty model}
-res.empty.formula <- bf(success ~ 
-                      base + 
-                      (1 - base - lapse) * 
-                      inv_logit( 4.39*(	1 - threshold)	/  width  ),
+res.empty.formula <- bf(success ~
+                      base +
+                      (1 - base - lapse) *
+                      inv_logit( 4.39*(	T - threshold)	/  width  ),
   base      ~ 1,# + (1|individual), # guess rate has a single value
 	lapse     ~ 1, #+ (1|individual), # lapse rate can be different for different chicks
 	threshold ~ 1, #+ (1|individual), # threshold changes with all effects
@@ -258,47 +265,47 @@ res.empty.formula <- bf(success ~
                       nl = TRUE)
 
 res.psych.priors  <- c(
-         prior(normal(0.167,0.05),   nlpar = "base",        lb=0,ub= 0.25),               
-         prior(beta(15,15),          nlpar = "lapse"             ,lb=0,ub= 0.74      ), 
-         prior(gamma(2,2),         nlpar= 'threshold',  class = 'b'   ),
-	       prior(gamma(2,2),         nlpar = 'width',     class = 'b'     ))
+         prior(normal(0.167,0.05),   nlpar = "base",   lb=0,ub= 0.25),
+         prior(beta(15,15),          nlpar = "lapse" ,lb=0,ub= 0.74      ),
+         prior(gamma(2,1.5),         nlpar= 'threshold',  class = 'b'   ),
+	       prior(gamma(2,1.5),         nlpar = 'width',     class = 'b'     ))
 
-res_empty_fit  <- brm(res.empty.formula, data = res, family = bernoulli("identity"), iter = 5000,
-              chains = 4, prior = res.psych.priors, control = list(adapt_delta=0.99999)) 
+res_empty_fit  <- brm(res.empty.formula, data = df2, family = bernoulli("identity"),
+                      iter = 5000,chains = 4, prior = res.psych.priors,
+                      control = list(adapt_delta=0.99999))
 
-res_empty_fit <- add_criterion(res_empty_fit, c("loo","waic")) 
+res_empty_fit <- add_criterion(res_empty_fit, c("loo","waic"))
 ```
 
 ## Main model
 
 ```{r Main model}
-res.psych.formula <- bf(success ~ 
-                      base + 
-                      (1 - base - lapse) * 
+res.psych.formula <- bf(success ~
+                      base +
+                      (1 - base - lapse) *
                       inv_logit( 4.39*(	T - threshold	)	/  width  ),
   base  ~ 1, lapse ~ 1, threshold ~ 1, width ~ 1, nl = TRUE)
 
 res.psych.priors  <- c(
-         prior(normal(0.167,0.05),   nlpar = "base",        lb=0,ub= 0.25),               
-         prior(beta(15,15),            nlpar = "lapse"             ,lb=0,ub= 0.74      ), 
-         prior(gamma(2,2),           nlpar= 'threshold',  class = 'b'   ),
-	       prior(gamma(2,2),           nlpar = 'width',     class = 'b'     ))
+         prior(normal(0.167,0.05), nlpar = "base", lb=0,ub= 0.25),
+         prior(beta(15,15), nlpar = "lapse" ,lb=0,ub= 0.74      ),
+         prior(gamma(2,1.5),  nlpar= 'threshold',  class = 'b'   ),
+	       prior(gamma(2,1.5),  nlpar = 'width',     class = 'b'     ))
 
-res_psych_fit  <- brm(res.psych.formula, data = res, 
+res_psych_fit  <- brm(res.psych.formula, data = df2,
                   family = bernoulli("identity"), iter = 2500,
-                  chains = 4, prior = res.psych.priors, 
-                  control = list(max_treedepth = 12,
-                                 adapt_delta=0.9999999)) 
+                  chains = 4, prior = res.psych.priors,
+                  control = list(adapt_delta=0.99999))
 
-res_psych_fit  <- add_criterion(res_psych_fit, c("loo","waic")) 
+res_psych_fit  <- add_criterion(res_psych_fit, c("loo","waic"))
 ```
 
 
 ```{r}
-res %>% group_by(T) %>%
-  summarise(p = sum(success)/length(success)) -> props 
+df2 %>% group_by(T) %>%
+  summarise(p = sum(success)/length(success)) -> props
 props %>%
-  ggplot(aes(x=T,y=p,size=p)) + geom_point() + theme_classic()
+  ggplot(aes(x=T,y=p)) + geom_point() + theme_classic() + geom_hline(yintercept = 0.1667,color='red')
 ```
 
 ```{r}
@@ -324,14 +331,13 @@ loo_compare(res_psych_fit,res_empty_fit)
 ```
 
 
-
 ```{r Extract the samples}
 res.psych.smpl <- posterior_samples(res_psych_fit)
 ```
 
 
 ```{r}
-posterior_summary(res_psych_fit, 
+posterior_summary(res_psych_fit,
                   pars=c("b_base_Intercept", "b_lapse_Intercept", "b_threshold_Intercept","b_width_Intercept"),
                   probs = c(0.025,  0.975), robust = TRUE)
 ```
@@ -340,25 +346,25 @@ Plot the threshold and width transformed.
 
 ```{r}
 param_trans <- function(x){
-  out = x*max(res$target)
+  out = x*max(df2$T)
   return(out)}
-mcmc_areas(res_psych_fit, pars=c("b_threshold_Intercept","b_width_Intercept"),   
+mcmc_areas(res_psych_fit, pars=c("b_threshold_Intercept","b_width_Intercept"),
          point_est = "median", prob = 0.8, prob_outer = 0.95,
          transformations = param_trans) +
-         ggplot2::labs(title = "Posterior distributions", 
+         ggplot2::labs(title = "Posterior distributions",
                        subtitle = "with medians and 80% intervals")
 ```
 
 ### Confidence intervals of the threshold parameter.
 
-PI (percentile interval) is a confidence interval similar to that conventionally used in frequentist statistics, which assigns equal mass to each tail. 
+PI (percentile interval) is a confidence interval similar to that conventionally used in frequentist statistics, which assigns equal mass to each tail.
 
 ```{r}
-threshold_smpl <- (res.psych.smpl$b_threshold_Intercept)*max(res$target)
+threshold_smpl <- (res.psych.smpl$b_threshold_Intercept)*max(df2$T)
 round(PI(threshold_smpl,prob=.95),0)
 ```
 
-HPDI (highest posterior density) is an alternative confidence interval which is especially useful is the distribution is skewed. 
+HPDI (highest posterior density) is an alternative confidence interval which is especially useful is the distribution is skewed.
 
 ```{r}
 round(HPDI(threshold_smpl,prob=.95),0)
@@ -370,15 +376,15 @@ round(HPDI(threshold_smpl,prob=.5),0)
 
 ### Graphical Posterior predictive checks
 
-Back to the main psychometric model. We check if the posterior predictions are in line with the original counts, which is so.  
+Back to the main psychometric model. We check if the posterior predictions are in line with the original counts, which is so.
 
 ```{r}
-  pp_check(res_psych_fit,nsamples=400, type="bars",) + theme_classic() + theme(legend.position='none') 
+  pp_check(res_psych_fit,nsamples=400, type="bars",) + theme_classic() + theme(legend.position='none')
 ```
 
 
 ```{r}
-  pp_check(res_psych_fit, type = "rootogram", nsamples = 100, style = "standing", prob=0.9) +   theme_classic()  
+  pp_check(res_psych_fit, type = "rootogram", nsamples = 100, style = "standing", prob=0.9) +   theme_classic()
 ```
 
 
@@ -403,21 +409,21 @@ turn.idx <- vector(length = length(res.psych.smpl[,1]))
 x <- seq(from=0,to=3,length.out = N)
 newdat <- data.frame(T = T)
 
-plot( NULL, xlim = c(0,3), ylim = c(0.1,.7) , 
+plot( NULL, xlim = c(0,3), ylim = c(0.1,.7) ,
       xlab = "Scaled stimulus strength", ylab = "Proportion correct response" )
 abline (h=1/6, lty=2)
 i = 1
 for ( i  in 1:length(res.psych.smpl[,1])){
 
-  vals[i,] <- res.psych.smpl$b_base_Intercept[i] + 
-          (1 - res.psych.smpl$b_base_Intercept[i] - res.psych.smpl$b_lapse_Intercept[i]) * 
-          plogis(4.39*(	x - res.psych.smpl$b_threshold_Intercept[i]	)	/ 
+  vals[i,] <- res.psych.smpl$b_base_Intercept[i] +
+          (1 - res.psych.smpl$b_base_Intercept[i] - res.psych.smpl$b_lapse_Intercept[i]) *
+          plogis(4.39*(	x - res.psych.smpl$b_threshold_Intercept[i]	)	/
                     (res.psych.smpl$b_width_Intercept[i]) )
   lines(x,vals[i,],col = col.alpha("black",0.02))
-  
+
   #infl[i] <- c(FALSE, diff(diff(vals[i,])>0)!=0)
   #points(xl[infl ], out[infl ], col="blue")
-  
+
   turn.idx[i] <- which.min(diff(diff(diff(vals[i,])))) # get turning point
   }
 ```
@@ -443,7 +449,7 @@ We prefer HPDI because the distribution is not symmetrical.
 round(HPDI(turning.pts,prob=.95),0)
 ```
 
-50% credibility interval 
+50% credibility interval
 
 ```{r}
 round(HPDI(turning.pts,prob=.5),0)
@@ -453,6 +459,5 @@ round(HPDI(turning.pts,prob=.5),0)
 Compare to the value of the *threshold* parameter (transformed) for reference: They are not identical. Prefer the turning point estimate above.
 
 ```{r}
-HPDI(exp(res.psych.smpl$b_threshold_Intercept)*max(res$target))
+HPDI(exp(res.psych.smpl$b_threshold_Intercept)*max(df2$T))
 ```
-
