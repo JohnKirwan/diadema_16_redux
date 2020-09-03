@@ -8,7 +8,7 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 options(mc.cores = parallel::detectCores())  # run all cores
-Sys.setenv(LOCAL_CPPFLAGS = '-march=native') # for faster Stan execution
+#Sys.setenv(LOCAL_CPPFLAGS = '-march=native') # for faster Stan execution
 ```
 
 Load necessary packages.
@@ -305,6 +305,7 @@ props %>%
   ggplot(aes(x=T,y=p)) + geom_point() + theme_classic() + geom_hline(yintercept = 0.1667,color='red')
 ```
 
+
 ```{r}
 conditional_effects(res_psych_fit, spaghetti=T, nsamples = 1000,robust=TRUE)
 ```
@@ -358,17 +359,17 @@ PI (percentile interval) is a confidence interval similar to that conventionally
 
 ```{r}
 threshold_smpl <- (res.psych.smpl$b_threshold_Intercept)*max(df2$T)
-round(PI(threshold_smpl,prob=.95),0)
+round(PI(threshold_smpl,prob=.95),2)
 ```
 
 HPDI (highest posterior density) is an alternative confidence interval which is especially useful is the distribution is skewed.
 
 ```{r}
-round(HPDI(threshold_smpl,prob=.95),0)
+round(HPDI(threshold_smpl,prob=.95),2)
 ```
 
 ```{r}
-round(HPDI(threshold_smpl,prob=.5),0)
+round(HPDI(threshold_smpl,prob=.5),2)
 ```
 
 ### Graphical Posterior predictive checks
