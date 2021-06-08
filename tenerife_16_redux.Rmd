@@ -34,6 +34,7 @@ Load the data. The column *target* refers to the target of the stimulus at each 
 
 ```{r}
 df <- read_delim('tenerife-june-2016.txt', delim = '\t')
+df$pattern[df$pattern == "grey control"] <- "control"
 ```
 
 Plot response to a very wide stimulus (90 degree). Then remove these from the dataset.
@@ -224,9 +225,15 @@ for(i in levels(as.factor(df2$T)) ){
  }
 ```
 
-Below, we plot the possible range of values deemed by the priors and where predictions are distributed. A stimulus with the maximal target used (70 degrees) is already extremmely wide. We know the base should be at 0.167 by random chance - so we put the location of the base parameter prior at this value, but allow it to vary around this point. Constraints are placed on base and lapse to prevent them overlappping. Priors on threshold and width keep these parameters within the possible range of angles. The inverse logit (logistic) function is *plogis* in base.
+Below, we plot the possible range of values deemed by the priors and where predictions are distributed. A stimulus with the maximal target used (70 degrees) is already extremely wide. We know the base should be at 0.167 by random chance - so we put the location of the base parameter prior at this value, but allow it to vary around this point. Constraints are placed on base and lapse to prevent them overlapping. Priors on threshold and width keep these parameters within the possible range of angles. The inverse logit (logistic) function is *plogis* in base.
 
 From previous data, we know the response rate of this species to a salient stimulus is within the range 0.3 to 0.8.
+
+```{r}
+chains=4
+iter=2000
+```
+
 
 ```{r}
 set.seed(196)
@@ -459,3 +466,224 @@ Compare to the value of the *threshold* parameter (transformed) for reference: T
 ```{r}
 HPDI(exp(res.psych.smpl$b_threshold_Intercept)*max(df2$T))
 ```
+
+
+#### Contrast *unmissable* and DoG 69
+
+
+```{r}
+centrerad <- function(x){
+  if(x > pi){x = x - 2*pi
+  }else{x = x}
+  return(x)
+  }
+
+df$rad <- as.circular(sapply(df$theta,centrerad))
+df$pattern <- as.factor(df$pattern)
+```
+
+This model estimates the overall concentration. 
+
+This model estimates the joint posterior probability of the circular expectation at each condition. 
+
+
+```{r}
+Mises_Type_prior.formula <- bf(theta ~ 0, kappa ~ pattern,
+                         family = von_mises(link='tan_half',link_kappa = "log"))
+Mises_Type_prior.prior = c(prior(normal(0,5), class = Intercept, dpar="kappa"),
+                     prior(normal(0,2), class = b, dpar="kappa")  )
+
+Mises_Type_prior.fit <- brm( Mises_Type_prior.formula,
+  prior = Mises_Type_prior.prior, iter = iter,
+  data = df, chains = chains,
+  sample_prior = "only",
+  silent=1,refresh=0,
+  control = list(adapt_delta = 0.9)) 
+
+summary(Mises_Type_prior.fit)
+```
+
+```{r}
+conditional_effects(Mises_Type_prior.fit, method = "fitted",dpar = "kappa", 
+                 resolution = 1000, robust = TRUE,
+                 nsamples = 1000, scale='response',
+                                  re_formula = NULL,ask=F)
+```
+
+
+
+Made looser priors because small treatments were estimated very low. 
+
+```{r}
+
+
+Mises_Type.formula <- bf(rad ~ 0, kappa ~ pattern, family = von_mises(link='tan_half'))
+#Mises_Type.data    <- make_standata(rad ~ pattern, kappa ~ 1,
+#                                  data = df, family = von_mises(link='tan_half'))
+
+Mises_Type.prior = c(prior(normal(0,5),  class = Intercept, dpar="kappa"),
+                     prior(normal(0,2), class = b, dpar="kappa")  )
+
+Mises_Type.fit <- brm( Mises_Type.formula,
+  prior = Mises_Type.prior, iter = iter,
+  data = df, chains = chains,
+  silent=1,refresh=0,
+  control = list(adapt_delta = 0.9)) 
+
+Mises_Type.fit <- add_criterion(Mises_Type.fit, c("loo","waic")) 
+```
+
+Plot the posterior probabilities by parameter and the Markov chains.
+
+```{r}
+plot(Mises_Type.fit,ask=F)
+```
+
+Unimodal posterior distributions with well converged Markov chains.
+
+```{r}
+summary(Mises_Type.fit)
+```
+
+ESS and Rhat values are good. Below is a graphical check of the marginal effects at the median.
+
+```{r}
+conditional_effects(Mises_Type.fit, method = "fitted",dpar = "kappa", 
+                 resolution = 1000, robust = TRUE,
+                 nsamples = 1000, scale='response',
+                                  re_formula = NULL,ask=F)
+```
+
+
+
+The DoG 69d pattern is much more oriented than the bar or control. The bar pattern is not significantly oriented in relation to the negative control. The DoG 69d pattern is also significantly more oriented than the 55d pattern, which is not significantly more oriented than the negative control. 
+
+This last part is surprising and takes credence from the idea that the 40 bar is not oriented. 
+
+Posterior predictive check.
+
+```{r}
+pp_check(Mises_Type.fit, type="dens_overlay", nsamples=200)
+```
+
+#### Discretized binomial model with all categories
+
+
+
+```{r}
+Bin_Type.formula <- bf(success ~ pattern, family = bernoulli(link='logit'))
+Bin_Type.prior <- c(prior(normal(0, 6), class = "b"))
+
+Bin_Type.fit <- brm(Bin_Type.formula,
+               prior = Bin_Type.prior, iter = iter,
+               data = df, chains = 4,
+               control = list(adapt_delta = 0.9))
+
+Bin_Type.fit <- add_criterion(Bin_Type.fit, criterion=c('loo','waic'))
+```
+
+
+```{r}
+conditional_effects(Bin_Type.fit, method = "fitted", 
+                 resolution = 1000, robust = TRUE,
+                 nsamples = 1000, scale='response',
+                                  re_formula = NULL,ask=F)
+```
+
+```{r}
+parnames(Bin_Type.fit)
+
+hypotheses <- c("patterndog40 > patternbar40",
+                "patterndog40 > patterncontrol",
+                "patternbar40 > patterncontrol",
+                "patterndog40 > patterndog55",
+                "patterndog55 > patterncontrol")
+
+hypothesis( Bin_Type.fit, hypotheses, class = "b" )
+```
+
+Same results as in the von Mises results. Did not recover the 
+
+```{r}
+rayleigh.test(df$theta[df$pattern=="bar 40"])
+```
+
+```{r}
+rayleigh.test(df$theta[df$pattern=="bar 40"],mu=0)
+```
+
+#### A variation of the von Mises test in which mu is also estimated
+
+
+
+```{r}
+chains=4
+iter=2000
+
+Mises_mu_Type.formula <- bf(rad ~ 1, kappa ~ pattern, family = von_mises(link='tan_half'))
+#Mises_mu_Type.data    <- make_standata(rad ~ pattern, kappa ~ 1,
+#                                  data = df, family = von_mises(link='tan_half'))
+
+Mises_mu_Type.prior = c(prior(normal(0,4),  class="Intercept"),
+                        prior(normal(0,3),  class = Intercept, dpar="kappa"),
+                        prior(normal(0,2),  class = b, dpar="kappa")  )
+
+Mises_mu_Type.fit <- brm( Mises_mu_Type.formula,
+  prior = Mises_mu_Type.prior, iter = iter,
+  data = df, chains = chains,
+  silent=1,refresh=0,
+  control = list(adapt_delta = 0.9)) 
+
+Mises_mu_Type.fit <- add_criterion(Mises_mu_Type.fit, c("loo","waic")) 
+```
+
+Plot the posterior probabilities by parameter and the Markov chains.
+
+```{r}
+plot(Mises_mu_Type.fit,ask=F)
+```
+
+Unimodal posterior distributions with well converged Markov chains.
+
+```{r}
+summary(Mises_mu_Type.fit)
+```
+
+ESS and Rhat values are good. Below is a graphical check of the marginal effects at the median.
+
+```{r}
+conditional_effects(Mises_mu_Type.fit, method = "fitted",dpar = "kappa", 
+                 resolution = 1000, robust = TRUE,
+                 nsamples = 1000, scale='response',
+                                  re_formula = NULL,ask=F)
+```
+
+```{r}
+parnames(Mises_mu_Type.fit)
+
+hypotheses <- c("b_kappa_patterndog40 > b_kappa_patternbar40",
+                "b_kappa_patterndog40 > b_kappa_patterncontrol",
+                "b_kappa_patternbar40 > b_kappa_patterncontrol",
+                "b_kappa_patterndog40 > b_kappa_patterndog55",
+                "b_kappa_patterndog55 > b_kappa_patterncontrol")
+
+hypothesis( Mises_mu_Type.fit, hypotheses, class = "" )
+```
+
+
+
+## Aside - half tan link for von Mises
+
+```{r}
+# transforms radian into scalar real
+tan_half <- function(theta){
+  x = tan(theta/2)
+  return(x)}
+
+# transforms scalar real into radian
+inv_tan_half <- function(x){
+  theta = 2 * atan(x)
+  return(theta)}
+```
+
+

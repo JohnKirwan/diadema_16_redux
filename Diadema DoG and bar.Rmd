@@ -1,0 +1,292 @@
+---
+title: "Diadema DoG and Bar"
+author: "John Kirwan"
+date: "5/31/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+options(mc.cores = parallel::detectCores())  # run all cores
+```
+
+Load necessary packages.
+
+```{r Load packages, message=FALSE, warning=TRUE}
+library('tidyverse')
+library('circular')
+library('rstan')
+rstan::rstan_options(auto_write = TRUE)
+library('brms')
+```
+
+Load the data. The column *target* refers to the target of the stimulus at each observation; radian and degree are the headings taken by the animal from the centre in radians and degrees respectively. Batch refers to animals collected and tested in either 2018 or 2019. Load the data and make into radians from -pi to pi. We represent the stimulus period and target half width angles in radians rather than degrees because the smaller (but still positive) values for the model predictor are preferable.
+
+Also, the values in the file are for the zero mean crossing (T/sqrt(3)) rather than the period, so they must be changed. 
+
+```{r}
+df <- read_delim('tenerife-june-2016.txt', delim = '\t')
+df$pattern[df$pattern == "grey control"] <- "control"
+df$pattern[df$pattern == "dog 40"]       <- "dog 69"
+df$pattern[df$pattern == "dog 55"]       <- "dog 95"
+df$pattern[df$pattern == "dog 17"]       <- "dog 29"
+df$pattern[df$pattern == "15 bar"]       <- "bar 15"
+df$pattern[df$pattern == "unmissable"]   <- "bar 90"
+df$pattern <- as.factor(df$pattern)
+df$theta[df$theta > pi] <- round(df$theta[df$theta > pi] - 2*pi,3)
+df$arc[df$dog == 1] <- round(df$arc[df$dog == 1]*sqrt(3),0) #arc from 0-crossing to T
+df$T <- df$arc / max(df$arc)
+```
+
+Plot response to a very wide stimulus (90 degree). Then remove these from the dataset. The red arcs surrounding the plots represent confidence intervals of the circular concentration parameter (kappa) derived from bootstrapping, using the *circular* package. 
+
+```{r Circular plots, message=FALSE}
+source('Cplot2_rad.R')
+par(mfrow = c(2,ceiling( nlevels(as.factor(df$pattern)) /2)));
+par(mar = c(0.5, 0.5, 0.5, 0.5) + 0.1) # bottom, left, top, right
+for(i in levels(as.factor(df$pattern)) ){
+    rad_plot(df$theta[df$pattern==i],0.06)
+    text(0,.6,as.character(i))
+}
+```
+
+The only condition clearly oriented is the DoG 69d. Bear in mind however that there is clustering around the 40d bar and the that the 15d and 90d bars and the 95d DoG have few data. Moreover, the 90d bar is not just as bar as it has white flanks. 
+
+### Discretization
+
+Here, we define the sector of the circle which we consider to be the 'target' region. We define this region as an arc subtending a sixth of the circle with the stimulus centre as the midpoint.
+
+```{r}
+df %>% mutate(success = 0) -> df
+for(i in 1:length(df$theta)){           ### get tote of each using one fifth of the circle
+  if(is.na(df$theta[i]) == TRUE) {df$success[i] <- 0}
+  else if( df$theta[i] >   pi/5) {df$success[i] <- 0}    ##  pi/5 beforehand
+  else if( df$theta[i] <= -pi/5 ){df$success[i] <- 0}    ## -pi/5 beforehand
+  else{    df$success[i] <- 1}  }
+```
+
+A summary of the data follows
+
+```{r Treatment summary, message=TRUE, warning=FALSE}
+df %>% as_tibble %>%                 # dataframe name
+  mutate(in.quad = ifelse(abs(theta) < pi/4, 1, 0)) %>% # for data in rad -pi to pi
+  mutate(in.pent = ifelse(abs(theta) < pi/5, 1, 0)) %>% # for data in rad -pi to pi
+  mutate(in.sext = ifelse(abs(theta) < pi/6, 1, 0)) %>% # for data in rad -pi to pi
+  mutate(in.oct  = ifelse(abs(theta) < pi/8, 1, 0)) %>% # for data in rad -pi to pi
+  group_by(arc,dog) %>%                # condition name
+  summarize(#target = round(arc * 180 / pi)[1],
+            n_obs = n(),
+            mu    = mean.circular(theta),
+            lo.ci = mle.vonmises.bootstrap.ci(theta)$mu.ci[1],
+            hi.ci = mle.vonmises.bootstrap.ci(theta)$mu.ci[2],
+            rho = round(rho.circular(theta),2),
+            kappa = unlist(mle.vonmises(theta)[3]),
+            #v.stat =unlist(rayleigh.test(theta,mu=0)[1]),
+            v.p= unlist(rayleigh.test(theta,mu=0)[2]),
+            #rayl.stat=unlist(rayleigh.test(theta)[1]),
+            rayl.p= unlist(rayleigh.test(theta)[2]),
+            c.mean = unlist(mean.circular(theta)[1]),
+            quad.prop = sum(in.quad)/length(in.quad),
+            pent.prop = sum(in.pent)/length(in.pent),
+            sext.prop = sum(in.sext)/length(in.sext),
+            oct.prop = sum(in.oct)/length(in.oct),
+            binom.p6 = unlist(
+                binom.test(sum(in.sext),length(in.sext),
+                p=1/6,alternative = "greater")[3]),
+            binom.p8 = unlist(
+                binom.test(sum(in.oct),length(in.oct),
+                p=1/8,alternative = "greater")[3]),
+            binom.p5 = unlist(
+                binom.test(sum(in.pent),length(in.pent),
+                p=1/5,alternative = "greater")[3])) -> circ_fun_facts
+## output dataframe
+circ_fun_facts
+```
+As per the paper, the V-test found significant orientation for both the 69d DoG and the 40d bar. However, the Rayleigh test found significant orientation for only the 69d DoG. These tests differ in that for the V-test a direction (in this case to the midpoint of the stimulus) is specified *a priori*. 
+
+## Modelling
+
+In the remaining sections. Several Bayesian probabilistic models are implemented to test whether animals orient to the various stimuli. Set some model parameters.
+
+```{r}
+chains=4
+iter=2500
+df$pattern <- relevel(df$pattern, 'control')
+```
+
+We have also reordered so that the control forms the intercept for categorical models.
+
+## Psychometric model for difference of Gaussians and control
+
+You May recall the psychometric model using all of the DoG data. I have repeated the main model below.
+
+```{r}
+df_DoG <- droplevels(subset.data.frame(
+  df, pattern %in% grep("bar", df$pattern, value=TRUE, invert=TRUE)))
+
+res.psych.formula <- bf(success ~
+                      base +
+                      (1 - base - lapse) *
+                      inv_logit( 4.39*(	T - threshold	)	/  width  ),
+  base  ~ 1, lapse ~ 1, threshold ~ 1, width ~ 1, nl = TRUE)
+
+res.psych.priors  <- c(
+         prior(normal(0.167,0.05), nlpar = "base", lb=0,ub= 0.25),
+         prior(beta(15,15), nlpar = "lapse" ,lb=0,ub= 0.74      ),
+         prior(gamma(2,1.5),  nlpar= 'threshold',  class = 'b'   ),
+	       prior(gamma(2,1.5),  nlpar = 'width',     class = 'b'     ))
+
+res_psych_fit  <- brm(res.psych.formula, data = df_DoG,
+                  family = bernoulli("identity"), iter = 2500,
+                  chains = 4, prior = res.psych.priors,
+                  control = list(adapt_delta=0.99999))
+
+res_psych_fit  <- add_criterion(res_psych_fit, c("loo","waic"))
+
+summary(res_psych_fit)
+```
+
+The plot below is of the marginal effects at the median.
+
+```{r}
+conditional_effects(res_psych_fit, spaghetti=T, nsamples = 1000,robust=TRUE)
+```
+
+## von Mises categorical model
+
+These are relevant when estimating the location of the mean angle *mu*. A loose prior can be allowed on the intercept to allow values close to -pi or pi. 
+
+```{r}
+Mises_Type.formula <- bf(theta ~ 0, kappa ~ pattern,
+                         family = von_mises(link='tan_half',link_kappa = "log"))
+Mises_Type.prior = c(prior(normal(0,5), class = Intercept, dpar="kappa"),
+                     prior(normal(0,2), class = b, dpar="kappa")  )
+
+Mises_Type.fit <- brm( Mises_Type.formula,
+  prior = Mises_Type.prior, iter = iter,
+  data = df, chains = chains,
+  silent=1,refresh=0,
+  control = list(adapt_delta = 0.9)) 
+
+Mises_Type.fit <- add_criterion(Mises_Type.fit, c("loo","waic")) 
+summary(Mises_Type.fit)
+```
+
+I checked separately the influence of the priors and it is minimal. 
+
+```{r}
+conditional_effects(Mises_Type.fit, method = "fitted",dpar = "kappa", 
+                 resolution = 1000, robust = TRUE,
+                 nsamples = 1000, scale='response',
+                                  re_formula = NULL,ask=F)
+```
+
+Is the DoG 69d more oriented than the control or a minute concentration (kappa of 0.1)?
+
+```{r}
+hypotheses <- c("b_kappa_patterndog69 > 0")
+                #"b_kappa_patterndog69 + b_kappa_Intercept > log(.01)")
+hypothesis( Mises_Type.fit, hypotheses, class = "")
+```
+Certainly. What about the 40d bar?
+
+```{r}
+hypotheses <- c("b_kappa_patternbar40 > 0")
+                #"b_kappa_patternbar40 + b_kappa_Intercept > log(.01)")
+hypothesis( Mises_Type.fit, hypotheses, class = "" )
+```
+The animals are more likely than not (62%) to orient to the 40d bar in comparison with the negative control, but with very low certainty.
+
+Some other queries below. There is a 96% chance that the 69d DoG is more oriented than the 40d bar. There is a 99% chance that the 69d DoG pattern is more oriented than the 95d pattern, which is less oriented than the control. 
+
+```{r}
+hypotheses <- c("b_kappa_patterndog69 > b_kappa_patternbar40",
+                "b_kappa_patterndog69 > b_kappa_patterndog95",
+                "b_kappa_patterndog95 > 0")
+hypothesis( Mises_Type.fit, hypotheses, class = "" )
+```
+Do they orient towards the 90 black bar stimulus with white flanks?
+
+```{r}
+hypotheses <- c("b_kappa_patternbar90 > 0")
+                #"b_kappa_patternbar90 + b_kappa_Intercept > log(.01)")
+hypothesis( Mises_Type.fit, hypotheses, class = "" )
+```
+No, they do not. The von Mises results do not show much orientation for the bar stimuli; but this is not so strange, as we can see from the earlier plots there can still be clustering around the stimulus which does not change the overall concentration that much. So, we proceed with a discretized categorical binomial model.
+
+## Discretized binomial model with all categories
+
+As per the psychometric model above it is also possible to discretize the data around whether headings fall within the target arc, and to model it according to a binomial distribution. Here we treat each condition as an independent category.
+
+```{r}
+Bin_Type.formula <- bf(success ~ pattern, family = bernoulli(link='logit'))
+Bin_Type.prior   <- c(prior(normal(0, 5), class = "Intercept"),
+                      prior(normal(0, 3), class = "b")) #+-5 covers the full gamut
+
+Bin_Type.fit <- brm(Bin_Type.formula,
+               prior = Bin_Type.prior, iter = iter,
+               data = df, chains = 4,
+               control = list(adapt_delta = 0.9))
+
+Bin_Type.fit <- add_criterion(Bin_Type.fit, criterion=c('loo','waic'))
+
+summary(Bin_Type.fit)
+```
+Below, we plot the maringal effects at the median for each category.
+
+```{r}
+conditional_effects(Bin_Type.fit, method = "fitted", 
+                 resolution = 1000, robust = TRUE,
+                 nsamples = 1000, scale='response',
+                                  re_formula = NULL,ask=F)
+```
+
+Is the DoG 69d pattern oriented compared to (i) the control and (ii) the expected value by random chance (0.2)?
+
+```{r}
+hypotheses <- c("patterndog69 > 0",
+                "patterndog69 + Intercept > qlogis(1/5)") # greater than chance
+hypothesis( Bin_Type.fit, hypotheses, class = "b" )
+```
+Yes. What about the 40d bar pattern?
+
+```{r}
+hypotheses <- c("patternbar40 > 0",
+                "patternbar40 + Intercept > qlogis(1/5)" ) # greater than chance
+hypothesis( Bin_Type.fit, hypotheses, class = "b" )
+```
+Probably (87%) in comparison with the negative control but almost certainly when compared with the chance line. Are they more oriented to the 69d DoG stimulus than the 40d bar stimulus?
+
+```{r}
+hypotheses <- c("patterndog69 > patternbar40") # > chance
+hypothesis( Bin_Type.fit, hypotheses, class = "b" )
+```
+Very likely (94%). Below, are they more oriented to the 69d DoG pattern than the 95d DoG pattern?
+
+```{r}
+hypotheses <- c("patterndog69 > patterndog95") # > chance
+hypothesis( Bin_Type.fit, hypotheses, class = "b" )
+```
+Yes (96%). This is interesting, as I would have expected - given that there are few data for 95d - that the posterior for this condition would be very wide and the contrast would be very uncertain. Below, is the 95d DoG pattern more oriented to the stimulus than would be expected by chance?
+
+```{r}
+hypotheses <- c("patterndog95 > 0",
+                "patterndog95 + Intercept > qlogis(1/5)") # > chance
+hypothesis( Bin_Type.fit, hypotheses, class = "b" )
+```
+Probably, though it is uncertain. Do they orient to the 90d bar stimulus with white flanks?
+
+```{r}
+hypotheses <- c("patternbar90 > 0",
+                "patternbar90 + Intercept > qlogis(1/5)") # > chance
+hypothesis( Bin_Type.fit, hypotheses, class = "b" )
+```
+They do not; even less so than the control, in fact.
+
+### Conclusion
+
+The animals definitely orient to the 69d DoG stimulus. They probably orient to the 40d bar stimulus, though they definitely orient more to the 69d DoG. 
+
+
+
+

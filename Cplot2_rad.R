@@ -14,7 +14,7 @@ rad_plot <- function(x, alpha, ax, rho.col, out.by, kappa.ci, ...){
 		#spacing of stacked points, now automatically stacks towards centre unless otherwise specified
 	if(missing(kappa.ci)){kappa.ci = F} #proportion NOT to plot across
 		#spacing of stacked points, now automatically stacks towards centre unless otherwise specified
-	sp <- 0.04
+	sp <- 0.07
 
 		if(!(	sum('mycirc'%in% ls())	)){
 		mycirc <- function(angles, clock){
