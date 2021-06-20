@@ -1,9 +1,0 @@
-"0","plot.circular(df$theta)"
-"2","an object is coerced to the class 'circular' using default value for the following components:
-  type: 'angles'
-  units: 'radians'
-  template: 'none'
-  modulo: 'asis'
-  zero: 0
-  rotation: 'counter'
-plot.circulardf$theta"
