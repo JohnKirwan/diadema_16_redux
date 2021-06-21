@@ -27,7 +27,7 @@ Load the data. The column *target* refers to the target of the stimulus at each 
 ```{r}
 df <- read_delim('Diadema-Berlin-Tenerife.csv', delim=";",col_types = "nfffcfcfn")
 #df$heading_rad <- as.circular(df$heading_rad)
-df$arc[df$DoG == 1] <- round(df$arc[df$DoG == 1]*sqrt(3),0) #arc from 0-crossing to T
+df$arc[df$type == "DoG"] <- round(df$arc[df$type == "DoG"]*sqrt(3),0) #arc from 0-crossing to T
 df$T <- df$arc / max(df$arc)
 ```
 
@@ -49,8 +49,8 @@ df$heading_rad[df$heading_rad > pi] <- round(df$heading_rad[df$heading_rad > pi]
 Below are the different treatments of target size and contrast with the number of observations indicated by the size of the black dot.
 
 ```{r}
-df %>% group_by(DoG) %>%
-  ggplot(aes(arc,color=DoG)) + geom_histogram()
+df %>% group_by(type) %>%
+  ggplot(aes(arc,color=type)) + geom_histogram()
 ```
 
 ```{r}
@@ -63,13 +63,15 @@ for(i in 1:length(df$pattern)){
   if(df$pattern[i] == "control"){
    if((i %% 2) != 0){
      df$pattern[i]  <- "DoG 0"
-     df$DoG[i]      <- 1
+     df$type[i]      <- "DoG"
    } else {
       df$pattern[i] <- "bar 0"
+      df$type[i]    <- "bar"
     }
   }
 }
-
+df$type <- droplevels(df$type)
+df$type <- relevel(df$type, "DoG")
 ```
 
 Now, make pattern a factor 
@@ -134,7 +136,7 @@ df %>% as_tibble %>%                 # dataframe name
   mutate(in.pent = ifelse(abs(heading_rad) < pi/5, 1, 0)) %>% # for data in radians -pi to pi
   mutate(in.sext = ifelse(abs(heading_rad) < pi/6, 1, 0)) %>% # for data in radians -pi to pi
   mutate(in.oct  = ifelse(abs(heading_rad) < pi/8, 1, 0)) %>% # for data in radians -pi to pi
-  group_by(arc,locale,DoG) %>%                # condition name
+  group_by(arc,locale,type) %>%                # condition name
   summarize(#target = round(T * 180 / pi)[1],
             n_obs = n(),
             mu    = round(180*mean.circular(heading_rad)/pi,0),
@@ -171,7 +173,7 @@ circ_fun_res
 
 
 ```{r}
-df %>% filter(DoG == 1) %>%
+df %>% filter(type == "DoG") %>%
   # dataframe name
   mutate(in.quad = ifelse(abs(heading_rad) < pi/4, 1, 0)) %>% # for data in radians -pi to pi
   mutate(in.pent = ifelse(abs(heading_rad) < pi/5, 1, 0)) %>% # for data in radians -pi to pi
@@ -213,27 +215,35 @@ The following non-default priors were given to brms. An informative prior was us
 
 This is the (exponentiated) prior applied to width of the psychometric curve between 10% and 90% of its maximum height and the model threshold.
 
+
+```{r}
+df %>% group_by(T,type) %>%
+  summarise(p = sum(success)/length(success)) -> props
+props %>%
+  ggplot(aes(x=T,y=p)) + geom_point() + theme_classic() + geom_hline(yintercept = 0.1667,color='red')
+```
+
+
 ### Prior Predictive Distribution for Resolution
 
-
-Here are circular plots of these datasets.
+Here are circular plots of these data sets.
 
 DoG stimuli
 
 ```{r Circular plots, message=FALSE}
 source('Cplot2_rad.R')
-par(mfrow = c(3,ceiling( nlevels(as.factor(df$T[df$DoG==1])) /3)));
+par(mfrow = c(3,ceiling( nlevels(as.factor(df$T[df$type=="DoG"])) /3)));
 par(mar = c(0.5, 0.5, 0.5, 0.5) + 0.1) # bottom, left, top, right
-for(i in levels(as.factor(df$arc[df$DoG==1])) ){
-    rad_plot(df$heading_rad[df$arc[df$DoG==1]==i],0.06)
+for(i in levels(as.factor(df$arc[df$type=="DoG"])) ){
+    rad_plot(df$heading_rad[df$arc[df$type=="DoG"]==i],0.06)
     text(0,.6,as.character(round(as.numeric(i),2)))
  }
 ```
 
 ```{r Circular plots, message=FALSE}
 source('Cplot2_rad.R')
-for(i in levels(as.factor(df$arc[df$DoG==1 & df$pattern=="dog 40"])) ){
-    rad_plot(df$heading_rad[df$arc[df$DoG==1]==i],0.06)
+for(i in levels(as.factor(df$arc[df$type=="DoG" & df$pattern=="dog 40"])) ){
+    rad_plot(df$heading_rad[df$arc[df$type=="DoG"]==i],0.06)
     text(0,.6,as.character(round(as.numeric(i),2)))
  }
 ```
@@ -242,10 +252,10 @@ Bar stimuli
 
 ```{r Circular plots, message=FALSE}
 source('Cplot2_rad.R')
-par(mfrow = c(3,ceiling( nlevels(as.factor(df$T[df$DoG==0])) /3)));
+par(mfrow = c(3,ceiling( nlevels(as.factor(df$T[df$type=="DoG"])) /3)));
 par(mar = c(0.5, 0.5, 0.5, 0.5) + 0.1) # bottom, left, top, right
-for(i in levels(as.factor(df$T[df$DoG==0])) ){
-    rad_plot(df$heading_rad[df$T[df$DoG==0]==i],0.06)
+for(i in levels(as.factor(df$T[df$type=="DoG"])) ){
+    rad_plot(df$heading_rad[df$T[df$type=="DoG"]==i],0.06)
     text(0,.6,as.character(round(as.numeric(i),2)))
  }
 ```
@@ -266,11 +276,11 @@ set.seed(196)
 N          <- 1000
 base       <- rnorm(N,0.1,0.01)  # Base is close to random probability
 base[base > 0.2] <- 0.2
-lapse      <- rbeta(N,15,15)       # Lapse is wide range - should not overlap base rate
-lapse[lapse > 0.74] <- 0.79
+lapse      <- rbeta(N,10,10)       # Lapse is wide range - should not overlap base rate
+lapse[lapse > 0.7] <- 0.7
 threshold  <- rgamma(N,2,1.5)    # Threshold must be > 0 and can be > 1.
 width      <- rgamma(N,2,1.5)    # Width must be > 0 and can be > 1.
-                                   # Varying intercept lapse
+sigma      <- rstudent_t(N, 3, mu = 0, sigma = 1)  # Varying intercept lapse
                                    # Varying intercepts base
 
 plot( NULL, xlim = c(-.5,3.5), ylim = c(0,0.8) ,
@@ -285,16 +295,20 @@ for ( i  in 1:N ) curve (
 
 ```{r}
 res.psych.priors  <- c(
-         prior(normal(0.1,0.01),     nlpar = "base",   lb=0,ub= 0.2),
-         prior(beta(15,15),          nlpar = "lapse" , lb=0,ub= 0.75   ),
+         prior(beta(5,50),           nlpar = "base",   lb=0, ub= 0.2),
+         prior(beta(10,10),          nlpar = "lapse" , lb=0,ub= 0.75   ),
          prior(gamma(2,1.5),         nlpar= 'threshold',  class = 'b'   ),
-	       prior(gamma(2,1.5),         nlpar = 'width',     class = 'b'     ))
+	       prior(gamma(2,1.5),         nlpar = 'width',     class = 'b'   )#,
+	  #     prior(student(3,0,.5),      class = 'b', nlpar = "sigma" ) # test
+         )
 ```
 
 
 ### *Empty* model without predictor
 
-```{r Empty model}
+Shouldn't be the T in here.
+
+```{r Empty model, include=FALSE}
 res.empty.formula <- bf(success ~
                       base +
                       (1 - base - lapse) *
@@ -306,45 +320,57 @@ res.empty.formula <- bf(success ~
                       nl = TRUE)
 
 res_empty_fit  <- brm(res.empty.formula, data = df, family = bernoulli("identity"),
-                      iter = 5000,chains = 4, prior = res.psych.priors,
+                      iter = iter,chains = chains, prior = res.psych.priors,
                       control = list(adapt_delta=0.99999))
 
-res_empty_fit <- add_criterion(res_empty_fit, c("loo","waic"))
+#res_empty_fit <- add_criterion(res_empty_fit, c("loo","waic"))
 ```
 
 
 ## Main model
 
-```{r Main model}
+Try removing T*type 
+
+```{r}
 res.psych.formula <- bf(success ~
                       base +
                       (1 - base - lapse) *
-                      inv_logit( 4.39*(	T*DoG - threshold	)	/  width  ),
-  base  ~ 1, lapse ~ 1, threshold ~ 1, width ~ 1, nl = TRUE)
+                      inv_logit( 4.39*(	T*type - threshold	)	/  width  ),
+  base  ~ 1, 
+  lapse ~ 1 + type,
+  threshold ~ 1 + type,
+  width ~ 1 + type,
+  nl = TRUE)
+```
 
+
+
+
+```{r}
+get_prior(res.psych.formula, data=df)
+```
+
+
+```{r Main model}
+res_psych_fit_pr  <- brm(res.psych.formula, data = df,
+                  family = bernoulli("identity"), iter = iter,
+                  chains = chains, prior = res.psych.priors, sample_prior = "only",
+                  control = list(adapt_delta=0.999))
+
+conditional_effects(res_psych_fit_pr, spaghetti=T, nsamples = NULL, robust=TRUE,
+                    effects = "T:type")
+#res_psych_fit  <- add_criterion(res_psych_fit, c("loo","waic"))
+```
+
+
+
+
+```{r Main model}
 res_psych_fit  <- brm(res.psych.formula, data = df,
-                  family = bernoulli("identity"), iter = 2500,
-                  chains = 4, prior = res.psych.priors,
-                  control = list(adapt_delta=0.99999))
-
-res_psych_fit  <- add_criterion(res_psych_fit, c("loo","waic"))
+                  family = bernoulli("identity"), iter = iter,
+                  chains = chains, prior = res.psych.priors, 
+                  control = list(adapt_delta=0.999))
 ```
-
-
-```{r}
-df %>% group_by(T,DoG) %>%
-  summarise(p = sum(success)/length(success)) -> props
-props %>%
-  ggplot(aes(x=T,y=p)) + geom_point() + theme_classic() + geom_hline(yintercept = 0.1667,color='red')
-```
-
-
-```{r}
-conditional_effects(res_psych_fit, spaghetti=T, nsamples = 1000,robust=TRUE)
-```
-
-
-
 
 According to the checks below (rhat and ESS) the model fit fine.
 
@@ -352,11 +378,24 @@ According to the checks below (rhat and ESS) the model fit fine.
 summary(res_psych_fit)
 ```
 
-The parameters are unimodal and the chains converged, resembling *hairy catterpillars.* Lapse is skewed, on account of the constraint imposed and because low values are perfectly plausible.
+The parameters are unimodal and the chains converged, resembling *hairy caterpillars.* Lapse is skewed, on account of the constraint imposed and because low values are perfectly plausible.
 
 ```{r}
 plot(res_psych_fit)
 ```
+
+
+
+```{r}
+conditional_effects(res_psych_fit, spaghetti=T, nsamples = 1000,robust=TRUE,
+                    effects = "T:type")
+```
+
+
+```{r}
+brms::stancode(res_psych_fit)
+```
+
 
 
 ```{r}
