@@ -264,14 +264,14 @@
 90;unmissable;T32;2;14 june 2016;1;unmissable;Tenerife;5.62
 90;unmissable;T32;3;14 june 2016;1;unmissable;Tenerife;2.56
 90;unmissable;T32;4;14 june 2016;1;unmissable;Tenerife;1.22
-0;control;T33;1;14 june 2016;0;control;Tenerife;0.1
-0;control;T33;2;14 june 2016;0;control;Tenerife;1.35
-0;control;T33;3;14 june 2016;0;control;Tenerife;0.47
-0;control;T33;4;14 june 2016;0;control;Tenerife;1.92
-0;control;T34;1;14 june 2016;0;control;Tenerife;5.67
-0;control;T34;2;14 june 2016;0;control;Tenerife;0.84
-0;control;T34;3;14 june 2016;0;control;Tenerife;1.4
-0;control;T34;4;14 june 2016;0;control;Tenerife;3.2
+0;control;T33;1;14 june 2016;0;grey control;Tenerife;0.1
+0;control;T33;2;14 june 2016;0;grey control;Tenerife;1.35
+0;control;T33;3;14 june 2016;0;grey control;Tenerife;0.47
+0;control;T33;4;14 june 2016;0;grey control;Tenerife;1.92
+0;control;T34;1;14 june 2016;0;grey control;Tenerife;5.67
+0;control;T34;2;14 june 2016;0;grey control;Tenerife;0.84
+0;control;T34;3;14 june 2016;0;grey control;Tenerife;1.4
+0;control;T34;4;14 june 2016;0;grey control;Tenerife;3.2
 40;DoG;T35;1;14 june 2016;0;dog 40;Tenerife;2.02
 40;DoG;T35;2;14 june 2016;0;dog 40;Tenerife;0.73
 40;DoG;T35;3;14 june 2016;0;dog 40;Tenerife;4.43
