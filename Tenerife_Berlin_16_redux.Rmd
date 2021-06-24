@@ -1,5 +1,5 @@
 ---
-title: "Ophiocoma Spatial Resolution and Contrast Sensitivity"
+title: "Tenerife and Berlin Diadema resolution"
 author: "John D. Kirwan"
 date: '2019-08-17'
 output: html_document
@@ -34,8 +34,8 @@ df$T <- df$arc / max(df$arc)
 Plot response to a very wide stimulus (90 degree). Then remove these from the dataset.
 
 ```{r}
-plot.circular(df$heading_rad[df$unmissable==1])
-df <- df[df$unmissable==0,]
+plot.circular(df$heading_rad[df$type=="unmissable"])
+df <- df[df$type != "unmissable",]
 df$unmissable <- NULL
 ```
 
@@ -43,6 +43,7 @@ No obvious response from the few data available.
 
 ```{r}
 df$heading_rad[df$heading_rad > pi] <- round(df$heading_rad[df$heading_rad > pi] - 2*pi,3)
+df$heading_rad <- as.circular(df$heading_rad)
 ```
 
 
@@ -53,25 +54,43 @@ df %>% group_by(type) %>%
   ggplot(aes(arc,color=type)) + geom_histogram()
 ```
 
+A quick look at all the data.
+
 ```{r}
-plot.circular(df$heading_rad,stack=T)
+rad_plot(df$heading_rad)
 ```
+
 Split the control data into two so there is some for the bar and DoG conditions. 
 
 ```{r}
-for(i in 1:length(df$pattern)){
-  if(df$pattern[i] == "control"){
-   if((i %% 2) != 0){
-     df$pattern[i]  <- "DoG 0"
-     df$type[i]      <- "DoG"
-   } else {
-      df$pattern[i] <- "bar 0"
-      df$type[i]    <- "bar"
-    }
-  }
-}
+# for(i in 1:length(df$pattern)){
+#   if(df$pattern[i] == "control"){
+#    if((i %% 2) == 0){
+#      df$pattern[i]  <- "DoG 0"
+#      df$type[i]      <- "DoG"
+#    } else {
+#       df$pattern[i] <- "bar 0"
+#       df$type[i]    <- "bar"
+#     }
+#   }
+# }
+# df$type <- droplevels(df$type)
+# df$type <- relevel(df$type, "bar")
+```
+
+
+```{r}
+df$type[df$pattern=="grey control"] <- "DoG"
+df$type[df$pattern=="control"] <- "bar"
 df$type <- droplevels(df$type)
-df$type <- relevel(df$type, "DoG")
+df$type <- relevel(df$type, "bar")
+```
+
+Make a scaled version of the arc width and get the median data point.
+
+```{r}
+df$arc.s <- scale(df$arc)
+attr(df$arc.s,"scaled:center")
 ```
 
 Now, make pattern a factor 
@@ -120,7 +139,7 @@ for(i in 1:length(df$heading_rad)){           ### get tote of each using one fif
 ```
 
 
-Make dataframe for the contrast experiment and the resolution experiment. Each include the 0$&deg;$ negative control with no stimulus.
+Make data frame for the contrast experiment and the resolution experiment. Each include the 0$&deg;$ negative control with no stimulus.
 
 ### Plot the headings
 
@@ -173,13 +192,13 @@ circ_fun_res
 
 
 ```{r}
-df %>% filter(type == "DoG") %>%
+df %>% group_by(type) %>%
   # dataframe name
   mutate(in.quad = ifelse(abs(heading_rad) < pi/4, 1, 0)) %>% # for data in radians -pi to pi
   mutate(in.pent = ifelse(abs(heading_rad) < pi/5, 1, 0)) %>% # for data in radians -pi to pi
   mutate(in.sext = ifelse(abs(heading_rad) < pi/6, 1, 0)) %>% # for data in radians -pi to pi
   mutate(in.oct  = ifelse(abs(heading_rad) < pi/8, 1, 0)) %>% # for data in radians -pi to pi
-  group_by(arc) %>%                # condition name
+  group_by(arc,type) %>%                # condition name
   summarize(target = round(arc * 180 / pi)[1],
             quad.prop = sum(in.quad)/length(in.quad),
             pent.prop = sum(in.pent)/length(in.pent),
@@ -203,9 +222,11 @@ circ_fun_DoG %>%
   geom_line(aes(y=quad.prop), color="blue")    +    ## data in target octant
    geom_line(data=circ_fun_DoG, aes(x=arc , y=pent.prop),size=1) +
    geom_hline(yintercept = 1/6) +
-   geom_bin2d(data=df,aes(y = success, x = arc)) + # counts
-   ylim(0,0.55)
+   #geom_bin2d(data=df,aes(y = success, x = arc)) + # counts
+   ylim(0,0.55) + facet_wrap(vars(type),scales = "free_x")
 ```
+
+
 
 ### Try with new formulation
 
@@ -220,7 +241,7 @@ This is the (exponentiated) prior applied to width of the psychometric curve bet
 df %>% group_by(T,type) %>%
   summarise(p = sum(success)/length(success)) -> props
 props %>%
-  ggplot(aes(x=T,y=p)) + geom_point() + theme_classic() + geom_hline(yintercept = 0.1667,color='red')
+  ggplot(aes(x=T,y=p)) + geom_point() + theme_classic() + geom_hline(yintercept = 0.1667,color='red') + facet_wrap(vars(type),scales = "free_x")
 ```
 
 
@@ -235,30 +256,25 @@ source('Cplot2_rad.R')
 par(mfrow = c(3,ceiling( nlevels(as.factor(df$T[df$type=="DoG"])) /3)));
 par(mar = c(0.5, 0.5, 0.5, 0.5) + 0.1) # bottom, left, top, right
 for(i in levels(as.factor(df$arc[df$type=="DoG"])) ){
-    rad_plot(df$heading_rad[df$arc[df$type=="DoG"]==i],0.06)
+    rad_plot(df$heading_rad[df$arc == i & df$type=="DoG"],0.06)
     text(0,.6,as.character(round(as.numeric(i),2)))
  }
 ```
 
-```{r Circular plots, message=FALSE}
-source('Cplot2_rad.R')
-for(i in levels(as.factor(df$arc[df$type=="DoG" & df$pattern=="dog 40"])) ){
-    rad_plot(df$heading_rad[df$arc[df$type=="DoG"]==i],0.06)
-    text(0,.6,as.character(round(as.numeric(i),2)))
- }
-```
+
 
 Bar stimuli
 
 ```{r Circular plots, message=FALSE}
 source('Cplot2_rad.R')
-par(mfrow = c(3,ceiling( nlevels(as.factor(df$T[df$type=="DoG"])) /3)));
+par(mfrow = c(2,ceiling( nlevels(as.factor(df$T[df$type=="bar"])) /2)));
 par(mar = c(0.5, 0.5, 0.5, 0.5) + 0.1) # bottom, left, top, right
-for(i in levels(as.factor(df$T[df$type=="DoG"])) ){
-    rad_plot(df$heading_rad[df$T[df$type=="DoG"]==i],0.06)
+for(i in levels(as.factor(df$arc[df$type=="bar"])) ){
+    rad_plot(df$heading_rad[df$arc == i & df$type=="bar"],0.06)
     text(0,.6,as.character(round(as.numeric(i),2)))
  }
 ```
+
 
 
 Below, we plot the possible range of values deemed by the priors and where predictions are distributed. A stimulus with the maximal target used (70 degrees) is already extremely wide. We know the base should be at 0.167 by random chance - so we put the location of the base parameter prior at this value, but allow it to vary around this point. Constraints are placed on base and lapse to prevent them overlapping. Priors on threshold and width keep these parameters within the possible range of angles. The inverse logit (logistic) function is *plogis* in base.
@@ -267,7 +283,7 @@ From previous data, we know the response rate of this species to a salient stimu
 
 ```{r}
 chains=4
-iter=2000
+iter=2500
 ```
 
 
@@ -278,9 +294,8 @@ base       <- rnorm(N,0.1,0.01)  # Base is close to random probability
 base[base > 0.2] <- 0.2
 lapse      <- rbeta(N,10,10)       # Lapse is wide range - should not overlap base rate
 lapse[lapse > 0.7] <- 0.7
-threshold  <- rgamma(N,2,1.5)    # Threshold must be > 0 and can be > 1.
-width      <- rgamma(N,2,1.5)    # Width must be > 0 and can be > 1.
-sigma      <- rstudent_t(N, 3, mu = 0, sigma = 1)  # Varying intercept lapse
+threshold  <- rgamma(N,2,1.5)# + sigma    # Threshold must be > 0 and can be > 1.
+width      <- rgamma(N,2,1.5)# + sigma   # Width must be > 0 and can be > 1.
                                    # Varying intercepts base
 
 plot( NULL, xlim = c(-.5,3.5), ylim = c(0,0.8) ,
@@ -293,55 +308,25 @@ for ( i  in 1:N ) curve (
    from=-.5, to = 3.5, add = TRUE, col = "black")
 ```
 
-```{r}
-res.psych.priors  <- c(
-         prior(beta(5,50),           nlpar = "base",   lb=0, ub= 0.2),
-         prior(beta(10,10),          nlpar = "lapse" , lb=0,ub= 0.75   ),
-         prior(gamma(2,1.5),         nlpar= 'threshold',  class = 'b'   ),
-	       prior(gamma(2,1.5),         nlpar = 'width',     class = 'b'   )#,
-	  #     prior(student(3,0,.5),      class = 'b', nlpar = "sigma" ) # test
-         )
-```
 
-
-### *Empty* model without predictor
-
-Shouldn't be the T in here.
-
-```{r Empty model, include=FALSE}
-res.empty.formula <- bf(success ~
-                      base +
-                      (1 - base - lapse) *
-                      inv_logit( 4.39*(	T - threshold)	/  width  ),
-  base      ~ 1,# + (1|individual), # guess rate has a single value
-	lapse     ~ 1, #+ (1|individual), # lapse rate can be different for different chicks
-	threshold ~ 1, #+ (1|individual), # threshold changes with all effects
-	width     ~ 1, #+ (1|individual), # threshold-width changes with all effects
-                      nl = TRUE)
-
-res_empty_fit  <- brm(res.empty.formula, data = df, family = bernoulli("identity"),
-                      iter = iter,chains = chains, prior = res.psych.priors,
-                      control = list(adapt_delta=0.99999))
-
-#res_empty_fit <- add_criterion(res_empty_fit, c("loo","waic"))
-```
 
 
 ## Main model
 
-Try removing T*type 
+Can't have a random effect with only two terms!
 
 ```{r}
-res.psych.formula <- bf(success ~
-                      base +
-                      (1 - base - lapse) *
-                      inv_logit( 4.39*(	T*type - threshold	)	/  width  ),
-  base  ~ 1, 
-  lapse ~ 1 + type,
-  threshold ~ 1 + type,
-  width ~ 1 + type,
-  nl = TRUE)
+res.psych.formula <- bf(
+  success ~ base + 
+            (1 - base - lapse) * inv_logit( 4.39*(	T - threshold	)	/ width ),
+            base      ~ 1, 
+            lapse     ~ 1,# + (1|locale),
+            threshold ~ type,
+            width     ~ type,  nl = TRUE)
 ```
+
+
+
 
 
 
@@ -350,6 +335,23 @@ res.psych.formula <- bf(success ~
 get_prior(res.psych.formula, data=df)
 ```
 
+```{r}
+res.psych.priors  <- c(
+         prior(beta(5,50),           nlpar = "base",   lb=0, ub= 0.2),
+         prior(beta(10,10),          nlpar = "lapse" , lb=0,ub= 0.75   ),
+         prior(gamma(2,1.5),         nlpar= 'threshold',  class = 'b'  ),
+	       prior(gamma(2,1.5),         nlpar = 'width',     class = 'b'  )
+      #   prior(student_t(3,0,0.1),       nlpar = 'lapse',     class = 'sd' ),
+      #   prior(exponential(10),          nlpar = 'threshold',  class = 'sd' ),
+      #   prior(student_t(3,0,.1),       nlpar = 'threshold',  class = 'sd' ),
+     #    prior(exponential(10),       nlpar = 'width',  class = 'sd' )
+     #    prior(student_t(3,0,.1),       nlpar = 'width',      class = 'sd' )
+         #,
+	  #     prior(student(3,0,.5),      class = 'b', nlpar = "sigma" ) # test
+         )
+```
+
+
 
 ```{r Main model}
 res_psych_fit_pr  <- brm(res.psych.formula, data = df,
@@ -357,8 +359,8 @@ res_psych_fit_pr  <- brm(res.psych.formula, data = df,
                   chains = chains, prior = res.psych.priors, sample_prior = "only",
                   control = list(adapt_delta=0.999))
 
-conditional_effects(res_psych_fit_pr, spaghetti=T, nsamples = NULL, robust=TRUE,
-                    effects = "T:type")
+#conditional_effects(res_psych_fit_pr, spaghetti=T, nsamples = NULL, robust=TRUE,
+#                    effects = "T:type")
 #res_psych_fit  <- add_criterion(res_psych_fit, c("loo","waic"))
 ```
 
@@ -381,21 +383,44 @@ summary(res_psych_fit)
 The parameters are unimodal and the chains converged, resembling *hairy caterpillars.* Lapse is skewed, on account of the constraint imposed and because low values are perfectly plausible.
 
 ```{r}
-plot(res_psych_fit)
+#plot(res_psych_fit)
 ```
 
 
 
 ```{r}
-conditional_effects(res_psych_fit, spaghetti=T, nsamples = 1000,robust=TRUE,
-                    effects = "T:type")
+conditions <-  make_conditions(df, vars = c("type"))
+
+p <- plot(conditional_effects(res_psych_fit, effects = "T", theme = "classic",
+                         conditions = conditions,spaghetti=TRUE),points=TRUE)
+#p$T + theme_classic()
 ```
+
+### *Empty* model without predictor
+
+Shouldn't be the T in here.
+
+```{r Empty model, include=FALSE}
+res.empty.formula <- bf(
+  success ~ base + 
+            (1 - base - lapse) * inv_logit( 4.39*(1 - threshold	)	/ width ),
+            base      ~ 1, 
+            lapse     ~ 1,# + (1|locale),
+            threshold ~ type,
+            width     ~ type,  nl = TRUE)
+
+res_empty_fit  <- brm(res.empty.formula, data = df, family = bernoulli("identity"),
+                      iter = iter,chains = chains, prior = res.psych.priors,
+                      control = list(adapt_delta=0.999))
+
+res_empty_fit <- add_criterion(res_empty_fit, c("loo","waic"))
+```
+
 
 
 ```{r}
 brms::stancode(res_psych_fit)
 ```
-
 
 
 ```{r}
@@ -405,45 +430,42 @@ loo_compare(res_psych_fit,res_empty_fit)
 
 ```{r Extract the samples}
 res.psych.smpl <- posterior_samples(res_psych_fit)
+
+bar_post <- res.psych.smpl$b_threshold_Intercept*max(df$arc)
+DoG_post <- bar_post + (res.psych.smpl$b_threshold_typeDoG * max(df$arc))
+thresh_df <- tibble(bar=bar_post,DoG=DoG_post)
+thresh_df <- gather(thresh_df,key="type",value = "threshold")
+
+thresh_df %>% group_by(type) %>%
+  ggplot(aes(x=threshold,group=type,color=type)) + geom_density() 
 ```
+
 
 
 ```{r}
 posterior_summary(res_psych_fit,
-                  pars=c("b_base_Intercept", "b_lapse_Intercept", "b_threshold_Intercept","b_width_Intercept"),
+                  pars=c("b_base_Intercept", "b_lapse_Intercept", "b_threshold_Intercept","b_width_Intercept","b_threshold_typeDoG","b_width_typeDoG"),
                   probs = c(0.025,  0.975), robust = TRUE)
 ```
 
 Plot the threshold and width transformed.
-
-```{r}
-param_trans <- function(x){
-  out = x*max(df$T)
-  return(out)}
-mcmc_areas(res_psych_fit, pars=c("b_threshold_Intercept","b_width_Intercept"),
-         point_est = "median", prob = 0.8, prob_outer = 0.95,
-         transformations = param_trans) +
-         ggplot2::labs(title = "Posterior distributions",
-                       subtitle = "with medians and 80% intervals")
-```
 
 ### Confidence intervals of the threshold parameter.
 
 PI (percentile interval) is a confidence interval similar to that conventionally used in frequentist statistics, which assigns equal mass to each tail.
 
 ```{r}
-threshold_smpl <- (res.psych.smpl$b_threshold_Intercept)*max(df$T)
-round(PI(threshold_smpl,prob=.95),2)
+library('rethinking')
+
+round(PI(thresh_df$threshold[thresh_df$type=="bar"],prob=.9),0)
+round(PI(thresh_df$threshold[thresh_df$type=="DoG"],prob=.9),0)
 ```
 
 HPDI (highest posterior density) is an alternative confidence interval which is especially useful is the distribution is skewed.
 
 ```{r}
-round(HPDI(threshold_smpl,prob=.95),2)
-```
-
-```{r}
-round(HPDI(threshold_smpl,prob=.5),2)
+round(HPDI(thresh_df$threshold[thresh_df$type=="bar"],prob=.9),0)
+round(HPDI(thresh_df$threshold[thresh_df$type=="DoG"],prob=.9),0)
 ```
 
 ### Graphical Posterior predictive checks
@@ -466,11 +488,6 @@ geom_point() + theme_classic() + scale_size_area(max_size = 4) + theme(legend.po
   ylab("Proportion orented towards target sector") + xlab("Stimulus arc width")
 ```
 
-### Bayes R-squared
-
-```{r}
-bayes_R2(res_psych_fit)
-```
 
 ### Plot each line from the draws and find the inflection point of each
 
@@ -527,7 +544,6 @@ round(HPDI(turning.pts,prob=.95),0)
 round(HPDI(turning.pts,prob=.5),0)
 ```
 
-
 Compare to the value of the *threshold* parameter (transformed) for reference: They are not identical. Prefer the turning point estimate above.
 
 ```{r}
@@ -535,222 +551,157 @@ HPDI(exp(res.psych.smpl$b_threshold_Intercept)*max(df$T))
 ```
 
 
-#### Contrast *unmissable* and DoG 69
 
-
-```{r}
-centrerad <- function(x){
-  if(x > pi){x = x - 2*pi
-  }else{x = x}
-  return(x)
-  }
-
-df$rad <- as.circular(sapply(df$heading_rad,centrerad))
-df$pattern <- as.factor(df$pattern)
-```
-
-This model estimates the overall concentration. 
-
-This model estimates the joint posterior probability of the circular expectation at each condition. 
-
+##### Other formulation
 
 ```{r}
-Mises_Type_prior.formula <- bf(theta ~ 0, kappa ~ pattern,
-                         family = von_mises(link='tan_half',link_kappa = "log"))
-Mises_Type_prior.prior = c(prior(normal(0,5), class = Intercept, dpar="kappa"),
-                     prior(normal(0,2), class = b, dpar="kappa")  )
-
-Mises_Type_prior.fit <- brm( Mises_Type_prior.formula,
-  prior = Mises_Type_prior.prior, iter = iter,
-  data = df, chains = chains,
-  sample_prior = "only",
-  silent=1,refresh=0,
-  control = list(adapt_delta = 0.9)) 
-
-summary(Mises_Type_prior.fit)
-```
-
-```{r}
-conditional_effects(Mises_Type_prior.fit, method = "fitted",dpar = "kappa", 
-                 resolution = 1000, robust = TRUE,
-                 nsamples = 1000, scale='response',
-                                  re_formula = NULL,ask=F)
-```
-
-
-
-Made looser priors because small treatments were estimated very low. 
-
-```{r}
-
-
-Mises_Type.formula <- bf(rad ~ 0, kappa ~ pattern, family = von_mises(link='tan_half'))
-#Mises_Type.data    <- make_standata(rad ~ pattern, kappa ~ 1,
-#                                  data = df, family = von_mises(link='tan_half'))
-
-Mises_Type.prior = c(prior(normal(0,5),  class = Intercept, dpar="kappa"),
-                     prior(normal(0,2), class = b, dpar="kappa")  )
-
-Mises_Type.fit <- brm( Mises_Type.formula,
-  prior = Mises_Type.prior, iter = iter,
-  data = df, chains = chains,
-  silent=1,refresh=0,
-  control = list(adapt_delta = 0.9)) 
-
-Mises_Type.fit <- add_criterion(Mises_Type.fit, c("loo","waic")) 
-```
-
-Plot the posterior probabilities by parameter and the Markov chains.
-
-```{r}
-plot(Mises_Type.fit,ask=F)
-```
-
-Unimodal posterior distributions with well converged Markov chains.
-
-```{r}
-summary(Mises_Type.fit)
-```
-
-ESS and Rhat values are good. Below is a graphical check of the marginal effects at the median.
-
-```{r}
-conditional_effects(Mises_Type.fit, method = "fitted",dpar = "kappa", 
-                 resolution = 1000, robust = TRUE,
-                 nsamples = 1000, scale='response',
-                                  re_formula = NULL,ask=F)
-```
-
-
-
-The DoG 69d pattern is much more oriented than the bar or control. The bar pattern is not significantly oriented in relation to the negative control. The DoG 69d pattern is also significantly more oriented than the 55d pattern, which is not significantly more oriented than the negative control. 
-
-This last part is surprising and takes credence from the idea that the 40 bar is not oriented. 
-
-Posterior predictive check.
-
-```{r}
-pp_check(Mises_Type.fit, type="dens_overlay", nsamples=200)
-```
-
-#### Discretized binomial model with all categories
-
-
-
-```{r}
-Bin_Type.formula <- bf(success ~ pattern, family = bernoulli(link='logit'))
-Bin_Type.prior <- c(prior(normal(0, 6), class = "b"))
-
-Bin_Type.fit <- brm(Bin_Type.formula,
-               prior = Bin_Type.prior, iter = iter,
-               data = df, chains = 4,
-               control = list(adapt_delta = 0.9))
-
-Bin_Type.fit <- add_criterion(Bin_Type.fit, criterion=c('loo','waic'))
+res.psych.formula2 <- bf(
+  success ~ base + (1 - base - lapse) * binomial(phi),
+            phi ~ inv_logit(alpha + beta*T*type),
+           # phi       ~ binomial(n, p),
+            #phi        = inv_logit(alpha + beta*T*type),
+            #X         = T*type,
+            base      ~ 1, 
+            lapse     ~ 1,
+            alpha     ~ 1,
+            beta      ~ 1,
+  nl = TRUE)
 ```
 
 
 ```{r}
-conditional_effects(Bin_Type.fit, method = "fitted", 
-                 resolution = 1000, robust = TRUE,
-                 nsamples = 1000, scale='response',
-                                  re_formula = NULL,ask=F)
+get_prior(res.psych.formula2, data=df)
 ```
-
-```{r}
-parnames(Bin_Type.fit)
-
-hypotheses <- c("patterndog40 > patternbar40",
-                "patterndog40 > patterncontrol",
-                "patternbar40 > patterncontrol",
-                "patterndog40 > patterndog55",
-                "patterndog55 > patterncontrol")
-
-hypothesis( Bin_Type.fit, hypotheses, class = "b" )
-```
-
-Same results as in the von Mises results. Did not recover the 
-
-```{r}
-rayleigh.test(df$heading_rad[df$pattern=="bar 40"])
-```
-
-```{r}
-rayleigh.test(df$heading_rad[df$pattern=="bar 40"],mu=0)
-```
-
-#### A variation of the von Mises test in which mu is also estimated
-
 
 
 ```{r}
-chains=4
-iter=2000
-
-Mises_mu_Type.formula <- bf(rad ~ 1, kappa ~ pattern, family = von_mises(link='tan_half'))
-#Mises_mu_Type.data    <- make_standata(rad ~ pattern, kappa ~ 1,
-#                                  data = df, family = von_mises(link='tan_half'))
-
-Mises_mu_Type.prior = c(prior(normal(0,4),  class="Intercept"),
-                        prior(normal(0,3),  class = Intercept, dpar="kappa"),
-                        prior(normal(0,2),  class = b, dpar="kappa")  )
-
-Mises_mu_Type.fit <- brm( Mises_mu_Type.formula,
-  prior = Mises_mu_Type.prior, iter = iter,
-  data = df, chains = chains,
-  silent=1,refresh=0,
-  control = list(adapt_delta = 0.9)) 
-
-Mises_mu_Type.fit <- add_criterion(Mises_mu_Type.fit, c("loo","waic")) 
+res.psych.priors2  <- c(
+         prior(beta(5,50),           nlpar = "base",   lb=0, ub= 0.2),
+         prior(beta(10,10),          nlpar = "lapse" , lb=0,ub= 0.75   ),
+         prior(gamma(2,1.5),         nlpar= 'alpha',  class = 'b'  ),
+	       prior(normal(0,2),          nlpar = 'beta',     class = 'b'  )    )
 ```
 
-Plot the posterior probabilities by parameter and the Markov chains.
+
+```{r Main model}
+res_psych_fit2  <- brm(res.psych.formula2, data = df,
+                  family = bernoulli("identity"), iter = iter,
+                  chains = chains, prior = res.psych.priors2, 
+                  control = list(adapt_delta=0.999))
+```
+
+According to the checks below (rhat and ESS) the model fit fine.
 
 ```{r}
-plot(Mises_mu_Type.fit,ask=F)
+summary(res_psych_fit2)
 ```
 
-Unimodal posterior distributions with well converged Markov chains.
+The parameters are unimodal and the chains converged, resembling *hairy caterpillars.* Lapse is skewed, on account of the constraint imposed and because low values are perfectly plausible.
 
 ```{r}
-summary(Mises_mu_Type.fit)
+plot(res_psych_fit)
 ```
 
-ESS and Rhat values are good. Below is a graphical check of the marginal effects at the median.
 
 ```{r}
-conditional_effects(Mises_mu_Type.fit, method = "fitted",dpar = "kappa", 
-                 resolution = 1000, robust = TRUE,
-                 nsamples = 1000, scale='response',
-                                  re_formula = NULL,ask=F)
+conditions <- data.frame(T = seq(from=-.1,to=2,length.out=210))
+plot(conditional_effects(fit, effects = "T",
+                         conditions = conditions))
 ```
+
 
 ```{r}
-parnames(Mises_mu_Type.fit)
-
-hypotheses <- c("b_kappa_patterndog40 > b_kappa_patternbar40",
-                "b_kappa_patterndog40 > b_kappa_patterncontrol",
-                "b_kappa_patternbar40 > b_kappa_patterncontrol",
-                "b_kappa_patterndog40 > b_kappa_patterndog55",
-                "b_kappa_patterndog55 > b_kappa_patterncontrol")
-
-hypothesis( Mises_mu_Type.fit, hypotheses, class = "" )
+conditional_effects(res_psych_fit, spaghetti=T, nsamples = 1000,robust=TRUE  )
 ```
 
 
 
-## Aside - half tan link for von Mises
+
+
+
+
+
+
+
+
+
 
 ```{r}
-# transforms radian into scalar real
-tan_half <- function(heading_rad){
-  x = tan(theta/2)
-  return(x)}
+set.seed(196)
+N          <- 1000
+base       <- rnorm(N,0.1,0.01)  # Base is close to random probability
+base[base > 0.2] <- 0.2
+lapse      <- rbeta(N,10,10)       # Lapse is wide range - should not overlap base rate
+lapse[lapse > 0.7] <- 0.7
+threshold  <- rnorm(N,0,3)# + sigma    # Threshold must be > 0 and can be > 1.
+width      <- rnorm(N,0,5)# + sigma   # Width must be > 0 and can be > 1.
+width[width < 0] <- 0                                   # Varying intercepts base
 
-# transforms scalar real into radian
-inv_tan_half <- function(x){
-  theta = 2 * atan(x)
-  return(heading_rad)}
+plot( NULL, xlim = c(-3,3), ylim = c(0,0.8) ,
+      xlab = "Scaled stimulus strength", ylab = "Proportion correct response" )
+abline (h=1/6, lty=2)
+for ( i  in 1:N ) curve (
+        base[i] +
+          (1 - base[i] - lapse[i]) *   
+          plogis(4.39*(	x - threshold[i]	)	/ ( (width[i]) ) ),
+   from=-3, to = 3, add = TRUE, col = "black")
 ```
+
+
+
+```{r}
+psych.s.formula <- bf(
+  success ~ base + 
+            (1 - base - lapse) * inv_logit( 4.39*(	arc.s - threshold	)	/ width ),
+            base      ~ 1, 
+            lapse     ~ 1,# + (1|locale),
+            threshold ~ type,
+            width     ~ type,  nl = TRUE)
+```
+
+
+
+```{r}
+get_prior(psych.s.formula, data=df)
+```
+
+
+
+
+```{r}
+psych.s.priors  <- c(
+         prior(beta(5,50),           nlpar = "base",   lb=0, ub= 0.2),
+         prior(beta(10,10),          nlpar = "lapse" , lb=0,ub= 0.75   ),
+         prior(normal(0,3),          nlpar= 'threshold',  class = 'b'  ),
+	       prior(normal(0,5),          nlpar = 'width',     class = 'b' , lb=0 )
+         )
+```
+
+
+
+```{r Main model}
+psych_s_fit_pr  <- brm(psych.s.formula, data = df,
+                  family = bernoulli("identity"), iter = iter,
+                  chains = chains, prior = psych.s.priors, sample_prior = "only",
+                  control = list(adapt_delta=0.999))
+```
+
+
+
+
+```{r Main model}
+psych_s_fit  <- brm(psych.s.formula, data = df,
+                  family = bernoulli("identity"), iter = iter,
+                  chains = chains, prior = psych.s.priors, 
+                  control = list(adapt_delta=0.999))
+```
+
+
+According to the checks below (rhat and ESS) the model fit fine.
+
+```{r}
+summary(psych_s_fit)
+```
+
 
 
