@@ -349,8 +349,8 @@ get_prior(res.psych.formula, data=df)
 res.psych.priors  <- c(
          prior(beta(5,50),           nlpar = "base",   lb=0, ub= 0.22 ),
          prior(beta(10,10),          nlpar = "lapse" , lb=0, ub= 0.78 ),
-         prior(normal(2,2.5),        nlpar= 'threshold',  class = 'b' ),
-	       prior(normal(2,2),          nlpar = 'width',  lb=0, class = 'b' )
+         prior(normal(2,3),        nlpar= 'threshold',  class = 'b' ),
+	       prior(normal(3,2),          nlpar = 'width',  lb=0, class = 'b' )
       #   prior(student_t(3,0,0.1),       nlpar = 'lapse',     class = 'sd' ),
       #   prior(exponential(10),          nlpar = 'threshold',  class = 'sd' ),
       #   prior(student_t(3,0,.1),       nlpar = 'threshold',  class = 'sd' ),
@@ -369,9 +369,9 @@ res_psych_fit_pr  <- brm(res.psych.formula, data = df,
                   chains = chains, prior = res.psych.priors, sample_prior = "only",
                   control = list(adapt_delta=0.999))
 
-conditional_effects(res_psych_fit_pr, spaghetti=T,
+conditional_effects(res_psych_fit_pr, spaghetti=FALSE,
                     nsamples = NULL, robust=TRUE,
-                    effects = "arc.s:type")
+                    effects = "arc.s")
 res_psych_fit  <- add_criterion(res_psych_fit, c("loo"))
 ```
 
