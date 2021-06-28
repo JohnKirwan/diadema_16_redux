@@ -251,7 +251,7 @@ This is the (exponentiated) prior applied to width of the psychometric curve bet
 df %>% group_by(T,type,species) %>%
   summarise(p = sum(success)/length(success)) -> props
 props %>%
-  ggplot(aes(x=T,y=p)) + geom_point() + theme_classic() + geom_hline(yintercept = 0.1667,color='red') + facet_wrap(vars(species,type),scales = "free_x")
+  ggplot(aes(x=T,y=p)) + geom_point() + theme_classic() + geom_hline(yintercept = 0.1667,color='red') + facet_wrap(vars(species,type),scales = "free")
 ```
 
 
@@ -307,8 +307,8 @@ base       <- rbeta(N,5,50)  # Base is close to random probability
 base[base > 0.23] <- 0.23
 lapse      <- rbeta(N,5,5)       # Lapse is wide range - should not overlap base rate
 lapse[lapse > 0.77] <- 0.77
-threshold  <- rnorm(N,2,2.5)# + sigma   # Threshold must be > 0 and can be > 1.
-width      <- rnorm(N,2,2)# + sigma   # Width must be > 0 and can be > 1.
+threshold  <- rnorm(N,2,3)# + sigma   # Threshold must be > 0 and can be > 1.
+width      <- rnorm(N,3,2)# + sigma   # Width must be > 0 and can be > 1.
 width[width < 0] <- 0                   # Varying intercepts base
 
 plot( NULL, xlim = c(-2,6), ylim = c(0,0.9) ,
