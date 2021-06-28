@@ -1,0 +1,1132 @@
+﻿arc;type;trial_set;pos;date;huge;pattern;locale;heading_rad;species;predator;id
+60;DoG;B1;1;20/05/2015;0;dog 60;Berlin;-2.95;Da;0;na
+60;DoG;B1;2;20/05/2015;0;dog 60;Berlin;0.28;Da;0;na
+60;DoG;B1;3;20/05/2015;0;dog 60;Berlin;0.43;Da;0;na
+60;DoG;B1;4;20/05/2015;0;dog 60;Berlin;0.06;Da;0;na
+60;DoG;B2;1;20/05/2015;0;dog 60;Berlin;-0.38;Da;0;na
+60;DoG;B2;2;20/05/2015;0;dog 60;Berlin;-1.86;Da;0;na
+60;DoG;B2;4;20/05/2015;0;dog 60;Berlin;0.44;Da;0;na
+60;DoG;B3;2;20/05/2015;0;dog 60;Berlin;0.19;Da;0;na
+55;DoG;B4;1;27/05/2015;0;dog 55;Berlin;2.57;Da;0;na
+55;DoG;B4;2;27/05/2015;0;dog 55;Berlin;0.25;Da;0;na
+55;DoG;B4;3;27/05/2015;0;dog 55;Berlin;0.6;Da;0;na
+55;DoG;B4;4;27/05/2015;0;dog 55;Berlin;-2.97;Da;0;na
+55;DoG;B5;1;27/05/2015;0;dog 55;Berlin;-1.1;Da;0;na
+55;DoG;B5;2;27/05/2015;0;dog 55;Berlin;0.01;Da;0;na
+55;DoG;B5;3;27/05/2015;0;dog 55;Berlin;-0.3;Da;0;na
+55;DoG;B5;4;27/05/2015;0;dog 55;Berlin;0.03;Da;0;na
+55;DoG;B6;2;27/05/2015;0;dog 55;Berlin;2.69;Da;0;na
+55;DoG;B6;3;27/05/2015;0;dog 55;Berlin;-1.38;Da;0;na
+55;DoG;B6;4;27/05/2015;0;dog 55;Berlin;1.94;Da;0;na
+55;DoG;B7;1;27/05/2015;0;dog 55;Berlin;2.92;Da;0;na
+55;DoG;B7;2;27/05/2015;0;dog 55;Berlin;-0.28;Da;0;na
+55;DoG;B7;3;27/05/2015;0;dog 55;Berlin;-0.08;Da;0;na
+55;DoG;B7;4;27/05/2015;0;dog 55;Berlin;0.23;Da;0;na
+55;DoG;B8;1;27/05/2015;0;dog 55;Berlin;-2.52;Da;0;na
+55;DoG;B8;2;27/05/2015;0;dog 55;Berlin;-2.93;Da;0;na
+55;DoG;B8;4;27/05/2015;0;dog 55;Berlin;0.02;Da;0;na
+50;bar;B9;1;18/05/2015;0;bar 50;Berlin;1.7;Da;0;na
+50;bar;B9;2;18/05/2015;0;bar 50;Berlin;-0.4;Da;0;na
+50;bar;B9;3;18/05/2015;0;bar 50;Berlin;0.22;Da;0;na
+50;bar;B9;4;18/05/2015;0;bar 50;Berlin;-0.31;Da;0;na
+50;bar;B10;1;18/05/2015;0;bar 50;Berlin;-0.02;Da;0;na
+50;bar;B10;2;18/05/2015;0;bar 50;Berlin;1.52;Da;0;na
+50;bar;B10;3;18/05/2015;0;bar 50;Berlin;2.43;Da;0;na
+50;bar;B10;4;18/05/2015;0;bar 50;Berlin;0.35;Da;0;na
+50;bar;B11;1;18/05/2015;0;bar 50;Berlin;-2.33;Da;0;na
+50;bar;B11;2;18/05/2015;0;bar 50;Berlin;0.52;Da;0;na
+50;bar;B11;3;18/05/2015;0;bar 50;Berlin;0.58;Da;0;na
+50;bar;B11;4;18/05/2015;0;bar 50;Berlin;-0.02;Da;0;na
+50;bar;B12;1;18/05/2015;0;bar 50;Berlin;-0.07;Da;0;na
+50;bar;B12;2;18/05/2015;0;bar 50;Berlin;2.12;Da;0;na
+50;bar;B12;3;18/05/2015;0;bar 50;Berlin;-2.5;Da;0;na
+50;bar;B12;4;18/05/2015;0;bar 50;Berlin;0.61;Da;0;na
+50;bar;B13;1;18/05/2015;0;bar 50;Berlin;1.6;Da;0;na
+50;bar;B13;2;18/05/2015;0;bar 50;Berlin;-2.88;Da;0;na
+50;bar;B13;3;18/05/2015;0;bar 50;Berlin;-0.45;Da;0;na
+50;bar;B13;4;18/05/2015;0;bar 50;Berlin;-0.22;Da;0;na
+50;DoG;B14;1;21/05/2015;0;dog 50;Berlin;2.67;Da;0;na
+50;DoG;B14;2;21/05/2015;0;dog 50;Berlin;1.08;Da;0;na
+50;DoG;B14;3;21/05/2015;0;dog 50;Berlin;0.92;Da;0;na
+50;DoG;B14;4;21/05/2015;0;dog 50;Berlin;1.67;Da;0;na
+50;DoG;B15;1;21/05/2015;0;dog 50;Berlin;-0.15;Da;0;na
+50;DoG;B15;2;21/05/2015;0;dog 50;Berlin;-2.06;Da;0;na
+50;DoG;B15;3;21/05/2015;0;dog 50;Berlin;2.82;Da;0;na
+50;DoG;B15;4;21/05/2015;0;dog 50;Berlin;2.93;Da;0;na
+50;DoG;B16;1;21/05/2015;0;dog 50;Berlin;-0.2;Da;0;na
+50;DoG;B16;2;21/05/2015;0;dog 50;Berlin;2.95;Da;0;na
+50;DoG;B16;3;21/05/2015;0;dog 50;Berlin;0.6;Da;0;na
+50;DoG;B16;4;21/05/2015;0;dog 50;Berlin;-0.18;Da;0;na
+50;DoG;B17;1;21/05/2015;0;dog 50;Berlin;0.21;Da;0;na
+50;DoG;B17;2;21/05/2015;0;dog 50;Berlin;-1.3;Da;0;na
+50;DoG;B17;3;21/05/2015;0;dog 50;Berlin;-1.12;Da;0;na
+50;DoG;B17;4;21/05/2015;0;dog 50;Berlin;-1.31;Da;0;na
+50;DoG;B18;1;21/05/2015;0;dog 50;Berlin;-0.28;Da;0;na
+50;DoG;B18;2;21/05/2015;0;dog 50;Berlin;-0.18;Da;0;na
+50;DoG;B18;3;21/05/2015;0;dog 50;Berlin;0.45;Da;0;na
+45;DoG;B19;1;20/05/2015;0;dog 45;Berlin;-1.47;Da;0;na
+45;DoG;B19;2;20/05/2015;0;dog 45;Berlin;-0.45;Da;0;na
+45;DoG;B19;3;20/05/2015;0;dog 45;Berlin;2.2;Da;0;na
+45;DoG;B19;4;20/05/2015;0;dog 45;Berlin;-2.34;Da;0;na
+45;DoG;B20;1;20/05/2015;0;dog 45;Berlin;-0.34;Da;0;na
+45;DoG;B20;2;20/05/2015;0;dog 45;Berlin;2.59;Da;0;na
+45;DoG;B20;3;20/05/2015;0;dog 45;Berlin;-2.69;Da;0;na
+45;DoG;B20;4;20/05/2015;0;dog 45;Berlin;2.83;Da;0;na
+45;DoG;B21;1;20/05/2015;0;dog 45;Berlin;-0.1;Da;0;na
+45;DoG;B21;2;20/05/2015;0;dog 45;Berlin;2.37;Da;0;na
+45;DoG;B21;3;20/05/2015;0;dog 45;Berlin;2.37;Da;0;na
+45;DoG;B21;4;20/05/2015;0;dog 45;Berlin;2.1;Da;0;na
+35;bar;B22;1;19/05/2015;0;bar 35;Berlin;0.47;Da;0;na
+35;bar;B22;2;19/05/2015;0;bar 35;Berlin;2.32;Da;0;na
+35;bar;B22;3;19/05/2015;0;bar 35;Berlin;-1.72;Da;0;na
+35;bar;B22;4;19/05/2015;0;bar 35;Berlin;-0.2;Da;0;na
+35;bar;B23;1;19/05/2015;0;bar 35;Berlin;-2.72;Da;0;na
+35;bar;B23;2;19/05/2015;0;bar 35;Berlin;-2.51;Da;0;na
+35;bar;B23;3;19/05/2015;0;bar 35;Berlin;-0.31;Da;0;na
+35;bar;B23;4;19/05/2015;0;bar 35;Berlin;-0.25;Da;0;na
+35;bar;B24;1;19/05/2015;0;bar 35;Berlin;-2.27;Da;0;na
+35;bar;B24;2;19/05/2015;0;bar 35;Berlin;-0.44;Da;0;na
+35;bar;B24;3;19/05/2015;0;bar 35;Berlin;-0.3;Da;0;na
+35;bar;B24;4;19/05/2015;0;bar 35;Berlin;0.23;Da;0;na
+35;bar;B25;1;19/05/2015;0;bar 35;Berlin;-0.45;Da;0;na
+35;bar;B25;2;19/05/2015;0;bar 35;Berlin;2.72;Da;0;na
+35;bar;B25;3;19/05/2015;0;bar 35;Berlin;-0.21;Da;0;na
+35;bar;B25;4;19/05/2015;0;bar 35;Berlin;0.13;Da;0;na
+25;DoG;B26;1;20/05/2015;0;dog 25;Berlin;-3.02;Da;0;na
+25;DoG;B26;2;20/05/2015;0;dog 25;Berlin;0.19;Da;0;na
+25;DoG;B26;3;20/05/2015;0;dog 25;Berlin;2.86;Da;0;na
+25;DoG;B26;4;20/05/2015;0;dog 25;Berlin;-1.11;Da;0;na
+25;DoG;B27;1;20/05/2015;0;dog 25;Berlin;0.77;Da;0;na
+25;DoG;B27;2;20/05/2015;0;dog 25;Berlin;-1.49;Da;0;na
+25;DoG;B27;3;20/05/2015;0;dog 25;Berlin;0.99;Da;0;na
+25;DoG;B27;4;20/05/2015;0;dog 25;Berlin;1.45;Da;0;na
+25;DoG;B28;1;20/05/2015;0;dog 25;Berlin;1.94;Da;0;na
+25;DoG;B28;2;20/05/2015;0;dog 25;Berlin;3.07;Da;0;na
+25;bar;B29;1;19/05/2015;0;bar 25;Berlin;-1.47;Da;0;na
+25;bar;B29;2;19/05/2015;0;bar 25;Berlin;0.24;Da;0;na
+25;bar;B29;3;19/05/2015;0;bar 25;Berlin;-3.04;Da;0;na
+25;bar;B29;4;19/05/2015;0;bar 25;Berlin;0;Da;0;na
+25;bar;B30;1;19/05/2015;0;bar 25;Berlin;1.56;Da;0;na
+25;bar;B30;2;19/05/2015;0;bar 25;Berlin;-1.57;Da;0;na
+25;bar;B30;3;19/05/2015;0;bar 25;Berlin;0.03;Da;0;na
+25;bar;B30;4;19/05/2015;0;bar 25;Berlin;-2.33;Da;0;na
+25;bar;B31;1;19/05/2015;0;bar 25;Berlin;2.66;Da;0;na
+25;bar;B31;3;19/05/2015;0;bar 25;Berlin;-0.21;Da;0;na
+25;bar;B32;1;19/05/2015;0;bar 25;Berlin;-2.39;Da;0;na
+25;bar;B32;2;19/05/2015;0;bar 25;Berlin;-0.2;Da;0;na
+25;bar;B32;3;19/05/2015;0;bar 25;Berlin;2.94;Da;0;na
+25;bar;B32;4;19/05/2015;0;bar 25;Berlin;2.29;Da;0;na
+15;bar;B33;1;19/05/2015;0;bar 15;Berlin;-0.76;Da;0;na
+15;bar;B33;2;19/05/2015;0;bar 15;Berlin;-0.97;Da;0;na
+15;bar;B33;3;19/05/2015;0;bar 15;Berlin;-2.17;Da;0;na
+15;bar;B33;4;19/05/2015;0;bar 15;Berlin;3.05;Da;0;na
+15;bar;B34;1;19/05/2015;0;bar 15;Berlin;-0.23;Da;0;na
+15;bar;B34;2;19/05/2015;0;bar 15;Berlin;-2.65;Da;0;na
+15;bar;B34;3;19/05/2015;0;bar 15;Berlin;-0.6;Da;0;na
+15;bar;B34;4;19/05/2015;0;bar 15;Berlin;-3.01;Da;0;na
+15;bar;B35;1;19/05/2015;0;bar 15;Berlin;2.46;Da;0;na
+15;bar;B35;2;19/05/2015;0;bar 15;Berlin;-0.97;Da;0;na
+15;bar;B35;3;19/05/2015;0;bar 15;Berlin;1.34;Da;0;na
+15;bar;B35;4;19/05/2015;0;bar 15;Berlin;-0.59;Da;0;na
+15;bar;B36;1;19/05/2015;0;bar 15;Berlin;-1.54;Da;0;na
+15;bar;B36;2;19/05/2015;0;bar 15;Berlin;-1.29;Da;0;na
+15;bar;B36;3;19/05/2015;0;bar 15;Berlin;-1.51;Da;0;na
+15;bar;B36;4;19/05/2015;0;bar 15;Berlin;-2.25;Da;0;na
+15;bar;B37;4;19/05/2015;0;bar 15;Berlin;2.96;Da;0;na
+15;bar;B37;1;19/05/2015;0;bar 15;Berlin;-0.87;Da;0;na
+15;bar;B37;2;19/05/2015;0;bar 15;Berlin;1.67;Da;0;na
+15;bar;B37;3;19/05/2015;0;bar 15;Berlin;-0.85;Da;0;na
+40;DoG;T1;1;14/06/2016;0;dog 40;Tenerife;3.8;Da;0;na
+40;DoG;T1;2;14/06/2016;0;dog 40;Tenerife;3.18;Da;0;na
+40;DoG;T1;3;14/06/2016;0;dog 40;Tenerife;2.75;Da;0;na
+40;DoG;T1;4;14/06/2016;0;dog 40;Tenerife;0.46;Da;0;na
+40;DoG;T2;1;15/06/2016;0;dog 40;Tenerife;0.94;Da;0;na
+40;DoG;T2;2;15/06/2016;0;dog 40;Tenerife;0.22;Da;0;na
+40;DoG;T2;3;15/06/2016;0;dog 40;Tenerife;0.1;Da;0;na
+40;DoG;T2;4;15/06/2016;0;dog 40;Tenerife;3.03;Da;0;na
+55;DoG;T3;1;15/06/2016;0;dog 55;Tenerife;0.13;Da;0;na
+55;DoG;T3;2;15/06/2016;0;dog 55;Tenerife;6.06;Da;0;na
+55;DoG;T3;3;15/06/2016;0;dog 55;Tenerife;2.34;Da;0;na
+55;DoG;T3;4;15/06/2016;0;dog 55;Tenerife;3.32;Da;0;na
+55;DoG;T4;1;15/06/2016;0;dog 55;Tenerife;2.6;Da;0;na
+55;DoG;T4;2;15/06/2016;0;dog 55;Tenerife;3.47;Da;0;na
+55;DoG;T4;4;15/06/2016;0;dog 55;Tenerife;1.23;Da;0;na
+55;DoG;T4;3;15/06/2016;0;dog 55;Tenerife;0.79;Da;0;na
+55;DoG;T5;1;15/06/2016;0;dog 55;Tenerife;0.03;Da;0;na
+55;DoG;T5;2;15/06/2016;0;dog 55;Tenerife;4.32;Da;0;na
+55;DoG;T5;3;15/06/2016;0;dog 55;Tenerife;2.57;Da;0;na
+55;DoG;T5;4;15/06/2016;0;dog 55;Tenerife;5.6;Da;0;na
+55;DoG;T6;1;15/06/2016;0;dog 55;Tenerife;2.46;Da;0;na
+55;DoG;T6;2;15/06/2016;0;dog 55;Tenerife;3.5;Da;0;na
+55;DoG;T6;3;15/06/2016;0;dog 55;Tenerife;5.16;Da;0;na
+55;DoG;T6;4;15/06/2016;0;dog 55;Tenerife;2.08;Da;0;na
+55;DoG;T7;1;15/06/2016;0;dog 55;Tenerife;3.85;Da;0;na
+55;DoG;T7;2;15/06/2016;0;dog 55;Tenerife;2.85;Da;0;na
+55;DoG;T7;3;15/06/2016;0;dog 55;Tenerife;2;Da;0;na
+55;DoG;T7;4;15/06/2016;0;dog 55;Tenerife;4.65;Da;0;na
+55;DoG;T8;1;15/06/2016;0;dog 55;Tenerife;6.27;Da;0;na
+55;DoG;T8;2;15/06/2016;0;dog 55;Tenerife;5.59;Da;0;na
+55;DoG;T8;3;15/06/2016;0;dog 55;Tenerife;3.25;Da;0;na
+55;DoG;T8;4;15/06/2016;0;dog 55;Tenerife;6.03;Da;0;na
+55;DoG;T9;1;15/06/2016;0;dog 55;Tenerife;4.81;Da;0;na
+55;DoG;T9;2;15/06/2016;0;dog 55;Tenerife;6.09;Da;0;na
+55;DoG;T9;3;15/06/2016;0;dog 55;Tenerife;1.38;Da;0;na
+55;DoG;T9;4;15/06/2016;0;dog 55;Tenerife;2.43;Da;0;na
+55;DoG;T10;1;15/06/2016;0;dog 55;Tenerife;2;Da;0;na
+55;DoG;T10;2;15/06/2016;0;dog 55;Tenerife;0;Da;0;na
+55;DoG;T10;3;15/06/2016;0;dog 55;Tenerife;0.37;Da;0;na
+55;DoG;T10;4;15/06/2016;0;dog 55;Tenerife;0.16;Da;0;na
+40;bar;T11;1;16/06/2016;0;bar 40;Tenerife;1.61;Da;0;na
+40;bar;T11;2;16/06/2016;0;bar 40;Tenerife;3.26;Da;0;na
+40;bar;T11;3;16/06/2016;0;bar 40;Tenerife;4.28;Da;0;na
+40;bar;T11;4;16/06/2016;0;bar 40;Tenerife;3.19;Da;0;na
+40;bar;T12;1;16/06/2016;0;bar 40;Tenerife;1.67;Da;0;na
+40;bar;T12;2;16/06/2016;0;bar 40;Tenerife;0.15;Da;0;na
+40;bar;T12;3;16/06/2016;0;bar 40;Tenerife;0.06;Da;0;na
+40;bar;T12;4;16/06/2016;0;bar 40;Tenerife;0.84;Da;0;na
+40;bar;T13;1;16/06/2016;0;bar 40;Tenerife;6.06;Da;0;na
+40;bar;T13;2;16/06/2016;0;bar 40;Tenerife;0.59;Da;0;na
+40;bar;T13;3;16/06/2016;0;bar 40;Tenerife;3.35;Da;0;na
+40;bar;T13;4;16/06/2016;0;bar 40;Tenerife;2.41;Da;0;na
+40;bar;T14;1;16/06/2016;0;bar 40;Tenerife;0.16;Da;0;na
+40;bar;T14;2;16/06/2016;0;bar 40;Tenerife;4.73;Da;0;na
+40;bar;T14;3;16/06/2016;0;bar 40;Tenerife;1.2;Da;0;na
+40;bar;T14;4;16/06/2016;0;bar 40;Tenerife;4.47;Da;0;na
+40;bar;T15;1;16/06/2016;0;bar 40;Tenerife;0.83;Da;0;na
+40;bar;T15;2;16/06/2016;0;bar 40;Tenerife;3.14;Da;0;na
+40;bar;T15;3;16/06/2016;0;bar 40;Tenerife;0.4;Da;0;na
+40;bar;T15;4;16/06/2016;0;bar 40;Tenerife;3.2;Da;0;na
+40;bar;T16;1;17/06/2016;0;bar 40;Tenerife;0;Da;0;na
+40;bar;T16;2;17/06/2016;0;bar 40;Tenerife;5.65;Da;0;na
+40;bar;T16;3;17/06/2016;0;bar 40;Tenerife;0.88;Da;0;na
+40;bar;T16;4;17/06/2016;0;bar 40;Tenerife;0.26;Da;0;na
+40;bar;T17;1;19/06/2016;0;bar 40;Tenerife;0.63;Da;0;na
+40;bar;T17;2;19/06/2016;0;bar 40;Tenerife;0.1;Da;0;na
+40;bar;T17;3;19/06/2016;0;bar 40;Tenerife;3.25;Da;0;na
+40;bar;T17;4;19/06/2016;0;bar 40;Tenerife;0.28;Da;0;na
+40;bar;T18;1;19/06/2016;0;bar 40;Tenerife;1.67;Da;0;na
+40;bar;T18;2;19/06/2016;0;bar 40;Tenerife;0;Da;0;na
+40;bar;T18;3;19/06/2016;0;bar 40;Tenerife;4.35;Da;0;na
+40;bar;T18;4;19/06/2016;0;bar 40;Tenerife;3.83;Da;0;na
+40;bar;T19;1;19/06/2016;0;bar 40;Tenerife;0.94;Da;0;na
+40;bar;T19;2;19/06/2016;0;bar 40;Tenerife;1.4;Da;0;na
+40;bar;T19;3;19/06/2016;0;bar 40;Tenerife;0.11;Da;0;na
+40;bar;T19;4;19/06/2016;0;bar 40;Tenerife;0.16;Da;0;na
+40;bar;T20;1;19/06/2016;0;bar 40;Tenerife;2.37;Da;0;na
+40;bar;T20;2;19/06/2016;0;bar 40;Tenerife;0.37;Da;0;na
+40;bar;T20;3;19/06/2016;0;bar 40;Tenerife;2.85;Da;0;na
+40;bar;T20;4;19/06/2016;0;bar 40;Tenerife;1.17;Da;0;na
+40;bar;T21;1;19/06/2016;0;bar 40;Tenerife;2.51;Da;0;na
+40;bar;T21;2;19/06/2016;0;bar 40;Tenerife;6.2;Da;0;na
+40;bar;T21;3;19/06/2016;0;bar 40;Tenerife;0.81;Da;0;na
+40;bar;T21;4;19/06/2016;0;bar 40;Tenerife;5.03;Da;0;na
+40;DoG;T22;1;19/06/2016;0;dog 40;Tenerife;6.16;Da;0;na
+40;DoG;T22;2;19/06/2016;0;dog 40;Tenerife;0.06;Da;0;na
+40;DoG;T22;3;19/06/2016;0;dog 40;Tenerife;0.28;Da;0;na
+40;DoG;T22;4;19/06/2016;0;dog 40;Tenerife;5.87;Da;0;na
+40;DoG;T23;1;19/06/2016;0;dog 40;Tenerife;6.11;Da;0;na
+40;DoG;T23;2;19/06/2016;0;dog 40;Tenerife;5.95;Da;0;na
+40;DoG;T23;3;19/06/2016;0;dog 40;Tenerife;0;Da;0;na
+40;DoG;T23;4;19/06/2016;0;dog 40;Tenerife;5.76;Da;0;na
+40;DoG;T24;1;19/06/2016;0;dog 40;Tenerife;5.77;Da;0;na
+40;DoG;T24;2;19/06/2016;0;dog 40;Tenerife;3.09;Da;0;na
+40;DoG;T24;3;19/06/2016;0;dog 40;Tenerife;2.74;Da;0;na
+40;DoG;T24;4;19/06/2016;0;dog 40;Tenerife;6.14;Da;0;na
+40;DoG;T25;1;19/06/2016;0;dog 40;Tenerife;0.13;Da;0;na
+40;DoG;T25;2;19/06/2016;0;dog 40;Tenerife;0.73;Da;0;na
+40;DoG;T25;3;19/06/2016;0;dog 40;Tenerife;4.04;Da;0;na
+40;DoG;T25;4;19/06/2016;0;dog 40;Tenerife;3.05;Da;0;na
+40;DoG;T26;1;23/06/2016;0;dog 40;Tenerife;5.54;Da;0;na
+40;DoG;T26;2;23/06/2016;0;dog 40;Tenerife;4.12;Da;0;na
+40;DoG;T26;3;23/06/2016;0;dog 40;Tenerife;5.95;Da;0;na
+40;DoG;T26;4;23/06/2016;0;dog 40;Tenerife;6.26;Da;0;na
+90;bar;T27;1;23/06/2016;1;unmissable;Tenerife;2.89;Da;0;na
+90;bar;T27;2;23/06/2016;1;unmissable;Tenerife;0.56;Da;0;na
+90;bar;T27;3;23/06/2016;1;unmissable;Tenerife;5.06;Da;0;na
+90;bar;T27;4;23/06/2016;1;unmissable;Tenerife;5.3;Da;0;na
+90;bar;T28;1;23/06/2016;1;unmissable;Tenerife;4.54;Da;0;na
+90;bar;T28;2;23/06/2016;1;unmissable;Tenerife;5.04;Da;0;na
+90;bar;T28;3;23/06/2016;1;unmissable;Tenerife;4.6;Da;0;na
+90;bar;T28;4;23/06/2016;1;unmissable;Tenerife;6.06;Da;0;na
+90;bar;T29;1;23/06/2016;1;unmissable;Tenerife;1.73;Da;0;na
+90;bar;T29;2;23/06/2016;1;unmissable;Tenerife;1.24;Da;0;na
+90;bar;T29;3;23/06/2016;1;unmissable;Tenerife;5.63;Da;0;na
+90;bar;T29;4;23/06/2016;1;unmissable;Tenerife;3.58;Da;0;na
+90;bar;T30;1;23/06/2016;1;unmissable;Tenerife;5.3;Da;0;na
+90;bar;T30;2;23/06/2016;1;unmissable;Tenerife;5.88;Da;0;na
+90;bar;T30;3;23/06/2016;1;unmissable;Tenerife;1.99;Da;0;na
+90;bar;T30;4;23/06/2016;1;unmissable;Tenerife;1.99;Da;0;na
+90;bar;T31;1;23/06/2016;1;unmissable;Tenerife;3.42;Da;0;na
+90;bar;T31;2;23/06/2016;1;unmissable;Tenerife;3.95;Da;0;na
+90;bar;T31;3;23/06/2016;1;unmissable;Tenerife;2.32;Da;0;na
+90;bar;T31;4;23/06/2016;1;unmissable;Tenerife;4.9;Da;0;na
+90;bar;T32;1;23/06/2016;1;unmissable;Tenerife;5.8;Da;0;na
+90;bar;T32;2;23/06/2016;1;unmissable;Tenerife;5.62;Da;0;na
+90;bar;T32;3;23/06/2016;1;unmissable;Tenerife;2.56;Da;0;na
+90;bar;T32;4;23/06/2016;1;unmissable;Tenerife;1.22;Da;0;na
+0;grey control;T33;1;23/06/2016;0;grey control;Tenerife;0.1;Da;0;na
+0;grey control;T33;2;23/06/2016;0;grey control;Tenerife;1.35;Da;0;na
+0;grey control;T33;3;23/06/2016;0;grey control;Tenerife;0.47;Da;0;na
+0;grey control;T33;4;23/06/2016;0;grey control;Tenerife;1.92;Da;0;na
+0;grey control;T34;1;23/06/2016;0;grey control;Tenerife;5.67;Da;0;na
+0;grey control;T34;2;23/06/2016;0;grey control;Tenerife;0.84;Da;0;na
+0;grey control;T34;3;23/06/2016;0;grey control;Tenerife;1.4;Da;0;na
+0;grey control;T34;4;23/06/2016;0;grey control;Tenerife;3.2;Da;0;na
+40;DoG;T35;1;24/06/2016;0;dog 40;Tenerife;2.02;Da;0;na
+40;DoG;T35;2;24/06/2016;0;dog 40;Tenerife;0.73;Da;0;na
+40;DoG;T35;3;24/06/2016;0;dog 40;Tenerife;4.43;Da;0;na
+40;DoG;T35;4;24/06/2016;0;dog 40;Tenerife;0.91;Da;0;na
+40;DoG;T36;1;24/06/2016;0;dog 40;Tenerife;2.68;Da;0;na
+40;DoG;T36;2;24/06/2016;0;dog 40;Tenerife;1.24;Da;0;na
+40;DoG;T36;3;24/06/2016;0;dog 40;Tenerife;0.14;Da;0;na
+40;DoG;T36;4;24/06/2016;0;dog 40;Tenerife;5.25;Da;0;na
+40;DoG;T37;1;24/06/2016;0;dog 40;Tenerife;1.03;Da;0;na
+40;DoG;T37;2;24/06/2016;0;dog 40;Tenerife;5.8;Da;0;na
+40;DoG;T37;3;24/06/2016;0;dog 40;Tenerife;3.23;Da;0;na
+40;DoG;T37;4;24/06/2016;0;dog 40;Tenerife;4.76;Da;0;na
+40;DoG;T38;1;24/06/2016;0;dog 40;Tenerife;0.06;Da;0;na
+40;DoG;T38;2;24/06/2016;0;dog 40;Tenerife;5;Da;0;na
+40;DoG;T38;3;24/06/2016;0;dog 40;Tenerife;5.79;Da;0;na
+40;DoG;T38;4;24/06/2016;0;dog 40;Tenerife;4.55;Da;0;na
+40;DoG;T39;1;24/06/2016;0;dog 40;Tenerife;1.59;Da;0;na
+40;DoG;T39;2;24/06/2016;0;dog 40;Tenerife;2.08;Da;0;na
+40;DoG;T39;3;24/06/2016;0;dog 40;Tenerife;6.1;Da;0;na
+40;DoG;T39;4;24/06/2016;0;dog 40;Tenerife;6.05;Da;0;na
+40;DoG;T40;1;24/06/2016;0;dog 40;Tenerife;5.91;Da;0;na
+40;DoG;T40;2;24/06/2016;0;dog 40;Tenerife;4.96;Da;0;na
+40;DoG;T40;3;24/06/2016;0;dog 40;Tenerife;6.07;Da;0;na
+40;DoG;T40;4;24/06/2016;0;dog 40;Tenerife;1.95;Da;0;na
+40;DoG;T41;1;24/06/2016;0;dog 40;Tenerife;0.19;Da;0;na
+40;DoG;T41;2;24/06/2016;0;dog 40;Tenerife;4.91;Da;0;na
+40;DoG;T41;3;24/06/2016;0;dog 40;Tenerife;6.13;Da;0;na
+40;DoG;T41;4;24/06/2016;0;dog 40;Tenerife;0.51;Da;0;na
+40;DoG;T42;1;24/06/2016;0;dog 40;Tenerife;1.11;Da;0;na
+40;DoG;T42;2;24/06/2016;0;dog 40;Tenerife;2.14;Da;0;na
+40;DoG;T42;3;24/06/2016;0;dog 40;Tenerife;1.78;Da;0;na
+40;DoG;T42;4;24/06/2016;0;dog 40;Tenerife;5.94;Da;0;na
+40;DoG;T43;1;24/06/2016;0;dog 40;Tenerife;0.83;Da;0;na
+40;DoG;T43;2;24/06/2016;0;dog 40;Tenerife;3.01;Da;0;na
+40;DoG;T43;3;24/06/2016;0;dog 40;Tenerife;6.13;Da;0;na
+40;DoG;T43;4;24/06/2016;0;dog 40;Tenerife;5.83;Da;0;na
+40;DoG;T44;1;24/06/2016;0;dog 40;Tenerife;4.39;Da;0;na
+40;DoG;T44;2;24/06/2016;0;dog 40;Tenerife;5.88;Da;0;na
+40;DoG;T44;3;24/06/2016;0;dog 40;Tenerife;2.45;Da;0;na
+40;DoG;T44;4;24/06/2016;0;dog 40;Tenerife;0.43;Da;0;na
+40;DoG;T45;1;24/06/2016;0;dog 40;Tenerife;3.83;Da;0;na
+40;DoG;T45;2;24/06/2016;0;dog 40;Tenerife;0.79;Da;0;na
+40;DoG;T45;3;24/06/2016;0;dog 40;Tenerife;0.09;Da;0;na
+40;DoG;T45;4;24/06/2016;0;dog 40;Tenerife;5.37;Da;0;na
+40;DoG;T46;1;25/06/2016;0;dog 40;Tenerife;0.19;Da;0;na
+40;DoG;T46;2;25/06/2016;0;dog 40;Tenerife;6.24;Da;0;na
+40;DoG;T46;3;25/06/2016;0;dog 40;Tenerife;2.16;Da;0;na
+40;DoG;T46;4;25/06/2016;0;dog 40;Tenerife;2.36;Da;0;na
+40;DoG;T47;1;25/06/2016;0;dog 40;Tenerife;3.69;Da;0;na
+40;DoG;T47;2;25/06/2016;0;dog 40;Tenerife;0.77;Da;0;na
+40;DoG;T47;3;25/06/2016;0;dog 40;Tenerife;3.52;Da;0;na
+40;DoG;T47;4;25/06/2016;0;dog 40;Tenerife;2.17;Da;0;na
+40;DoG;T48;1;25/06/2016;0;dog 40;Tenerife;4.24;Da;0;na
+40;DoG;T48;2;25/06/2016;0;dog 40;Tenerife;5.31;Da;0;na
+40;DoG;T48;3;25/06/2016;0;dog 40;Tenerife;0.51;Da;0;na
+40;DoG;T48;4;25/06/2016;0;dog 40;Tenerife;6.25;Da;0;na
+40;DoG;T49;1;25/06/2016;0;dog 40;Tenerife;3.07;Da;0;na
+40;DoG;T49;2;25/06/2016;0;dog 40;Tenerife;4.66;Da;0;na
+40;DoG;T49;3;25/06/2016;0;dog 40;Tenerife;5.09;Da;0;na
+40;DoG;T49;4;25/06/2016;0;dog 40;Tenerife;5.81;Da;0;na
+40;DoG;T50;1;25/06/2016;0;dog 40;Tenerife;3.3;Da;0;na
+40;DoG;T50;2;25/06/2016;0;dog 40;Tenerife;0.5;Da;0;na
+40;DoG;T50;3;25/06/2016;0;dog 40;Tenerife;1.55;Da;0;na
+40;DoG;T50;4;25/06/2016;0;dog 40;Tenerife;4.11;Da;0;na
+40;DoG;T51;1;25/06/2016;0;dog 40;Tenerife;5.82;Da;0;na
+40;DoG;T51;2;25/06/2016;0;dog 40;Tenerife;6.24;Da;0;na
+40;DoG;T51;3;25/06/2016;0;dog 40;Tenerife;5.68;Da;0;na
+40;DoG;T51;4;25/06/2016;0;dog 40;Tenerife;6.02;Da;0;na
+17;DoG;T52;1;25/06/2016;0;dog 17;Tenerife;5.89;Da;0;na
+17;DoG;T52;2;25/06/2016;0;dog 17;Tenerife;4.75;Da;0;na
+17;DoG;T52;3;25/06/2016;0;dog 17;Tenerife;3.61;Da;0;na
+17;DoG;T52;4;25/06/2016;0;dog 17;Tenerife;1.59;Da;0;na
+17;DoG;T53;1;25/06/2016;0;dog 17;Tenerife;6.16;Da;0;na
+17;DoG;T53;2;25/06/2016;0;dog 17;Tenerife;4.17;Da;0;na
+17;DoG;T53;3;25/06/2016;0;dog 17;Tenerife;1.65;Da;0;na
+17;DoG;T53;4;25/06/2016;0;dog 17;Tenerife;0.14;Da;0;na
+17;DoG;T54;1;25/06/2016;0;dog 17;Tenerife;3.47;Da;0;na
+17;DoG;T54;2;25/06/2016;0;dog 17;Tenerife;3.59;Da;0;na
+17;DoG;T54;3;25/06/2016;0;dog 17;Tenerife;4.07;Da;0;na
+17;DoG;T54;4;25/06/2016;0;dog 17;Tenerife;3.06;Da;0;na
+17;DoG;T55;1;25/06/2016;0;dog 17;Tenerife;6.06;Da;0;na
+17;DoG;T55;2;25/06/2016;0;dog 17;Tenerife;0.54;Da;0;na
+17;DoG;T55;3;25/06/2016;0;dog 17;Tenerife;0.72;Da;0;na
+17;DoG;T55;4;25/06/2016;0;dog 17;Tenerife;2.64;Da;0;na
+17;DoG;T56;1;25/06/2016;0;dog 17;Tenerife;5.89;Da;0;na
+17;DoG;T56;2;25/06/2016;0;dog 17;Tenerife;3.53;Da;0;na
+17;DoG;T56;3;25/06/2016;0;dog 17;Tenerife;0.83;Da;0;na
+17;DoG;T56;4;25/06/2016;0;dog 17;Tenerife;2.58;Da;0;na
+17;DoG;T57;1;25/06/2016;0;dog 17;Tenerife;5.17;Da;0;na
+17;DoG;T57;2;25/06/2016;0;dog 17;Tenerife;2.1;Da;0;na
+17;DoG;T57;3;25/06/2016;0;dog 17;Tenerife;5.82;Da;0;na
+17;DoG;T57;4;25/06/2016;0;dog 17;Tenerife;1.82;Da;0;na
+17;DoG;T58;1;25/06/2016;0;dog 17;Tenerife;5.41;Da;0;na
+17;DoG;T58;2;25/06/2016;0;dog 17;Tenerife;2.53;Da;0;na
+17;DoG;T58;3;25/06/2016;0;dog 17;Tenerife;5.25;Da;0;na
+17;DoG;T58;4;25/06/2016;0;dog 17;Tenerife;1.68;Da;0;na
+17;DoG;T59;1;25/06/2016;0;dog 17;Tenerife;6.05;Da;0;na
+17;DoG;T59;2;25/06/2016;0;dog 17;Tenerife;4.85;Da;0;na
+17;DoG;T59;3;25/06/2016;0;dog 17;Tenerife;0.38;Da;0;na
+17;DoG;T59;4;25/06/2016;0;dog 17;Tenerife;2.36;Da;0;na
+17;DoG;T60;1;25/06/2016;0;dog 17;Tenerife;6.25;Da;0;na
+17;DoG;T60;2;25/06/2016;0;dog 17;Tenerife;3.32;Da;0;na
+17;DoG;T60;3;25/06/2016;0;dog 17;Tenerife;3.98;Da;0;na
+17;DoG;T60;4;25/06/2016;0;dog 17;Tenerife;5.17;Da;0;na
+17;DoG;T61;1;25/06/2016;0;dog 17;Tenerife;1.46;Da;0;na
+17;DoG;T61;2;25/06/2016;0;dog 17;Tenerife;3.18;Da;0;na
+17;DoG;T61;3;25/06/2016;0;dog 17;Tenerife;4.85;Da;0;na
+17;DoG;T61;4;25/06/2016;0;dog 17;Tenerife;0.07;Da;0;na
+17;DoG;T62;1;25/06/2016;0;dog 17;Tenerife;4.07;Da;0;na
+17;DoG;T62;2;25/06/2016;0;dog 17;Tenerife;2.46;Da;0;na
+17;DoG;T62;3;25/06/2016;0;dog 17;Tenerife;0.91;Da;0;na
+17;DoG;T62;4;25/06/2016;0;dog 17;Tenerife;2.33;Da;0;na
+40;bar;T63;1;26/06/2016;0;bar 40;Tenerife;5.3;Da;0;na
+40;bar;T63;2;26/06/2016;0;bar 40;Tenerife;5.94;Da;0;na
+40;bar;T63;3;26/06/2016;0;bar 40;Tenerife;1.32;Da;0;na
+40;bar;T63;4;26/06/2016;0;bar 40;Tenerife;6.01;Da;0;na
+40;bar;T64;1;26/06/2016;0;bar 40;Tenerife;5.3;Da;0;na
+40;bar;T64;2;26/06/2016;0;bar 40;Tenerife;1.39;Da;0;na
+40;bar;T64;3;26/06/2016;0;bar 40;Tenerife;5.3;Da;0;na
+40;bar;T64;4;26/06/2016;0;bar 40;Tenerife;3.1;Da;0;na
+40;bar;T65;1;26/06/2016;0;bar 40;Tenerife;2.75;Da;0;na
+40;bar;T65;2;26/06/2016;0;bar 40;Tenerife;0.1;Da;0;na
+40;bar;T65;3;26/06/2016;0;bar 40;Tenerife;2.63;Da;0;na
+40;bar;T65;4;26/06/2016;0;bar 40;Tenerife;0.27;Da;0;na
+40;bar;T66;1;26/06/2016;0;bar 40;Tenerife;3.07;Da;0;na
+40;bar;T66;2;26/06/2016;0;bar 40;Tenerife;2.31;Da;0;na
+40;bar;T66;3;26/06/2016;0;bar 40;Tenerife;5.23;Da;0;na
+40;bar;T66;4;26/06/2016;0;bar 40;Tenerife;4.1;Da;0;na
+40;bar;T67;1;26/06/2016;0;bar 40;Tenerife;0.33;Da;0;na
+40;bar;T67;2;26/06/2016;0;bar 40;Tenerife;3.44;Da;0;na
+40;bar;T67;3;26/06/2016;0;bar 40;Tenerife;5.79;Da;0;na
+40;bar;T67;4;26/06/2016;0;bar 40;Tenerife;1.76;Da;0;na
+40;bar;T68;1;26/06/2016;0;bar 40;Tenerife;2.49;Da;0;na
+40;bar;T68;2;26/06/2016;0;bar 40;Tenerife;2.84;Da;0;na
+40;bar;T68;3;26/06/2016;0;bar 40;Tenerife;3.98;Da;0;na
+40;bar;T68;4;26/06/2016;0;bar 40;Tenerife;6.01;Da;0;na
+0;control;T69;1;26/06/2016;0;control;Tenerife;5.96;Da;0;na
+0;control;T69;2;26/06/2016;0;control;Tenerife;6.1;Da;0;na
+0;control;T69;3;26/06/2016;0;control;Tenerife;5.31;Da;0;na
+0;control;T69;4;26/06/2016;0;control;Tenerife;2.66;Da;0;na
+0;control;T70;1;26/06/2016;0;control;Tenerife;4.55;Da;0;na
+0;control;T70;2;26/06/2016;0;control;Tenerife;1.86;Da;0;na
+0;control;T70;3;26/06/2016;0;control;Tenerife;6.25;Da;0;na
+0;control;T70;4;26/06/2016;0;control;Tenerife;5.47;Da;0;na
+15;bar;T71;1;26/06/2016;0;bar 15;Tenerife;3.53;Da;0;na
+15;bar;T71;2;26/06/2016;0;bar 15;Tenerife;4.7;Da;0;na
+15;bar;T71;3;26/06/2016;0;bar 15;Tenerife;1.08;Da;0;na
+15;bar;T71;4;26/06/2016;0;bar 15;Tenerife;0.37;Da;0;na
+15;bar;T72;1;26/06/2016;0;bar 15;Tenerife;4.18;Da;0;na
+15;bar;T72;2;26/06/2016;0;bar 15;Tenerife;5.64;Da;0;na
+15;bar;T72;3;26/06/2016;0;bar 15;Tenerife;3.28;Da;0;na
+15;bar;T72;4;26/06/2016;0;bar 15;Tenerife;1.27;Da;0;na
+15;bar;T73;1;26/06/2016;0;bar 15;Tenerife;1.19;Da;0;na
+15;bar;T73;2;26/06/2016;0;bar 15;Tenerife;5.56;Da;0;na
+15;bar;T73;3;26/06/2016;0;bar 15;Tenerife;4.2;Da;0;na
+15;bar;T73;4;26/06/2016;0;bar 15;Tenerife;5.63;Da;0;na
+0;control;T74;1;26/06/2016;0;control;Tenerife;4.7;Da;0;na
+0;control;T74;2;26/06/2016;0;control;Tenerife;0.04;Da;0;na
+0;control;T74;3;26/06/2016;0;control;Tenerife;4.33;Da;0;na
+0;control;T74;4;26/06/2016;0;control;Tenerife;5.16;Da;0;na
+0;control;T75;1;27/06/2016;0;control;Tenerife;4.45;Da;0;na
+0;control;T75;2;27/06/2016;0;control;Tenerife;0.43;Da;0;na
+0;control;T75;3;27/06/2016;0;control;Tenerife;1.48;Da;0;na
+0;control;T75;4;27/06/2016;0;control;Tenerife;4.95;Da;0;na
+0;control;T76;1;27/06/2016;0;control;Tenerife;2.63;Da;0;na
+0;control;T76;2;27/06/2016;0;control;Tenerife;3.05;Da;0;na
+0;control;T76;3;27/06/2016;0;control;Tenerife;4.41;Da;0;na
+0;control;T76;4;27/06/2016;0;control;Tenerife;0.44;Da;0;na
+0;control;T77;1;27/06/2016;0;control;Tenerife;3.12;Da;0;na
+0;control;T77;2;27/06/2016;0;control;Tenerife;0.68;Da;0;na
+0;control;T77;3;27/06/2016;0;control;Tenerife;4.39;Da;0;na
+0;control;T77;4;27/06/2016;0;control;Tenerife;1.5;Da;0;na
+0;control;T78;1;27/06/2016;0;control;Tenerife;3.1;Da;0;na
+0;control;T78;2;27/06/2016;0;control;Tenerife;4.05;Da;0;na
+0;control;T78;3;27/06/2016;0;control;Tenerife;2.39;Da;0;na
+0;control;T78;4;27/06/2016;0;control;Tenerife;4.34;Da;0;na
+0;control;T79;1;27/06/2016;0;control;Tenerife;4.83;Da;0;na
+0;control;T79;2;27/06/2016;0;control;Tenerife;2.55;Da;0;na
+0;control;T79;3;27/06/2016;0;control;Tenerife;4.05;Da;0;na
+0;control;T79;4;27/06/2016;0;control;Tenerife;3.09;Da;0;na
+0;control;T80;1;27/06/2016;0;control;Tenerife;2;Da;0;na
+0;control;T80;2;27/06/2016;0;control;Tenerife;5.2;Da;0;na
+0;control;T80;3;27/06/2016;0;control;Tenerife;5.84;Da;0;na
+0;control;T80;4;27/06/2016;0;control;Tenerife;0.75;Da;0;na
+0;control;C1;1;22/01/2016;0;control;California;6.07;Sp;0;C1
+0;control;C1;2;22/01/2016;0;control;California;0.33;Sp;0;C2
+0;control;C1;3;22/01/2016;0;control;California;1.82;Sp;0;C3
+0;control;C1;4;22/01/2016;0;control;California;3.27;Sp;0;C4
+0;control;C2;1;22/01/2016;0;control;California;1.75;Sp;0;C5
+0;control;C2;2;22/01/2016;0;control;California;0.30;Sp;0;C6
+0;control;C2;3;22/01/2016;0;control;California;1.88;Sp;0;C7
+0;control;C2;4;22/01/2016;0;control;California;5.10;Sp;0;C8
+0;control;C3;1;25/01/2016;0;control;California;0.77;Sp;0;C9
+0;control;C3;2;25/01/2016;0;control;California;0.92;Sp;0;C10
+0;control;C3;3;25/01/2016;0;control;California;1.42;Sp;0;C11
+0;control;C3;4;25/01/2016;0;control;California;6.16;Sp;0;C12
+0;control;C4;1;25/01/2016;0;control;California;0.91;Sp;0;C13
+0;control;C4;2;25/01/2016;0;control;California;5.99;Sp;0;C14
+0;control;C4;3;25/01/2016;0;control;California;0.08;Sp;0;C15
+0;control;C4;4;25/01/2016;0;control;California;3.64;Sp;0;C16
+0;control;C5;1;25/01/2016;0;control;California;3.55;Sp;0;C17
+0;control;C5;2;25/01/2016;0;control;California;0.22;Sp;0;C18
+0;control;C5;3;25/01/2016;0;control;California;1.93;Sp;0;C19
+0;control;C5;4;25/01/2016;0;control;California;0.24;Sp;0;C20
+0;control;C6;1;25/01/2016;0;control;California;5.66;Sp;0;C21
+0;control;C6;2;25/01/2016;0;control;California;6.02;Sp;0;C22
+0;control;C6;3;25/01/2016;0;control;California;1.03;Sp;0;C23
+0;control;C6;4;25/01/2016;0;control;California;0.21;Sp;0;C24
+0;control;C7;1;25/01/2016;0;control;California;2.30;Sp;0;C25
+0;control;C7;2;25/01/2016;0;control;California;0.86;Sp;0;C26
+0;control;C7;3;25/01/2016;0;control;California;5.88;Sp;0;C27
+0;control;C7;4;25/01/2016;0;control;California;0.12;Sp;0;C28
+0;control;C8;1;25/01/2016;0;control;California;0.17;Sp;0;C29
+0;control;C8;2;25/01/2016;0;control;California;0.62;Sp;0;C30
+0;control;C8;3;25/01/2016;0;control;California;4.71;Sp;0;C31
+0;control;C8;4;25/01/2016;0;control;California;3.61;Sp;0;C32
+0;control;C9;1;25/01/2016;0;control;California;1.93;Sp;0;C33
+0;control;C9;2;25/01/2016;0;control;California;2.55;Sp;0;C34
+0;control;C9;3;25/01/2016;0;control;California;1.62;Sp;0;C35
+0;control;C9;4;25/01/2016;0;control;California;2.59;Sp;0;C36
+0;control;C10;1;26/01/2016;0;control;California;1.14;Sp;0;C37
+0;control;C10;2;26/01/2016;0;control;California;4.17;Sp;0;C38
+0;control;C10;3;26/01/2016;0;control;California;2.10;Sp;0;C39
+0;control;C10;4;26/01/2016;0;control;California;1.30;Sp;0;C40
+0;control;C11;1;26/01/2016;0;control;California;4.37;Sp;0;C41
+0;control;C11;2;26/01/2016;0;control;California;1.35;Sp;0;C42
+0;control;C11;3;26/01/2016;0;control;California;0.37;Sp;0;C43
+0;control;C11;4;26/01/2016;0;control;California;0.11;Sp;0;C44
+0;control;C12;1;26/01/2016;0;control;California;6.10;Sp;0;C45
+0;control;C12;2;26/01/2016;0;control;California;2.56;Sp;0;C46
+0;control;C12;3;26/01/2016;0;control;California;6.21;Sp;0;C47
+0;control;C12;4;26/01/2016;0;control;California;4.71;Sp;0;C48
+0;control;C13;1;26/01/2016;0;control;California;4.96;Sp;0;C49
+0;control;C13;4;26/01/2016;0;control;California;0.71;Sp;0;C50
+0;control;C13;2;09/02/2016;0;control;California;0.19;Sp;0;C51
+0;control;C13;3;09/02/2016;0;control;California;1.45;Sp;0;C52
+0;control;C14;1;26/01/2016;0;control;California;6.05;Sp;0;C53
+0;control;C14;2;26/01/2016;0;control;California;1.79;Sp;0;C54
+0;control;C14;3;26/01/2016;0;control;California;2.10;Sp;0;C55
+0;control;C14;4;26/01/2016;0;control;California;1.45;Sp;0;C56
+40;DoG;C15;4;26/01/2016;0;dog 40;California;5.81;Sp;0;C57
+40;DoG;C15;1;26/01/2016;0;dog 40;California;1.93;Sp;0;C58
+40;DoG;C15;2;26/01/2016;0;dog 40;California;4.10;Sp;0;C59
+40;DoG;C15;3;26/01/2016;0;dog 40;California;2.78;Sp;0;C60
+40;DoG;C16;4;26/01/2016;0;dog 40;California;4.66;Sp;0;C61
+40;DoG;C16;2;27/01/2016;0;dog 40;California;0.18;Sp;0;C62
+40;DoG;C16;1;27/01/2016;0;dog 40;California;5.92;Sp;0;C63
+40;DoG;C16;3;27/01/2016;0;dog 40;California;2.22;Sp;0;C64
+40;DoG;C17;1;27/01/2016;0;dog 40;California;3.14;Sp;0;C65
+40;DoG;C17;2;27/01/2016;0;dog 40;California;1.56;Sp;0;C66
+40;DoG;C17;3;27/01/2016;0;dog 40;California;0.98;Sp;0;C67
+40;DoG;C17;4;27/01/2016;0;dog 40;California;5.09;Sp;0;C68
+40;DoG;C18;1;27/01/2016;0;dog 40;California;2.42;Sp;0;C69
+40;DoG;C18;2;27/01/2016;0;dog 40;California;5.43;Sp;0;C70
+40;DoG;C18;3;27/01/2016;0;dog 40;California;2.41;Sp;0;C71
+40;DoG;C18;4;27/01/2016;0;dog 40;California;2.51;Sp;0;C72
+40;DoG;C19;1;27/01/2016;0;dog 40;California;2.15;Sp;0;C73
+40;DoG;C19;2;27/01/2016;0;dog 40;California;0.86;Sp;0;C74
+40;DoG;C19;3;27/01/2016;0;dog 40;California;2.39;Sp;0;C75
+40;DoG;C19;4;27/01/2016;0;dog 40;California;0.30;Sp;0;C76
+40;DoG;C20;1;27/01/2016;0;dog 40;California;2.03;Sp;0;C77
+40;DoG;C20;2;27/01/2016;0;dog 40;California;0.84;Sp;0;C78
+40;DoG;C20;3;27/01/2016;0;dog 40;California;0.78;Sp;0;C79
+40;DoG;C20;4;27/01/2016;0;dog 40;California;5.23;Sp;0;C80
+40;DoG;C21;1;27/01/2016;0;dog 40;California;1.80;Sp;0;C81
+40;DoG;C21;2;27/01/2016;0;dog 40;California;4.83;Sp;0;C82
+40;DoG;C21;3;27/01/2016;0;dog 40;California;4.99;Sp;0;C83
+40;DoG;C21;4;27/01/2016;0;dog 40;California;5.97;Sp;0;C84
+40;DoG;C22;1;27/01/2016;0;dog 40;California;3.94;Sp;0;C85
+40;DoG;C22;2;27/01/2016;0;dog 40;California;0.56;Sp;0;C86
+40;DoG;C22;3;27/01/2016;0;dog 40;California;6.05;Sp;0;C87
+40;DoG;C22;4;27/01/2016;0;dog 40;California;1.35;Sp;0;C88
+40;DoG;C23;1;27/01/2016;0;dog 40;California;0.18;Sp;0;C89
+40;DoG;C23;2;27/01/2016;0;dog 40;California;1.11;Sp;0;C90
+40;DoG;C23;3;27/01/2016;0;dog 40;California;2.83;Sp;0;C91
+40;DoG;C23;4;27/01/2016;0;dog 40;California;1.93;Sp;0;C92
+40;DoG;C24;1;27/01/2016;0;dog 40;California;5.68;Sp;0;C93
+40;DoG;C24;2;27/01/2016;0;dog 40;California;0.85;Sp;0;C94
+40;DoG;C24;3;27/01/2016;0;dog 40;California;4.03;Sp;0;C95
+40;DoG;C24;4;27/01/2016;0;dog 40;California;2.24;Sp;0;C96
+40;DoG;C25;1;27/01/2016;0;dog 40;California;2.28;Sp;0;C97
+40;DoG;C25;2;27/01/2016;0;dog 40;California;6.04;Sp;0;C98
+40;DoG;C25;3;27/01/2016;0;dog 40;California;3.21;Sp;0;C99
+40;DoG;C25;4;27/01/2016;0;dog 40;California;5.89;Sp;0;C100
+40;DoG;C26;1;28/01/2016;0;dog 40;California;3.36;Sp;0;C101
+40;DoG;C26;2;28/01/2016;0;dog 40;California;3.80;Sp;0;C102
+40;DoG;C26;3;28/01/2016;0;dog 40;California;5.76;Sp;0;C103
+40;DoG;C26;4;28/01/2016;0;dog 40;California;4.94;Sp;0;C104
+40;DoG;C27;1;28/01/2016;0;dog 40;California;4.22;Sp;0;C105
+40;DoG;C27;2;28/01/2016;0;dog 40;California;4.62;Sp;0;C106
+40;DoG;C27;3;28/01/2016;0;dog 40;California;1.98;Sp;0;C107
+40;DoG;C27;4;28/01/2016;0;dog 40;California;4.40;Sp;0;C108
+40;DoG;C28;1;28/01/2016;0;dog 40;California;2.39;Sp;0;C109
+40;DoG;C28;2;28/01/2016;0;dog 40;California;5.16;Sp;0;C110
+40;DoG;C28;3;28/01/2016;0;dog 40;California;0.83;Sp;0;C111
+40;DoG;C28;4;28/01/2016;0;dog 40;California;0.83;Sp;0;C112
+17;DoG;C29;1;29/01/2016;0;dog 17;California;2.89;Sp;0;C113
+17;DoG;C29;2;29/01/2016;0;dog 17;California;5.68;Sp;0;C114
+17;DoG;C29;3;29/01/2016;0;dog 17;California;0.88;Sp;0;C115
+17;DoG;C29;4;29/01/2016;0;dog 17;California;2.80;Sp;0;C116
+17;DoG;C30;1;29/01/2016;0;dog 17;California;2.55;Sp;0;C117
+17;DoG;C30;2;29/01/2016;0;dog 17;California;0.50;Sp;0;C118
+17;DoG;C30;3;29/01/2016;0;dog 17;California;6.03;Sp;0;C119
+17;DoG;C30;4;29/01/2016;0;dog 17;California;0.32;Sp;0;C120
+17;DoG;C31;1;29/01/2016;0;dog 17;California;0.82;Sp;0;C121
+17;DoG;C31;2;29/01/2016;0;dog 17;California;6.11;Sp;0;C122
+17;DoG;C31;3;29/01/2016;0;dog 17;California;4.37;Sp;0;C123
+17;DoG;C31;4;29/01/2016;0;dog 17;California;0.58;Sp;0;C124
+17;DoG;C32;1;29/01/2016;0;dog 17;California;1.80;Sp;0;C125
+17;DoG;C32;2;29/01/2016;0;dog 17;California;0.16;Sp;0;C126
+17;DoG;C32;3;29/01/2016;0;dog 17;California;0.79;Sp;0;C127
+17;DoG;C32;4;29/01/2016;0;dog 17;California;5.79;Sp;0;C128
+17;DoG;C33;1;29/01/2016;0;dog 17;California;5.54;Sp;0;C129
+17;DoG;C33;2;29/01/2016;0;dog 17;California;3.48;Sp;0;C130
+17;DoG;C33;3;29/01/2016;0;dog 17;California;1.12;Sp;0;C131
+17;DoG;C33;4;29/01/2016;0;dog 17;California;4.70;Sp;0;C132
+17;DoG;C34;1;29/01/2016;0;dog 17;California;2.36;Sp;0;C133
+17;DoG;C34;2;29/01/2016;0;dog 17;California;2.87;Sp;0;C134
+17;DoG;C34;3;29/01/2016;0;dog 17;California;5.66;Sp;0;C135
+17;DoG;C34;4;29/01/2016;0;dog 17;California;2.36;Sp;0;C136
+17;DoG;C35;1;29/01/2016;0;dog 17;California;4.11;Sp;0;C137
+17;DoG;C35;2;29/01/2016;0;dog 17;California;1.50;Sp;0;C138
+17;DoG;C35;3;29/01/2016;0;dog 17;California;0.59;Sp;0;C139
+17;DoG;C35;4;29/01/2016;0;dog 17;California;3.98;Sp;0;C140
+17;DoG;C36;4;29/01/2016;0;dog 17;California;1.85;Sp;0;C141
+17;DoG;C36;2;29/01/2016;0;dog 17;California;0.08;Sp;0;C142
+17;DoG;C36;3;29/01/2016;0;dog 17;California;2.90;Sp;0;C143
+17;DoG;C36;1;29/01/2016;0;dog 17;California;5.45;Sp;0;C144
+17;DoG;C37;1;30/01/2016;0;dog 17;California;3.66;Sp;0;C145
+17;DoG;C37;2;30/01/2016;0;dog 17;California;1.45;Sp;0;C146
+17;DoG;C37;3;30/01/2016;0;dog 17;California;5.25;Sp;0;C147
+17;DoG;C37;4;30/01/2016;0;dog 17;California;1.95;Sp;0;C148
+17;DoG;C38;1;30/01/2016;0;dog 17;California;0.05;Sp;0;C149
+17;DoG;C38;2;30/01/2016;0;dog 17;California;2.59;Sp;0;C150
+17;DoG;C38;3;30/01/2016;0;dog 17;California;1.27;Sp;0;C151
+17;DoG;C38;4;30/01/2016;0;dog 17;California;4.79;Sp;0;C152
+10;bar;C39;1;03/02/2016;0;bar 10;California;6.28;Sp;0;C153
+10;bar;C39;2;03/02/2016;0;bar 10;California;5.48;Sp;0;C154
+10;bar;C39;3;03/02/2016;0;bar 10;California;5.54;Sp;0;C155
+10;bar;C39;4;03/02/2016;0;bar 10;California;4.43;Sp;0;C156
+10;bar;C40;1;03/02/2016;0;bar 10;California;0.26;Sp;0;C157
+10;bar;C40;2;03/02/2016;0;bar 10;California;6.19;Sp;0;C158
+10;bar;C40;3;03/02/2016;0;bar 10;California;3.88;Sp;0;C159
+10;bar;C40;4;03/02/2016;0;bar 10;California;1.39;Sp;0;C160
+10;bar;C41;1;03/02/2016;0;bar 10;California;5.99;Sp;0;C161
+10;bar;C41;2;03/02/2016;0;bar 10;California;0.81;Sp;0;C162
+10;bar;C41;3;03/02/2016;0;bar 10;California;2.15;Sp;0;C163
+10;bar;C41;4;03/02/2016;0;bar 10;California;0.42;Sp;0;C164
+10;bar;C42;1;03/02/2016;0;bar 10;California;3.34;Sp;0;C165
+10;bar;C42;2;03/02/2016;0;bar 10;California;3.71;Sp;0;C166
+10;bar;C42;3;03/02/2016;0;bar 10;California;5.95;Sp;0;C167
+10;bar;C42;4;03/02/2016;0;bar 10;California;3.55;Sp;0;C168
+10;bar;C43;1;03/02/2016;0;bar 10;California;5.74;Sp;0;C169
+10;bar;C43;2;03/02/2016;0;bar 10;California;5.54;Sp;0;C170
+10;bar;C43;3;03/02/2016;0;bar 10;California;5.91;Sp;0;C171
+10;bar;C43;4;03/02/2016;0;bar 10;California;1.35;Sp;0;C172
+10;bar;C44;4;03/02/2016;0;bar 10;California;5.42;Sp;0;C173
+10;bar;C44;1;03/02/2016;0;bar 10;California;1.76;Sp;0;C174
+10;bar;C44;2;03/02/2016;0;bar 10;California;5.07;Sp;0;C175
+10;bar;C44;3;03/02/2016;0;bar 10;California;2.30;Sp;0;C176
+10;bar;C45;1;03/02/2016;0;bar 10;California;5.97;Sp;0;C177
+10;bar;C45;2;03/02/2016;0;bar 10;California;2.13;Sp;0;C178
+10;bar;C45;3;03/02/2016;0;bar 10;California;1.81;Sp;0;C179
+10;bar;C45;4;03/02/2016;0;bar 10;California;2.29;Sp;0;C180
+10;bar;C46;1;03/02/2016;0;bar 10;California;4.31;Sp;0;C181
+10;bar;C46;2;03/02/2016;0;bar 10;California;5.83;Sp;0;C182
+10;bar;C46;3;03/02/2016;0;bar 10;California;5.47;Sp;0;C183
+10;bar;C46;4;03/02/2016;0;bar 10;California;0.13;Sp;0;C184
+10;bar;C47;1;04/02/2016;0;bar 10;California;0.10;Sp;0;C185
+10;bar;C47;2;04/02/2016;0;bar 10;California;2.81;Sp;0;C186
+10;bar;C47;3;04/02/2016;0;bar 10;California;2.80;Sp;0;C187
+10;bar;C47;4;04/02/2016;0;bar 10;California;2.90;Sp;0;C188
+10;bar;C48;1;04/02/2016;0;bar 10;California;5.57;Sp;0;C189
+10;bar;C48;2;04/02/2016;0;bar 10;California;6.16;Sp;0;C190
+10;bar;C48;3;04/02/2016;0;bar 10;California;3.32;Sp;0;C191
+10;bar;C48;4;04/02/2016;0;bar 10;California;1.06;Sp;0;C192
+9;DoG;C49;1;04/02/2016;0;dog 9;California;2.82;Sp;0;C193
+9;DoG;C49;2;04/02/2016;0;dog 9;California;0.28;Sp;0;C194
+9;DoG;C49;3;04/02/2016;0;dog 9;California;3.08;Sp;0;C195
+9;DoG;C49;4;04/02/2016;0;dog 9;California;5.57;Sp;0;C196
+9;DoG;C50;1;04/02/2016;0;dog 9;California;3.45;Sp;0;C197
+9;DoG;C50;2;04/02/2016;0;dog 9;California;3.51;Sp;0;C198
+9;DoG;C50;3;04/02/2016;0;dog 9;California;5.40;Sp;0;C199
+9;DoG;C50;4;04/02/2016;0;dog 9;California;4.62;Sp;0;C200
+9;DoG;C51;1;04/02/2016;0;dog 9;California;6.17;Sp;0;C201
+9;DoG;C51;2;04/02/2016;0;dog 9;California;3.06;Sp;0;C202
+9;DoG;C51;3;04/02/2016;0;dog 9;California;3.83;Sp;0;C203
+9;DoG;C51;4;04/02/2016;0;dog 9;California;2.14;Sp;0;C204
+9;DoG;C52;1;04/02/2016;0;dog 9;California;2.73;Sp;0;C205
+9;DoG;C52;2;04/02/2016;0;dog 9;California;0.62;Sp;0;C206
+9;DoG;C52;3;04/02/2016;0;dog 9;California;0.17;Sp;0;C207
+9;DoG;C52;4;04/02/2016;0;dog 9;California;5.68;Sp;0;C208
+9;DoG;C53;1;04/02/2016;0;dog 9;California;3.36;Sp;0;C209
+9;DoG;C53;2;04/02/2016;0;dog 9;California;5.94;Sp;0;C210
+9;DoG;C53;3;04/02/2016;0;dog 9;California;1.32;Sp;0;C211
+9;DoG;C53;4;04/02/2016;0;dog 9;California;0.32;Sp;0;C212
+9;DoG;C54;1;04/02/2016;0;dog 9;California;5.19;Sp;0;C213
+9;DoG;C54;2;04/02/2016;0;dog 9;California;1.18;Sp;0;C214
+9;DoG;C54;3;04/02/2016;0;dog 9;California;0.62;Sp;0;C215
+9;DoG;C54;4;04/02/2016;0;dog 9;California;5.76;Sp;0;C216
+9;DoG;C55;1;04/02/2016;0;dog 9;California;5.65;Sp;0;C217
+9;DoG;C55;2;04/02/2016;0;dog 9;California;2.19;Sp;0;C218
+9;DoG;C55;3;04/02/2016;0;dog 9;California;4.94;Sp;0;C219
+9;DoG;C55;4;04/02/2016;0;dog 9;California;0.43;Sp;0;C220
+9;DoG;C56;1;04/02/2016;0;dog 9;California;2.06;Sp;0;C221
+9;DoG;C56;2;04/02/2016;0;dog 9;California;4.14;Sp;0;C222
+9;DoG;C56;3;04/02/2016;0;dog 9;California;6.12;Sp;0;C223
+9;DoG;C56;4;04/02/2016;0;dog 9;California;4.61;Sp;0;C224
+9;DoG;C57;1;06/02/2016;0;dog 9;California;0.92;Sp;0;C225
+9;DoG;C57;2;06/02/2016;0;dog 9;California;5.34;Sp;0;C226
+9;DoG;C57;3;06/02/2016;0;dog 9;California;5.24;Sp;0;C227
+9;DoG;C57;4;06/02/2016;0;dog 9;California;0.68;Sp;0;C228
+9;DoG;C58;1;06/02/2016;0;dog 9;California;6.23;Sp;0;C229
+9;DoG;C58;2;06/02/2016;0;dog 9;California;5.16;Sp;0;C230
+9;DoG;C58;3;06/02/2016;0;dog 9;California;4.83;Sp;0;C231
+9;DoG;C58;4;06/02/2016;0;dog 9;California;3.50;Sp;0;C232
+6.5;bar;C59;1;06/02/2016;0;bar 6.5;California;2.45;Sp;0;C233
+6.5;bar;C59;2;06/02/2016;0;bar 6.5;California;1.91;Sp;0;C234
+6.5;bar;C59;3;06/02/2016;0;bar 6.5;California;4.92;Sp;0;C235
+6.5;bar;C59;4;06/02/2016;0;bar 6.5;California;2.79;Sp;0;C236
+6.5;bar;C60;1;06/02/2016;0;bar 6.5;California;1.11;Sp;0;C237
+6.5;bar;C60;2;06/02/2016;0;bar 6.5;California;3.69;Sp;0;C238
+6.5;bar;C60;3;06/02/2016;0;bar 6.5;California;0.51;Sp;0;C239
+6.5;bar;C60;4;06/02/2016;0;bar 6.5;California;4.01;Sp;0;C240
+6.5;bar;C61;1;06/02/2016;0;bar 6.5;California;5.23;Sp;0;C241
+6.5;bar;C61;2;06/02/2016;0;bar 6.5;California;1.26;Sp;0;C242
+6.5;bar;C61;3;06/02/2016;0;bar 6.5;California;6.24;Sp;0;C243
+6.5;bar;C61;4;06/02/2016;0;bar 6.5;California;5.18;Sp;0;C244
+6.5;bar;C62;1;06/02/2016;0;bar 6.5;California;6.13;Sp;0;C245
+6.5;bar;C62;2;06/02/2016;0;bar 6.5;California;3.05;Sp;0;C246
+6.5;bar;C62;3;06/02/2016;0;bar 6.5;California;0.23;Sp;0;C247
+6.5;bar;C62;4;06/02/2016;0;bar 6.5;California;0.12;Sp;0;C248
+6.5;bar;C63;1;06/02/2016;0;bar 6.5;California;3.71;Sp;0;C249
+6.5;bar;C63;2;06/02/2016;0;bar 6.5;California;0.84;Sp;0;C250
+6.5;bar;C63;3;06/02/2016;0;bar 6.5;California;4.68;Sp;0;C251
+6.5;bar;C63;4;06/02/2016;0;bar 6.5;California;0.18;Sp;0;C252
+6.5;bar;C64;1;07/02/2016;0;bar 6.5;California;4.60;Sp;0;C253
+6.5;bar;C64;2;07/02/2016;0;bar 6.5;California;0.12;Sp;0;C254
+6.5;bar;C64;3;07/02/2016;0;bar 6.5;California;0.34;Sp;0;C255
+6.5;bar;C64;4;07/02/2016;0;bar 6.5;California;5.77;Sp;0;C256
+6.5;bar;C65;1;07/02/2016;0;bar 6.5;California;2.34;Sp;0;C257
+6.5;bar;C65;2;07/02/2016;0;bar 6.5;California;0.20;Sp;0;C258
+6.5;bar;C65;3;07/02/2016;0;bar 6.5;California;0.45;Sp;0;C259
+6.5;bar;C65;4;07/02/2016;0;bar 6.5;California;3.54;Sp;0;C260
+6.5;bar;C66;1;07/02/2016;0;bar 6.5;California;2.38;Sp;0;C261
+6.5;bar;C66;2;07/02/2016;0;bar 6.5;California;5.48;Sp;0;C262
+6.5;bar;C66;3;07/02/2016;0;bar 6.5;California;3.81;Sp;0;C263
+6.5;bar;C66;4;07/02/2016;0;bar 6.5;California;3.48;Sp;0;C264
+0;control;C67;2;09/02/2016;0;control;California;3.62;Sp;0;C265
+0;control;C67;3;09/02/2016;0;control;California;5.30;Sp;0;C266
+0;control;C67;4;09/02/2016;0;control;California;2.29;Sp;0;C267
+0;control;C67;1;09/02/2016;0;control;California;0.93;Sp;0;C268
+0;control;C68;1;09/02/2016;0;control;California;4.17;Sp;0;C269
+0;control;C68;2;09/02/2016;0;control;California;2.75;Sp;0;C270
+0;control;C68;3;09/02/2016;0;control;California;3.60;Sp;0;C271
+0;control;C68;4;09/02/2016;0;control;California;5.34;Sp;0;C272
+0;control;C69;1;09/02/2016;0;control;California;4.10;Sp;0;C273
+0;control;C69;2;09/02/2016;0;control;California;2.81;Sp;0;C274
+0;control;C69;3;09/02/2016;0;control;California;0.70;Sp;0;C275
+0;control;C69;4;09/02/2016;0;control;California;3.71;Sp;0;C276
+0;control;C70;1;09/02/2016;0;control;California;4.72;Sp;0;C277
+0;control;C70;2;09/02/2016;0;control;California;2.69;Sp;0;C278
+0;control;C70;3;09/02/2016;0;control;California;2.10;Sp;0;C279
+0;control;C70;4;09/02/2016;0;control;California;4.76;Sp;0;C280
+17;DoG;C71;1;09/02/2016;0;dog 17;California;3.47;Sp;0;C281
+17;DoG;C71;2;09/02/2016;0;dog 17;California;1.26;Sp;0;C282
+17;DoG;C71;3;09/02/2016;0;dog 17;California;1.94;Sp;0;C283
+17;DoG;C71;4;09/02/2016;0;dog 17;California;4.21;Sp;0;C284
+17;DoG;C72;1;09/02/2016;0;dog 17;California;3.82;Sp;0;C285
+17;DoG;C72;2;10/02/2016;0;dog 17;California;4.70;Sp;0;C286
+17;DoG;C72;3;10/02/2016;0;dog 17;California;0.23;Sp;0;C287
+17;DoG;C72;4;09/02/2016;0;dog 17;California;3.26;Sp;0;C288
+17;DoG;C73;1;09/02/2016;0;dog 17;California;2.51;Sp;0;C289
+17;DoG;C73;2;09/02/2016;0;dog 17;California;2.41;Sp;0;C290
+17;DoG;C73;3;09/02/2016;0;dog 17;California;0.63;Sp;0;C291
+17;DoG;C73;4;09/02/2016;0;dog 17;California;5.25;Sp;0;C292
+17;DoG;C74;1;09/02/2016;0;dog 17;California;2.63;Sp;0;C293
+17;DoG;C74;2;09/02/2016;0;dog 17;California;4.65;Sp;0;C294
+17;DoG;C74;3;09/02/2016;0;dog 17;California;1.28;Sp;0;C295
+17;DoG;C74;4;09/02/2016;0;dog 17;California;0.74;Sp;0;C296
+17;DoG;C75;1;09/02/2016;0;dog 17;California;5.82;Sp;0;C297
+17;DoG;C75;2;09/02/2016;0;dog 17;California;2.57;Sp;0;C298
+17;DoG;C75;3;09/02/2016;0;dog 17;California;1.59;Sp;0;C299
+17;DoG;C75;4;09/02/2016;0;dog 17;California;1.04;Sp;0;C300
+6.5;bar;C76;1;09/02/2016;0;bar 6.5;California;3.30;Sp;0;C301
+6.5;bar;C76;2;09/02/2016;0;bar 6.5;California;4.05;Sp;0;C302
+6.5;bar;C76;3;09/02/2016;0;bar 6.5;California;2.26;Sp;0;C303
+6.5;bar;C76;4;09/02/2016;0;bar 6.5;California;3.47;Sp;0;C304
+6.5;bar;C77;1;10/02/2016;0;bar 6.5;California;4.67;Sp;0;C305
+6.5;bar;C77;2;10/02/2016;0;bar 6.5;California;3.64;Sp;0;C306
+6.5;bar;C77;3;10/02/2016;0;bar 6.5;California;3.66;Sp;0;C307
+6.5;bar;C77;4;10/02/2016;0;bar 6.5;California;4.80;Sp;0;C308
+6.5;bar;C78;1;10/02/2016;0;bar 6.5;California;1.52;Sp;0;C309
+6.5;bar;C78;2;10/02/2016;0;bar 6.5;California;5.24;Sp;0;C310
+6.5;bar;C78;3;10/02/2016;0;bar 6.5;California;0.91;Sp;0;C311
+6.5;bar;C78;4;10/02/2016;0;bar 6.5;California;1.35;Sp;0;C312
+6.5;bar;C79;1;10/02/2016;0;bar 6.5;California;3.81;Sp;0;C313
+6.5;bar;C79;2;10/02/2016;0;bar 6.5;California;5.50;Sp;0;C314
+6.5;bar;C79;3;10/02/2016;0;bar 6.5;California;0.96;Sp;0;C315
+6.5;bar;C79;4;10/02/2016;0;bar 6.5;California;4.98;Sp;0;C316
+6.5;bar;C80;1;10/02/2016;0;bar 6.5;California;5.88;Sp;0;C317
+6.5;bar;C80;2;10/02/2016;0;bar 6.5;California;1.76;Sp;0;C318
+6.5;bar;C80;3;10/02/2016;0;bar 6.5;California;0.66;Sp;0;C319
+6.5;bar;C80;4;10/02/2016;0;bar 6.5;California;5.61;Sp;0;C320
+6.5;bar;C81;1;10/02/2016;0;bar 6.5;California;2.48;Sp;0;C321
+6.5;bar;C81;2;10/02/2016;0;bar 6.5;California;4.80;Sp;0;C322
+6.5;bar;C81;3;10/02/2016;0;bar 6.5;California;0.39;Sp;0;C323
+6.5;bar;C81;4;10/02/2016;0;bar 6.5;California;6.04;Sp;0;C324
+40;bar;C82;1;10/02/2016;0;bar 40;California;4.10;Sp;0;C325
+40;bar;C82;2;10/02/2016;0;bar 40;California;0.37;Sp;0;C326
+40;bar;C82;3;10/02/2016;0;bar 40;California;5.39;Sp;0;C327
+40;bar;C82;4;10/02/2016;0;bar 40;California;4.49;Sp;0;C328
+9;DoG;C83;1;10/02/2016;0;dog 9;California;4.81;Sp;0;C329
+9;DoG;C83;2;10/02/2016;0;dog 9;California;1.44;Sp;0;C330
+9;DoG;C83;3;10/02/2016;0;dog 9;California;4.50;Sp;0;C331
+9;DoG;C83;4;10/02/2016;0;dog 9;California;4.21;Sp;0;C332
+9;DoG;C84;1;10/02/2016;0;dog 9;California;2.15;Sp;0;C333
+9;DoG;C84;2;10/02/2016;0;dog 9;California;2.95;Sp;0;C334
+9;DoG;C84;3;10/02/2016;0;dog 9;California;6.08;Sp;0;C335
+9;DoG;C84;4;10/02/2016;0;dog 9;California;5.65;Sp;0;C336
+9;DoG;C85;1;10/02/2016;0;dog 9;California;5.62;Sp;0;C337
+9;DoG;C85;2;10/02/2016;0;dog 9;California;3.41;Sp;0;C338
+9;DoG;C85;3;10/02/2016;0;dog 9;California;1.74;Sp;0;C339
+9;DoG;C85;4;10/02/2016;0;dog 9;California;3.80;Sp;0;C340
+9;DoG;C86;1;10/02/2016;0;dog 9;California;2.79;Sp;0;C341
+9;DoG;C86;2;10/02/2016;0;dog 9;California;4.35;Sp;0;C342
+9;DoG;C86;3;10/02/2016;0;dog 9;California;5.18;Sp;0;C343
+9;DoG;C86;4;10/02/2016;0;dog 9;California;1.63;Sp;0;C344
+9;DoG;C87;1;10/02/2016;0;dog 9;California;5.08;Sp;0;C345
+9;DoG;C87;2;10/02/2016;0;dog 9;California;0.78;Sp;0;C346
+9;DoG;C87;3;10/02/2016;0;dog 9;California;4.83;Sp;0;C347
+9;DoG;C87;4;10/02/2016;0;dog 9;California;4.81;Sp;0;C348
+10;bar;C88;1;11/02/2016;0;bar 10;California;0.77;Sp;0;C349
+10;bar;C88;2;11/02/2016;0;bar 10;California;3.44;Sp;0;C350
+10;bar;C88;3;11/02/2016;0;bar 10;California;4.95;Sp;0;C351
+10;bar;C88;4;11/02/2016;0;bar 10;California;5.03;Sp;0;C352
+10;bar;C89;1;11/02/2016;0;bar 10;California;5.90;Sp;0;C353
+10;bar;C89;2;11/02/2016;0;bar 10;California;2.45;Sp;0;C354
+10;bar;C89;3;11/02/2016;0;bar 10;California;5.36;Sp;0;C355
+10;bar;C89;4;11/02/2016;0;bar 10;California;0.20;Sp;0;C356
+10;bar;C90;1;11/02/2016;0;bar 10;California;2.11;Sp;0;C357
+10;bar;C90;2;11/02/2016;0;bar 10;California;2.56;Sp;0;C358
+10;bar;C90;3;11/02/2016;0;bar 10;California;1.42;Sp;0;C359
+10;bar;C90;4;11/02/2016;0;bar 10;California;1.85;Sp;0;C360
+10;bar;C91;4;11/02/2016;0;bar 10;California;3.28;Sp;0;C361
+10;bar;C91;2;11/02/2016;0;bar 10;California;4.13;Sp;0;C362
+10;bar;C91;3;11/02/2016;0;bar 10;California;5.57;Sp;0;C363
+10;bar;C91;1;11/02/2016;0;bar 10;California;1.97;Sp;0;C364
+17;DoG;C92;1;11/02/2016;0;dog 17;California;5.22;Sp;0;C365
+17;DoG;C92;2;11/02/2016;0;dog 17;California;5.56;Sp;0;C366
+17;DoG;C92;3;11/02/2016;0;dog 17;California;5.28;Sp;0;C367
+17;DoG;C92;4;11/02/2016;0;dog 17;California;0.69;Sp;0;C368
+17;DoG;C93;1;11/02/2016;0;dog 17;California;1.42;Sp;1;C369
+17;DoG;C93;2;11/02/2016;0;dog 17;California;5.10;Sp;1;C370
+17;DoG;C93;3;11/02/2016;0;dog 17;California;5.39;Sp;1;C371
+17;DoG;C93;4;11/02/2016;0;dog 17;California;5.95;Sp;1;C372
+17;DoG;C94;1;11/02/2016;0;dog 17;California;5.98;Sp;1;C373
+17;DoG;C94;2;11/02/2016;0;dog 17;California;3.82;Sp;1;C374
+17;DoG;C94;3;11/02/2016;0;dog 17;California;4.52;Sp;1;C375
+17;DoG;C94;4;11/02/2016;0;dog 17;California;4.55;Sp;1;C376
+17;DoG;C95;1;12/02/2016;0;dog 17;California;5.88;Sp;1;C377
+17;DoG;C95;2;12/02/2016;0;dog 17;California;0.49;Sp;1;C378
+17;DoG;C95;4;12/02/2016;0;dog 17;California;3.49;Sp;1;C379
+17;DoG;C95;3;12/02/2016;0;dog 17;California;2.79;Sp;1;C380
+17;DoG;C96;1;12/02/2016;0;dog 17;California;3.36;Sp;1;C381
+17;DoG;C96;2;12/02/2016;0;dog 17;California;2.96;Sp;1;C382
+17;DoG;C96;3;12/02/2016;0;dog 17;California;0.55;Sp;1;C383
+17;DoG;C96;4;12/02/2016;0;dog 17;California;5.99;Sp;1;C384
+17;DoG;C97;1;12/02/2016;0;dog 17;California;3.74;Sp;1;C385
+17;DoG;C97;2;12/02/2016;0;dog 17;California;1.65;Sp;1;C386
+17;DoG;C97;3;12/02/2016;0;dog 17;California;3.93;Sp;1;C387
+17;DoG;C97;4;12/02/2016;0;dog 17;California;0.04;Sp;1;C388
+17;DoG;C98;1;12/02/2016;0;dog 17;California;4.26;Sp;1;C389
+17;DoG;C98;2;12/02/2016;0;dog 17;California;1.15;Sp;1;C390
+17;DoG;C98;3;12/02/2016;0;dog 17;California;1.96;Sp;1;C391
+17;DoG;C98;4;12/02/2016;0;dog 17;California;6.24;Sp;1;C392
+17;DoG;C99;1;12/02/2016;0;dog 17;California;2.70;Sp;1;C393
+17;DoG;C99;2;12/02/2016;0;dog 17;California;0.04;Sp;1;C394
+17;DoG;C99;3;12/02/2016;0;dog 17;California;0.41;Sp;1;C395
+17;DoG;C99;4;12/02/2016;0;dog 17;California;0.53;Sp;1;C396
+17;DoG;C100;1;12/02/2016;0;dog 17;California;4.25;Sp;1;C397
+17;DoG;C100;2;12/02/2016;0;dog 17;California;2.20;Sp;1;C398
+17;DoG;C100;3;12/02/2016;0;dog 17;California;4.04;Sp;1;C399
+17;DoG;C100;4;12/02/2016;0;dog 17;California;4.86;Sp;1;C400
+17;DoG;C101;1;12/02/2016;0;dog 17;California;4.88;Sp;1;C401
+17;DoG;C101;2;12/02/2016;0;dog 17;California;3.83;Sp;1;C402
+17;DoG;C101;3;12/02/2016;0;dog 17;California;1.21;Sp;1;C403
+17;DoG;C101;4;12/02/2016;0;dog 17;California;5.27;Sp;1;C404
+17;DoG;C102;1;12/02/2016;0;dog 17;California;3.60;Sp;1;C405
+17;DoG;C102;2;12/02/2016;0;dog 17;California;3.93;Sp;1;C406
+17;DoG;C102;3;12/02/2016;0;dog 17;California;0.98;Sp;1;C407
+17;DoG;C102;4;12/02/2016;0;dog 17;California;1.99;Sp;1;C408
+17;DoG;C103;1;12/02/2016;0;dog 17;California;1.18;Sp;1;C409
+17;DoG;C103;2;12/02/2016;0;dog 17;California;4.71;Sp;1;C410
+17;DoG;C103;3;12/02/2016;0;dog 17;California;3.14;Sp;1;C411
+17;DoG;C103;4;12/02/2016;0;dog 17;California;4.78;Sp;1;C412
+17;DoG;C104;1;12/02/2016;0;dog 17;California;5.58;Sp;1;C413
+17;DoG;C104;2;12/02/2016;0;dog 17;California;3.12;Sp;1;C414
+17;DoG;C104;3;12/02/2016;0;dog 17;California;3.36;Sp;1;C415
+17;DoG;C104;4;12/02/2016;0;dog 17;California;4.03;Sp;1;C416
+17;DoG;C105;1;12/02/2016;0;dog 17;California;0.29;Sp;1;C417
+17;DoG;C105;2;12/02/2016;0;dog 17;California;0.68;Sp;1;C418
+17;DoG;C105;3;12/02/2016;0;dog 17;California;3.79;Sp;1;C419
+17;DoG;C105;4;12/02/2016;0;dog 17;California;5.99;Sp;1;C420
+17;DoG;C106;1;12/02/2016;0;dog 17;California;0.31;Sp;1;C421
+17;DoG;C106;2;12/02/2016;0;dog 17;California;5.50;Sp;1;C422
+17;DoG;C106;3;12/02/2016;0;dog 17;California;5.48;Sp;1;C423
+17;DoG;C106;4;12/02/2016;0;dog 17;California;3.56;Sp;1;C424
+10;bar;C107;1;11/02/2016;0;bar 10;California;0.17;Sp;0;C425
+10;bar;C107;2;11/02/2016;0;bar 10;California;4.80;Sp;0;C426
+10;bar;C107;3;11/02/2016;0;bar 10;California;5.74;Sp;0;C427
+10;bar;C107;4;11/02/2016;0;bar 10;California;5.83;Sp;0;C428
+0;control;C108;1;09/02/2016;0;control;California;4.65;Sp;0;C429
+0;control;C108;2;09/02/2016;0;control;California;5.25;Sp;0;C430
+0;control;C108;3;09/02/2016;0;control;California;0.71;Sp;0;C431
+0;control;C108;4;26/01/2016;0;control;California;0.52;Sp;0;C432
+0;control;C109;1;26/01/2016;0;control;California;5.60;Sp;0;C433
+0;control;C109;2;26/01/2016;0;control;California;0.63;Sp;0;C434
+0;control;C109;3;25/01/2016;0;control;California;1.32;Sp;0;C435
+0;control;C109;4;25/01/2016;0;control;California;1.95;Sp;0;C436
+15;bar;L1;1;01/07/2015;0;bar 15;Lund;-1.6624;Sp;0;L5
+15;bar;L1;2;01/07/2015;0;bar 15;Lund;-2.3703;Sp;0;L5
+15;bar;L1;3;01/07/2015;0;bar 15;Lund;-1.159;Sp;0;L5
+15;bar;L1;4;01/07/2015;0;bar 15;Lund;-0.73524;Sp;0;L5
+15;bar;L2;1;01/07/2015;0;bar 15;Lund;1.1691;Sp;0;L1
+15;bar;L2;2;01/07/2015;0;bar 15;Lund;-3.1341;Sp;0;L1
+15;bar;L2;3;01/07/2015;0;bar 15;Lund;-1.5969;Sp;0;L1
+15;bar;L2;4;01/07/2015;0;bar 15;Lund;0.61538;Sp;0;L1
+15;bar;L3;1;01/07/2015;0;bar 15;Lund;2.1606;Sp;0;L4
+15;bar;L3;2;01/07/2015;0;bar 15;Lund;1.146;Sp;0;L4
+15;bar;L3;3;01/07/2015;0;bar 15;Lund;2.4867;Sp;0;L4
+15;bar;L3;4;01/07/2015;0;bar 15;Lund;-0.52804;Sp;0;L4
+35;bar;L4;1;13/07/2015;0;bar 35;Lund;2.391;Sp;0;L5
+35;bar;L4;2;13/07/2015;0;bar 35;Lund;2.1634;Sp;0;L5
+35;bar;L4;3;13/07/2015;0;bar 35;Lund;0.63047;Sp;0;L5
+35;bar;L4;4;13/07/2015;0;bar 35;Lund;2.7417;Sp;0;L5
+35;bar;L5;1;13/07/2015;0;bar 35;Lund;2.3222;Sp;0;L4
+35;bar;L5;2;13/07/2015;0;bar 35;Lund;-0.43258;Sp;0;L4
+35;bar;L5;3;13/07/2015;0;bar 35;Lund;2.2032;Sp;0;L4
+35;bar;L5;4;13/07/2015;0;bar 35;Lund;0.4781;Sp;0;L4
+35;bar;L6;1;13/07/2015;0;bar 35;Lund;-2.2755;Sp;0;L1
+35;bar;L6;2;13/07/2015;0;bar 35;Lund;2.0271;Sp;0;L1
+35;bar;L6;3;13/07/2015;0;bar 35;Lund;0.1564;Sp;0;L1
+35;bar;L6;4;13/07/2015;0;bar 35;Lund;0.0187;Sp;0;L1
+35;bar;L7;1;13/07/2015;0;bar 35;Lund;2.3153;Sp;0;L3
+35;bar;L7;2;13/07/2015;0;bar 35;Lund;-1.2468;Sp;0;L3
+35;bar;L7;3;13/07/2015;0;bar 35;Lund;1.4815;Sp;0;L3
+35;bar;L7;4;13/07/2015;0;bar 35;Lund;2.1778;Sp;0;L3
+35;bar;L8;1;13/07/2015;0;bar 35;Lund;-2.1854;Sp;0;L2
+35;bar;L8;2;13/07/2015;0;bar 35;Lund;2.8241;Sp;0;L2
+35;bar;L8;3;13/07/2015;0;bar 35;Lund;0.91964;Sp;0;L2
+35;bar;L8;4;13/07/2015;0;bar 35;Lund;-0.43235;Sp;0;L2
+35;bar;L9;1;29/06/2015;0;bar 35;Lund;-0.94967;Sp;0;L5
+35;bar;L9;2;29/06/2015;0;bar 35;Lund;-2.8924;Sp;0;L5
+35;bar;L9;3;29/06/2015;0;bar 35;Lund;2.6532;Sp;0;L5
+35;bar;L9;4;29/06/2015;0;bar 35;Lund;-2.0009;Sp;0;L5
+35;bar;L10;1;29/06/2015;0;bar 35;Lund;-0.46288;Sp;0;L3
+35;bar;L10;2;29/06/2015;0;bar 35;Lund;2.2338;Sp;0;L3
+35;bar;L10;3;29/06/2015;0;bar 35;Lund;1.1022;Sp;0;L3
+35;bar;L10;4;29/06/2015;0;bar 35;Lund;-0.29701;Sp;0;L3
+35;bar;L11;1;29/06/2015;0;bar 35;Lund;1.3954;Sp;0;L1
+35;bar;L11;2;29/06/2015;0;bar 35;Lund;-0.67141;Sp;0;L1
+35;bar;L11;3;29/06/2015;0;bar 35;Lund;-1.3047;Sp;0;L1
+35;bar;L11;4;29/06/2015;0;bar 35;Lund;-2.4239;Sp;0;L1
+35;bar;L12;1;29/06/2015;0;bar 35;Lund;0.38847;Sp;0;L2
+35;bar;L12;2;29/06/2015;0;bar 35;Lund;2.2327;Sp;0;L2
+35;bar;L13;1;29/06/2015;0;bar 35;Lund;-1.061;Sp;0;L4
+35;bar;L13;2;29/06/2015;0;bar 35;Lund;-2.5107;Sp;0;L4
+35;bar;L13;3;29/06/2015;0;bar 35;Lund;1.819;Sp;0;L4
+35;bar;L13;4;29/06/2015;0;bar 35;Lund;-0.39786;Sp;0;L4
+40;bar;L14;1;10/07/2015;0;bar 40;Lund;-0.68019;Sp;0;L5
+40;bar;L14;2;10/07/2015;0;bar 40;Lund;0.2345;Sp;0;L5
+40;bar;L14;3;10/07/2015;0;bar 40;Lund;-2.2395;Sp;0;L5
+40;bar;L14;4;10/07/2015;0;bar 40;Lund;-0.15321;Sp;0;L5
+40;bar;L15;1;10/07/2015;0;bar 40;Lund;-2.4684;Sp;0;L4
+40;bar;L15;2;10/07/2015;0;bar 40;Lund;-0.20162;Sp;0;L4
+40;bar;L15;4;10/07/2015;0;bar 40;Lund;1.9266;Sp;0;L4
+40;bar;L16;1;10/07/2015;0;bar 40;Lund;2.6114;Sp;0;L4
+40;bar;L16;2;10/07/2015;0;bar 40;Lund;-2.0435;Sp;0;L1
+40;bar;L16;3;10/07/2015;0;bar 40;Lund;0.82286;Sp;0;L1
+40;bar;L16;4;10/07/2015;0;bar 40;Lund;-0.83523;Sp;0;L1
+40;bar;L16;1;10/07/2015;0;bar 40;Lund;2.2711;Sp;0;L1
+40;bar;L17;2;10/07/2015;0;bar 40;Lund;0.91725;Sp;0;L3
+40;bar;L17;3;10/07/2015;0;bar 40;Lund;-1.5252;Sp;0;L3
+40;bar;L17;4;10/07/2015;0;bar 40;Lund;0.91102;Sp;0;L3
+50;bar;L18;1;06/07/2015;0;bar 50;Lund;0.39184;Sp;0;L5
+50;bar;L18;2;06/07/2015;0;bar 50;Lund;-0.96785;Sp;0;L5
+50;bar;L18;3;06/07/2015;0;bar 50;Lund;-2.9449;Sp;0;L5
+50;bar;L18;4;06/07/2015;0;bar 50;Lund;0.74954;Sp;0;L5
+50;bar;L19;1;06/07/2015;0;bar 50;Lund;3.106;Sp;0;L4
+50;bar;L19;2;06/07/2015;0;bar 50;Lund;0.18538;Sp;0;L4
+50;bar;L19;3;06/07/2015;0;bar 50;Lund;0.51398;Sp;0;L4
+50;bar;L19;4;06/07/2015;0;bar 50;Lund;1.2656;Sp;0;L4
+50;bar;L20;1;06/07/2015;0;bar 50;Lund;-2.6221;Sp;0;L1
+50;bar;L20;2;06/07/2015;0;bar 50;Lund;1.144;Sp;0;L1
+50;bar;L20;3;06/07/2015;0;bar 50;Lund;2.3777;Sp;0;L1
+50;bar;L21;1;25/06/2015;0;bar 50;Lund;2.8836;Sp;0;L5
+50;bar;L21;2;25/06/2015;0;bar 50;Lund;1.3213;Sp;0;L5
+50;bar;L21;3;25/06/2015;0;bar 50;Lund;0.26718;Sp;0;L5
+50;bar;L21;4;25/06/2015;0;bar 50;Lund;0.1283;Sp;0;L5
+50;bar;L21;1;25/06/2015;0;bar 50;Lund;0.64219;Sp;0;L3
+50;bar;L22;2;25/06/2015;0;bar 50;Lund;1.4709;Sp;0;L3
+50;bar;L22;3;25/06/2015;0;bar 50;Lund;-0.47079;Sp;0;L3
+50;bar;L22;4;25/06/2015;0;bar 50;Lund;-0.3051;Sp;0;L3
+50;bar;L22;1;25/06/2015;0;bar 50;Lund;-1.9191;Sp;0;L2
+50;bar;L23;2;25/06/2015;0;bar 50;Lund;-0.11228;Sp;0;L2
+50;bar;L23;3;25/06/2015;0;bar 50;Lund;-0.058506;Sp;0;L2
+50;bar;L23;4;25/06/2015;0;bar 50;Lund;-1.8196;Sp;0;L2
+50;bar;L23;1;25/06/2015;0;bar 50;Lund;2.491;Sp;0;L1
+50;bar;L24;2;25/06/2015;0;bar 50;Lund;-2.4498;Sp;0;L1
+50;bar;L24;3;25/06/2015;0;bar 50;Lund;0.60398;Sp;0;L1
+50;bar;L24;4;25/06/2015;0;bar 50;Lund;-1.719;Sp;0;L1
+50;bar;L24;1;25/06/2015;0;bar 50;Lund;2.3492;Sp;0;L4
+50;bar;L25;2;25/06/2015;0;bar 50;Lund;0.44875;Sp;0;L4
+50;bar;L25;3;25/06/2015;0;bar 50;Lund;-1.4346;Sp;0;L4
+50;bar;L25;4;25/06/2015;0;bar 50;Lund;0.14828;Sp;0;L4
+15;bar;L26;1;30/06/2015;0;bar 15;Lund;-0.11534;Sp;0;L5
+15;bar;L26;2;30/06/2015;0;bar 15;Lund;2.0282;Sp;0;L5
+15;bar;L26;3;30/06/2015;0;bar 15;Lund;2.9106;Sp;0;L5
+15;bar;L26;4;30/06/2015;0;bar 15;Lund;0.40508;Sp;0;L5
+15;bar;L27;1;30/06/2015;0;bar 15;Lund;1.245;Sp;0;L3
+15;bar;L27;2;30/06/2015;0;bar 15;Lund;2.6589;Sp;0;L3
+15;bar;L27;3;30/06/2015;0;bar 15;Lund;1.4251;Sp;0;L3
+15;bar;L27;4;30/06/2015;0;bar 15;Lund;2.3407;Sp;0;L3
+15;bar;L28;1;30/06/2015;0;bar 15;Lund;2.0203;Sp;0;L1
+15;bar;L28;2;30/06/2015;0;bar 15;Lund;1.3309;Sp;0;L1
+15;bar;L28;3;30/06/2015;0;bar 15;Lund;2.2041;Sp;0;L1
+15;bar;L28;4;30/06/2015;0;bar 15;Lund;3.0446;Sp;0;L1
+15;bar;L29;1;30/06/2015;0;bar 15;Lund;-2.7656;Sp;0;L2
+15;bar;L29;2;30/06/2015;0;bar 15;Lund;-2.0298;Sp;0;L4
+15;bar;L29;3;30/06/2015;0;bar 15;Lund;-1.1007;Sp;0;L4
+15;bar;L29;4;30/06/2015;0;bar 15;Lund;-0.30104;Sp;0;L4
+50;bar;L30;1;20/08/2015;0;bar 50;Lund;2.3998;Sp;1;L5
+50;bar;L30;2;20/08/2015;0;bar 50;Lund;-3.0497;Sp;1;L5
+50;bar;L30;3;20/08/2015;0;bar 50;Lund;0.44997;Sp;1;L5
+50;bar;L30;4;20/08/2015;0;bar 50;Lund;0.38526;Sp;1;L5
+50;bar;L31;1;20/08/2015;0;bar 50;Lund;2.6864;Sp;1;L1
+50;bar;L31;2;20/08/2015;0;bar 50;Lund;-1.6857;Sp;1;L1
+50;bar;L31;3;20/08/2015;0;bar 50;Lund;-2.643;Sp;1;L1
+50;bar;L31;4;20/08/2015;0;bar 50;Lund;-2.9647;Sp;1;L1
+50;bar;L32;1;20/08/2015;0;bar 50;Lund;-3.1359;Sp;1;L4
+50;bar;L32;2;20/08/2015;0;bar 50;Lund;-2.964;Sp;1;L4
+50;bar;L32;3;20/08/2015;0;bar 50;Lund;3.0322;Sp;1;L4
+50;bar;L32;4;20/08/2015;0;bar 50;Lund;-0.22328;Sp;1;L4
+50;bar;L33;1;21/08/2015;0;bar 50;Lund;0.23463;Sp;1;L4
+50;bar;L33;2;21/08/2015;0;bar 50;Lund;2.2998;Sp;1;L4
+50;bar;L33;3;21/08/2015;0;bar 50;Lund;-0.73737;Sp;1;L4
+50;bar;L33;4;21/08/2015;0;bar 50;Lund;-2.4717;Sp;1;L4
+50;bar;L34;1;21/08/2015;0;bar 50;Lund;-1.818;Sp;1;L1
+50;bar;L34;2;21/08/2015;0;bar 50;Lund;-3.121;Sp;1;L1
+50;bar;L34;3;21/08/2015;0;bar 50;Lund;-3.0331;Sp;1;L1
+50;bar;L34;4;21/08/2015;0;bar 50;Lund;2.526;Sp;1;L1
+50;bar;L35;1;24/08/2015;0;bar 50;Lund;2.8434;Sp;1;L5
+50;bar;L35;2;24/08/2015;0;bar 50;Lund;-0.13012;Sp;1;L5
+50;bar;L35;3;24/08/2015;0;bar 50;Lund;-0.39677;Sp;1;L5
+50;bar;L35;4;24/08/2015;0;bar 50;Lund;-2.0892;Sp;1;L5
+50;bar;L36;1;24/08/2015;0;bar 50;Lund;-1.702;Sp;1;L1
+50;bar;L36;2;24/08/2015;0;bar 50;Lund;2.0531;Sp;1;L1
+50;bar;L36;3;24/08/2015;0;bar 50;Lund;2.9485;Sp;1;L1
+50;bar;L36;3;24/08/2015;0;bar 50;Lund;-2.0967;Sp;1;L1
+50;bar;L37;1;24/08/2015;0;bar 50;Lund;-1.3726;Sp;1;L4
+50;bar;L37;2;24/08/2015;0;bar 50;Lund;-1.8878;Sp;1;L4
+50;bar;L37;3;24/08/2015;0;bar 50;Lund;-3.0394;Sp;1;L4
+50;bar;L37;4;24/08/2015;0;bar 50;Lund;0.25237;Sp;1;L4
+50;bar;L38;1;24/08/2015;0;bar 50;Lund;1.454;Sp;1;L2
+50;bar;L38;2;24/08/2015;0;bar 50;Lund;-1.6768;Sp;1;L2
+50;bar;L38;3;24/08/2015;0;bar 50;Lund;1.7025;Sp;1;L2
+50;bar;L38;4;24/08/2015;0;bar 50;Lund;1.1804;Sp;1;L2
+60;bar;L39;1;23/06/2015;0;bar 60;Lund;0.29966;Sp;0;L1
+60;bar;L39;2;23/06/2015;0;bar 60;Lund;-0.09625;Sp;0;L2
+60;bar;L39;3;23/06/2015;0;bar 60;Lund;1.5142;Sp;0;L3
+60;bar;L39;4;23/06/2015;0;bar 60;Lund;1.2551;Sp;0;L4
+60;bar;L40;1;23/06/2015;0;bar 60;Lund;-1.3067;Sp;0;L1
+60;bar;L40;2;23/06/2015;0;bar 60;Lund;-0.42245;Sp;0;L2
+60;bar;L40;3;23/06/2015;0;bar 60;Lund;1.8627;Sp;0;L3
+60;bar;L40;4;23/06/2015;0;bar 60;Lund;-2.9233;Sp;0;L4
+60;bar;L41;1;24/06/2015;0;bar 60;Lund;-2.1093;Sp;0;L1
+60;bar;L41;2;24/06/2015;0;bar 60;Lund;-2.7007;Sp;0;L2
+60;bar;L41;3;24/06/2015;0;bar 60;Lund;1.639;Sp;0;L3
+60;bar;L41;4;24/06/2015;0;bar 60;Lund;-0.52521;Sp;0;L4
+60;bar;L42;1;24/06/2015;0;bar 60;Lund;2.5047;Sp;0;L1
+60;bar;L42;2;24/06/2015;0;bar 60;Lund;-2.8479;Sp;0;L2
+60;bar;L42;3;24/06/2015;0;bar 60;Lund;0.19637;Sp;0;L3
+60;bar;L42;4;24/06/2015;0;bar 60;Lund;-0.41095;Sp;0;L4
+60;bar;L43;1;24/06/2015;0;bar 60;Lund;2.0436;Sp;0;L1
+60;bar;L43;2;24/06/2015;0;bar 60;Lund;2.1723;Sp;0;L2
+60;bar;L43;3;24/06/2015;0;bar 60;Lund;-2.5936;Sp;0;L3
+60;bar;L43;4;24/06/2015;0;bar 60;Lund;-0.30708;Sp;0;L4
+50;bar;L44;1;19/08/2015;0;bar 50;Lund;-0.75026;Sp;1;L4
+50;bar;L44;2;19/08/2015;0;bar 50;Lund;-2.282;Sp;1;L4
+50;bar;L44;3;19/08/2015;0;bar 50;Lund;2.2292;Sp;1;L4
+50;bar;L44;4;19/08/2015;0;bar 50;Lund;1.1977;Sp;1;L4
+40;bar;L45;1;26/06/2015;0;bar 40;Lund;1.6986;Sp;0;L4
+40;bar;L45;2;26/06/2015;0;bar 40;Lund;-2.7431;Sp;0;L4
+40;bar;L45;3;26/06/2015;0;bar 40;Lund;-2.8897;Sp;0;L4
+40;bar;L45;4;26/06/2015;0;bar 40;Lund;-2.1117;Sp;0;L4
+40;bar;L46;1;26/06/2015;0;bar 40;Lund;0.86479;Sp;0;L5
+40;bar;L46;2;26/06/2015;0;bar 40;Lund;-2.8468;Sp;0;L5
+40;bar;L46;3;26/06/2015;0;bar 40;Lund;-0.34944;Sp;0;L5
+40;bar;L46;4;26/06/2015;0;bar 40;Lund;-1.4478;Sp;0;L5
+40;bar;L47;1;26/06/2015;0;bar 40;Lund;-1.4317;Sp;0;L3
+40;bar;L47;2;26/06/2015;0;bar 40;Lund;1.7559;Sp;0;L3
+40;bar;L47;3;26/06/2015;0;bar 40;Lund;-2.9342;Sp;0;L3
+40;bar;L47;4;26/06/2015;0;bar 40;Lund;1.6638;Sp;0;L3
+40;bar;L48;1;26/06/2015;0;bar 40;Lund;0.97566;Sp;0;L2
+40;bar;L48;2;26/06/2015;0;bar 40;Lund;0.29776;Sp;0;L2
+40;bar;L48;3;26/06/2015;0;bar 40;Lund;-0.43693;Sp;0;L2
+60;bar;L49;1;22/06/2015;0;bar 60;Lund;2.5673;Sp;0;L4
+60;bar;L49;3;22/06/2015;0;bar 60;Lund;2.4199;Sp;0;L4
+60;bar;L49;4;22/06/2015;0;bar 60;Lund;0.42327;Sp;0;L4
+50;bar;L50;1;15/07/2015;0;bar 50;Lund;-3.1183;Sp;0;L3
+50;bar;L50;2;15/07/2015;0;bar 50;Lund;2.9036;Sp;0;L3
+50;bar;L50;3;15/07/2015;0;bar 50;Lund;-0.11029;Sp;0;L3
+50;bar;L50;4;15/07/2015;0;bar 50;Lund;-0.91712;Sp;0;L3
+50;bar;L51;1;15/07/2015;0;bar 50;Lund;-2.4575;Sp;0;L5
+50;bar;L51;2;15/07/2015;0;bar 50;Lund;-1.4733;Sp;0;L5
+50;bar;L51;3;15/07/2015;0;bar 50;Lund;2.7898;Sp;0;L5
+50;bar;L51;4;15/07/2015;0;bar 50;Lund;-0.73628;Sp;0;L5
+60;DoG;L52;1;20/07/2015;0;dog 60;Lund;-2.2492;Sp;0;L5
+60;DoG;L52;2;20/07/2015;0;dog 60;Lund;2.8556;Sp;0;L5
+60;DoG;L52;3;20/07/2015;0;dog 60;Lund;2.6717;Sp;0;L5
+60;DoG;L52;4;20/07/2015;0;dog 60;Lund;0.63146;Sp;0;L5
+60;DoG;L53;1;20/07/2015;0;dog 60;Lund;1.9873;Sp;0;L1
+60;DoG;L53;2;20/07/2015;0;dog 60;Lund;-2.1716;Sp;0;L1
+60;DoG;L53;3;20/07/2015;0;dog 60;Lund;0.95889;Sp;0;L1
+60;DoG;L53;4;20/07/2015;0;dog 60;Lund;2.0803;Sp;0;L1
+60;DoG;L54;1;20/07/2015;0;dog 60;Lund;1.9581;Sp;0;L3
+60;DoG;L54;2;20/07/2015;0;dog 60;Lund;-1.9226;Sp;0;L3
+60;DoG;L54;3;20/07/2015;0;dog 60;Lund;-0.29713;Sp;0;L3
+60;DoG;L54;4;20/07/2015;0;dog 60;Lund;-2.0041;Sp;0;L3
+60;DoG;L55;1;20/07/2015;0;dog 60;Lund;2.3697;Sp;0;L4
+60;DoG;L55;2;20/07/2015;0;dog 60;Lund;1.5152;Sp;0;L4
+60;DoG;L55;3;20/07/2015;0;dog 60;Lund;-0.41188;Sp;0;L4
+60;DoG;L55;4;20/07/2015;0;dog 60;Lund;-2.6349;Sp;0;L4
+60;DoG;L56;1;20/07/2015;0;dog 60;Lund;1.6745;Sp;0;L2
+60;DoG;L56;2;20/07/2015;0;dog 60;Lund;-0.58543;Sp;0;L2
+60;DoG;L56;3;20/07/2015;0;dog 60;Lund;0.8331;Sp;0;L2
+60;DoG;L56;4;20/07/2015;0;dog 60;Lund;-1.3615;Sp;0;L2
+35;DoG;L57;1;21/07/2015;0;dog 35;Lund;0.044601;Sp;0;L5
+35;DoG;L57;2;21/07/2015;0;dog 35;Lund;1.0797;Sp;0;L5
+35;DoG;L57;3;21/07/2015;0;dog 35;Lund;2.3378;Sp;0;L5
+35;DoG;L57;4;21/07/2015;0;dog 35;Lund;0.028386;Sp;0;L5
+35;DoG;L58;1;21/07/2015;0;dog 35;Lund;3.0147;Sp;0;L1
+35;DoG;L58;2;21/07/2015;0;dog 35;Lund;1.3939;Sp;0;L1
+35;DoG;L58;3;21/07/2015;0;dog 35;Lund;1.7001;Sp;0;L1
+35;DoG;L58;4;21/07/2015;0;dog 35;Lund;-1.1199;Sp;0;L1
+35;DoG;L59;1;21/07/2015;0;dog 35;Lund;0.7397;Sp;0;L4
+35;DoG;L59;2;21/07/2015;0;dog 35;Lund;1.2715;Sp;0;L4
+35;DoG;L59;3;21/07/2015;0;dog 35;Lund;2.0696;Sp;0;L4
+35;DoG;L59;4;21/07/2015;0;dog 35;Lund;-2.283;Sp;0;L4
+35;DoG;L60;1;21/07/2015;0;dog 35;Lund;-0.72796;Sp;0;L2
+35;DoG;L60;2;21/07/2015;0;dog 35;Lund;-2.2269;Sp;0;L2
+35;DoG;L60;3;21/07/2015;0;dog 35;Lund;-2.3173;Sp;0;L2
+35;DoG;L60;4;21/07/2015;0;dog 35;Lund;0.87828;Sp;0;L2
+35;DoG;L61;1;21/07/2015;0;dog 35;Lund;-2.6364;Sp;0;L3
+35;DoG;L61;2;21/07/2015;0;dog 35;Lund;-2.676;Sp;0;L3
+35;DoG;L61;3;21/07/2015;0;dog 35;Lund;-0.77182;Sp;0;L3
+35;DoG;L61;4;21/07/2015;0;dog 35;Lund;0.029351;Sp;0;L3
