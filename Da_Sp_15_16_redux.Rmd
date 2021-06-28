@@ -326,7 +326,7 @@ for ( i  in 1:N ) curve (
 
 Can't have a random effect with only two terms!
 
-```{r}
+```{r Formula}
 res.psych.formula <- bf(
   success ~ base + 
             (1 - base - lapse) * inv_logit( 4.39*( arc.s - threshold	)	/ width ),
@@ -339,13 +339,13 @@ res.psych.formula <- bf(
 
 
 
-```{r}
+```{r Get priors}
 get_prior(res.psych.formula, data=df)
 ```
 
 
 
-```{r}
+```{r Specify priors}
 res.psych.priors  <- c(
          prior(beta(5,50),           nlpar = "base",   lb=0, ub= 0.22 ),
          prior(beta(10,10),          nlpar = "lapse" , lb=0, ub= 0.78 ),
@@ -363,7 +363,7 @@ res.psych.priors  <- c(
 
 
 
-```{r Main model}
+```{r Prior pred model}
 res_psych_fit_pr  <- brm(res.psych.formula, data = df,
                   family = bernoulli("identity"), iter = iter,
                   chains = chains, prior = res.psych.priors, sample_prior = "only",
@@ -387,7 +387,7 @@ res_psych_fit  <- brm(res.psych.formula, data = df,
 
 According to the checks below (rhat and ESS) the model fit fine.
 
-```{r}
+```{r Main summary}
 summary(res_psych_fit)
 ```
 
@@ -399,7 +399,7 @@ The parameters are unimodal and the chains converged, resembling *hairy caterpil
 
 
 
-```{r}
+```{r Marginal plot}
 conditions <-  make_conditions(df, vars = c("species","type"))
 
 p <- conditional_effects(res_psych_fit,
