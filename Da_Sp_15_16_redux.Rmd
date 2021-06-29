@@ -259,32 +259,70 @@ props %>%
 
 Here are circular plots of these data sets.
 
-DoG stimuli
+DoG stimuli - *S. purpuratus*
 
 ```{r Circular plots, message=FALSE}
 source('Cplot2_rad.R')
-par(mfrow = c(3,ceiling( nlevels(as.factor(df$T[df$type=="DoG"])) /3)));
+rowz <- 2
+spp  <- "Sp"
+typ  <- "DoG"
+  
+par(mfrow = c(rowz,ceiling( nlevels(as.factor(df$arc[df$type==typ & df$species==spp])) /rowz)));
 par(mar = c(0.5, 0.5, 0.5, 0.5) + 0.1) # bottom, left, top, right
-for(i in levels(as.factor(df$arc[df$type=="DoG"])) ){
-    rad_plot(df$heading_rad[df$arc == i & df$type=="DoG"],0.06)
+for(i in levels(as.factor(df$arc[df$type==typ & df$species==spp])) ){
+    rad_plot(df$heading_rad[df$arc == i & df$type==typ & df$species==spp],0.06)
+    text(0,.6,as.character(round(as.numeric(i),2)))
+ }
+```
+
+DoG stimuli - *D. africanum*
+
+```{r Circular plots, message=FALSE}
+source('Cplot2_rad.R')
+rowz <- 2
+spp  <- "Da"
+typ  <- "DoG"
+  
+par(mfrow = c(rowz,ceiling( nlevels(as.factor(df$arc[df$type==typ & df$species==spp])) /rowz)));
+par(mar = c(0.5, 0.5, 0.5, 0.5) + 0.1) # bottom, left, top, right
+for(i in levels(as.factor(df$arc[df$type==typ & df$species==spp])) ){
+    rad_plot(df$heading_rad[df$arc == i & df$type==typ & df$species==spp],0.06)
     text(0,.6,as.character(round(as.numeric(i),2)))
  }
 ```
 
 
-
-Bar stimuli
+Bar stimuli - *S. purpuratus*
 
 ```{r Circular plots, message=FALSE}
 source('Cplot2_rad.R')
-par(mfrow = c(2,ceiling( nlevels(as.factor(df$T[df$type=="bar"])) /2)));
+rowz <- 2
+spp  <- "Sp"
+typ  <- "bar"
+  
+par(mfrow = c(rowz,ceiling( nlevels(as.factor(df$arc[df$type==typ & df$species==spp])) /rowz)));
 par(mar = c(0.5, 0.5, 0.5, 0.5) + 0.1) # bottom, left, top, right
-for(i in levels(as.factor(df$arc[df$type=="bar"])) ){
-    rad_plot(df$heading_rad[df$arc == i & df$type=="bar"],0.06)
+for(i in levels(as.factor(df$arc[df$type==typ & df$species==spp])) ){
+    rad_plot(df$heading_rad[df$arc == i & df$type==typ & df$species==spp],0.06)
     text(0,.6,as.character(round(as.numeric(i),2)))
  }
 ```
 
+Bar stimulus - *D. africanum*
+
+```{r Circular plots, message=FALSE}
+source('Cplot2_rad.R')
+rowz <- 2
+spp  <- "Da"
+typ  <- "bar"
+  
+par(mfrow = c(rowz,ceiling( nlevels(as.factor(df$arc[df$type==typ & df$species==spp])) /rowz)));
+par(mar = c(0.5, 0.5, 0.5, 0.5) + 0.1) # bottom, left, top, right
+for(i in levels(as.factor(df$arc[df$type==typ & df$species==spp])) ){
+    rad_plot(df$heading_rad[df$arc == i & df$type==typ & df$species==spp],0.06)
+    text(0,.6,as.character(round(as.numeric(i),2)))
+ }
+```
 
 
 Below, we plot the possible range of values deemed by the priors and where predictions are distributed. A stimulus with the maximal target used (70 degrees) is already extremely wide. We know the base should be at 0.167 by random chance - so we put the location of the base parameter prior at this value, but allow it to vary around this point. Constraints are placed on base and lapse to prevent them overlapping. Priors on threshold and width keep these parameters within the possible range of angles. The inverse logit (logistic) function is *plogis* in base.
@@ -304,9 +342,9 @@ set.seed(196)
 N          <- 1000
 #base       <- rnorm(N,0.1,0.03)  # Base is close to random probability
 base       <- rbeta(N,5,50)  # Base is close to random probability
-base[base > 0.23] <- 0.23
+base[base > 0.25] <- 0.25
 lapse      <- rbeta(N,5,5)       # Lapse is wide range - should not overlap base rate
-lapse[lapse > 0.77] <- 0.77
+lapse[lapse > 0.75] <- 0.75
 threshold  <- rnorm(N,2,3)# + sigma   # Threshold must be > 0 and can be > 1.
 width      <- rnorm(N,3,2)# + sigma   # Width must be > 0 and can be > 1.
 width[width < 0] <- 0                   # Varying intercepts base
@@ -347,8 +385,8 @@ get_prior(res.psych.formula, data=df)
 
 ```{r Specify priors}
 res.psych.priors  <- c(
-         prior(beta(5,50),           nlpar = "base",   lb=0, ub= 0.22 ),
-         prior(beta(10,10),          nlpar = "lapse" , lb=0, ub= 0.78 ),
+         prior(beta(5,50),           nlpar = "base",   lb=0, ub= 0.25 ),
+         prior(beta(10,10),          nlpar = "lapse" , lb=0, ub= 0.75 ),
          prior(normal(2,3),        nlpar= 'threshold',  class = 'b' ),
 	       prior(normal(3,2),          nlpar = 'width',  lb=0, class = 'b' )
       #   prior(student_t(3,0,0.1),       nlpar = 'lapse',     class = 'sd' ),
@@ -452,15 +490,21 @@ loo_compare(res_psych_fit,res_empty_fit)
 ```{r Extract the samples}
 res.psych.smpl <- posterior_samples(res_psych_fit)
 
-bar_post <- attr(df$arc.s,"scaled:center") + res.psych.smpl$b_threshold_Intercept* attr(df$arc.s,"scaled:scale")
-DoG_post <- bar_post + (attr(df$arc.s,"scaled:center") + res.psych.smpl$b_threshold_typeDoG * attr(df$arc.s,"scaled:scale"))
-thresh_df <- tibble(bar=bar_post,DoG=DoG_post)
-thresh_df <- gather(thresh_df,key="type",value = "threshold")
+thresh_df <- tibble(
+  bar_Da=res.psych.smpl$b_threshold_Intercept,
+  DoG_Da=res.psych.smpl$b_threshold_Intercept + res.psych.smpl$b_threshold_typeDoG,
+  bar_Sp=res.psych.smpl$b_threshold_Intercept + res.psych.smpl$b_width_speciesSp,
+  DoG_Sp=res.psych.smpl$b_threshold_Intercept + res.psych.smpl$b_width_speciesSp +
+         res.psych.smpl$b_width_typeDoG + res.psych.smpl$`b_threshold_speciesSp:typeDoG`
+  )
+  
+
+thresh_df <- gather(thresh_df,key="type",value = "scaled_threshold")
+thresh_df %>% mutate(threshold = arc_center + scaled_threshold * arc_scale) -> thresh_df
 
 thresh_df %>% group_by(type) %>%
-  ggplot(aes(x=threshold,group=type,color=type)) + geom_density() 
+  ggplot(aes(x=threshold,group=type,color=type)) + geom_density() +xlim(0,150) + theme(legend.position = c(.9,.8))
 ```
-
 
 
 ```{r}
@@ -475,19 +519,25 @@ Plot the threshold and width transformed.
 
 PI (percentile interval) is a confidence interval similar to that conventionally used in frequentist statistics, which assigns equal mass to each tail.
 
-```{r}
-library('rethinking')
-
-round(PI(thresh_df$threshold[thresh_df$type=="bar"],prob=.9),0)
-round(PI(thresh_df$threshold[thresh_df$type=="DoG"],prob=.9),0)
-```
-
 HPDI (highest posterior density) is an alternative confidence interval which is especially useful is the distribution is skewed.
 
+
+
 ```{r}
-round(HPDI(thresh_df$threshold[thresh_df$type=="bar"],prob=.9),0)
-round(HPDI(thresh_df$threshold[thresh_df$type=="DoG"],prob=.9),0)
+thresh_df %>% group_by(type) %>%
+  summarise(
+    mean       = mean(threshold),
+    median     = median(threshold),
+    PI_90_lo   = round(PI(threshold,prob=.9),0)[1],
+    PI_90_hi   = round(PI(threshold,prob=.9),0)[2],
+    HPDI_90_lo = round(HPDI(threshold,prob=.9),0)[1],
+    HPDI_90_hi = round(HPDI(threshold,prob=.9),0)[2],
+  ) -> thresh_sum
+
+thresh_sum
 ```
+
+
 
 ### Graphical Posterior predictive checks
 
