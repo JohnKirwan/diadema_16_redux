@@ -1,5 +1,5 @@
 ---
-title: "Tenerife and Berlin Diadema resolution"
+title: "Spatial Resolution in Diadema africanum and Strongylocentrotus purpuratus"
 author: "John D. Kirwan"
 date: '2019-08-17'
 output: html_document
@@ -8,8 +8,9 @@ output: html_document
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 options(mc.cores = parallel::detectCores())  # run all cores
-#Sys.setenv(LOCAL_CPPFLAGS = '-march=native') # for faster Stan execution
 ```
+
+# Spine and sight: a psychometric model of vision in *Diadema africanum* and *Strongylocentrotus purpuratus*
 
 Load necessary packages.
 
@@ -30,9 +31,6 @@ source('Cplot2_rad.R')
 
 
 ```{r}
-#df <- read_delim('Diadema-Berlin-Tenerife.csv', delim=";",col_types = "nfffcfcfn")
-#df$heading_rad <- as.circular(df$heading_rad)
-
 df <- read_delim('Da-Sp-Berlin-Tenerife-UCSB-LU.csv', delim=";",col_types = "nfffcfcfnfff")
 
 df$arc[df$type == "DoG"] <- round(df$arc[df$type == "DoG"]*sqrt(3),0) #arc from 0-crossing to T
