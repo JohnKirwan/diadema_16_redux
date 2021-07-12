@@ -14,6 +14,8 @@ options(mc.cores = parallel::detectCores())  # run all cores
 Load necessary packages.
 
 ```{r Load packages, message=FALSE, warning=TRUE}
+source('Cplot2_rad.R')
+
 library('tidyverse')
 library('rstan')
 rstan::rstan_options(auto_write = TRUE)
@@ -257,7 +259,6 @@ Here are circular plots of these data sets.
 DoG stimuli
 
 ```{r Circular plots, message=FALSE}
-source('Cplot2_rad.R')
 par(mfrow = c(3,ceiling( nlevels(as.factor(df$T[df$type=="DoG"])) /3)));
 par(mar = c(0.5, 0.5, 0.5, 0.5) + 0.1) # bottom, left, top, right
 for(i in levels(as.factor(df$arc[df$type=="DoG"])) ){
@@ -429,6 +430,8 @@ brms::stancode(res_psych_fit)
 
 
 ```{r}
+res_psych_fit <- add_criterion(res_psych_fit, criterion = "loo")
+res_empty_fit <- add_criterion(res_empty_fit, criterion = "loo")
 loo_compare(res_psych_fit,res_empty_fit)
 ```
 
@@ -478,12 +481,12 @@ round(HPDI(thresh_df$threshold[thresh_df$type=="DoG"],prob=.9),0)
 Back to the main psychometric model. We check if the posterior predictions are in line with the original counts, which is so.
 
 ```{r}
-  pp_check(res_psych_fit,nsamples=400, type="bars",) + theme_classic() + theme(legend.position='none')
+bayesplot::pp_check(res_psych_fit,nsamples=400, type="bars",) + theme_classic() + theme(legend.position='none')
 ```
 
 
 ```{r}
-  pp_check(res_psych_fit, type = "rootogram", nsamples = 100, style = "standing", prob=0.9) +   theme_classic()
+bayesplot::pp_check(res_psych_fit, type = "rootogram", nsamples = 100, style = "standing", prob=0.9) +   theme_classic()
 ```
 
 

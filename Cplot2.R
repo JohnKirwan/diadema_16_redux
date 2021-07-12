@@ -1,4 +1,3 @@
-rm(list = ls())
 #Update of Cplot
 # plot a circular histogram
 # add a mean vector
